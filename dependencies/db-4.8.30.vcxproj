@@ -66,7 +66,7 @@
     <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
     <IncludePath>$(ProjectDir)$(ProjectName);$(ProjectDir)$(ProjectName)\build_windows;$(IncludePath)</IncludePath>
     <SourcePath>$(SourcePath)</SourcePath>
@@ -74,20 +74,20 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)$(ProjectName);$(ProjectDir)$(ProjectName)\build_windows;$(IncludePath)</IncludePath>
     <SourcePath>$(SourcePath)</SourcePath>
     <TargetName>berkeleydb.$(PlatformArchitecture)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
     <SourcePath>$(SourcePath)</SourcePath>
     <TargetName>berkeleydb.$(PlatformArchitecture).d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
     <SourcePath>$(SourcePath)</SourcePath>
     <TargetName>berkeleydb.$(PlatformArchitecture)</TargetName>
   </PropertyGroup>

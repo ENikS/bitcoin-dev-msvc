@@ -85,7 +85,7 @@ move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)
     <NMakeCleanCommandLine>rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <NMakeOutput>
@@ -112,7 +112,7 @@ $(NMakeBuildCommandLine)</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
@@ -138,7 +138,7 @@ move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)
     <NMakeCleanCommandLine>rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <NMakeOutput>
@@ -165,7 +165,7 @@ move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)
     <NMakeCleanCommandLine>rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>

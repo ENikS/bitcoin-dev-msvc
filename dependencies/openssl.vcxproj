@@ -85,7 +85,7 @@ if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configura
 move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\
 </NMakeBuildCommandLine>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native</OutDir>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
@@ -113,7 +113,7 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\include
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
 </NMakeCleanCommandLine>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native</OutDir>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
@@ -143,7 +143,7 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\include
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
 </NMakeCleanCommandLine>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native</OutDir>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
@@ -171,7 +171,7 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\include
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
 </NMakeCleanCommandLine>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native</OutDir>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>

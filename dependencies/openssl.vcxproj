@@ -80,11 +80,11 @@ cd $(ProjectDir)$(ProjectName)
 if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure debug-VC-WIN32 no-asm --prefix=$(SolutionDir)packages\$(ProjectName)\build\native
 call $(ProjectDir)$(ProjectName)\ms\do_ms
 nmake -f ms\nt.mak install
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)
-move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
-    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native</OutDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -94,9 +94,9 @@ cd $(ProjectDir)$(ProjectName)
 if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure debug-VC-WIN64A no-asm --prefix=$(SolutionDir)packages\$(ProjectName)\build\native
 call $(ProjectDir)$(ProjectName)\ms\do_win64a
 nmake -f ms\nt.mak install
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)
-move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
     <NMakeCleanCommandLine>del $(ProjectDir)$(ProjectName)\ms\*.rc
 del $(ProjectDir)$(ProjectName)\ms\*.obj
@@ -112,7 +112,7 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\bin
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\include
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
 </NMakeCleanCommandLine>
-    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native</OutDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -122,9 +122,9 @@ cd $(ProjectDir)$(ProjectName)
 if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure VC-WIN32 no-asm --openssldir=$(SolutionDir)packages\$(ProjectName)\build\native
 call $(ProjectDir)$(ProjectName)\ms\do_ms
 nmake -f ms\nt.mak install
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)
-move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>
     </NMakeReBuildCommandLine>
@@ -142,7 +142,7 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\bin
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\include
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
 </NMakeCleanCommandLine>
-    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native</OutDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -152,9 +152,9 @@ cd $(ProjectDir)$(ProjectName)
 if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure VC-WIN64A no-asm --prefix=$(SolutionDir)packages\$(ProjectName)\build\native
 call $(ProjectDir)$(ProjectName)\ms\do_win64a
 nmake -f ms\nt.mak install
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)
-move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
     <NMakeCleanCommandLine>del $(ProjectDir)$(ProjectName)\ms\*.rc
 del $(ProjectDir)$(ProjectName)\ms\*.obj
@@ -170,7 +170,7 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\bin
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\include
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
 </NMakeCleanCommandLine>
-    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native</OutDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>

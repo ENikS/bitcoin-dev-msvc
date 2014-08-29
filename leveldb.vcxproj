@@ -64,7 +64,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;$(SolutionDir)packages\snappy\build\native\include;$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <TargetName>$(ProjectName).$(PlatformArchitecture).d</TargetName>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
@@ -72,7 +72,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;$(SolutionDir)packages\snappy\build\native\include;$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <TargetName>$(ProjectName).$(PlatformArchitecture).d</TargetName>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
@@ -80,7 +80,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;$(SolutionDir)packages\snappy\build\native\include;$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName).$(PlatformArchitecture)</TargetName>
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
@@ -88,7 +88,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;$(SolutionDir)packages\snappy\build\native\include;$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName).$(PlatformArchitecture)</TargetName>
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
@@ -100,6 +100,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
+      <DisableSpecificWarnings>4996; 4018; 4244</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
@@ -117,6 +118,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
+      <DisableSpecificWarnings>4996; 4018; 4244</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -132,6 +134,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996; 4018; 4244</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
@@ -150,6 +153,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996; 4018; 4244</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -192,7 +196,6 @@
     <ClCompile Include="bitcoin\src\leveldb\util\coding.cc" />
     <ClCompile Include="bitcoin\src\leveldb\util\comparator.cc" />
     <ClCompile Include="bitcoin\src\leveldb\util\crc32c.cc" />
-    <ClCompile Include="bitcoin\src\leveldb\util\crc32c_test.cc" />
     <ClCompile Include="bitcoin\src\leveldb\util\env.cc" />
     <ClCompile Include="bitcoin\src\leveldb\util\env_win.cc" />
     <ClCompile Include="bitcoin\src\leveldb\util\filter_policy.cc" />

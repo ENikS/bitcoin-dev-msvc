@@ -1,0 +1,12 @@
+[submodule "bitcoin"]
+	path = bitcoin
+	url = https://github.com/ENikS/bitcoin.git
+[submodule "dependencies/zlib"]
+	path = dependencies/zlib
+	url = https://github.com/madler/zlib.git
+[submodule "dependencies/boost"]
+	path = dependencies/boost
+	url = https://github.com/ENikS/boost.git
+[submodule "dependencies/openssl"]
+	path = dependencies/openssl
+	url = https://github.com/ENikS/openssl.git

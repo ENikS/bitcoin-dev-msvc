@@ -72,7 +72,7 @@ if not exist ".\bjam.exe" (call bootstrap.bat) else (echo skipping tools rebuild
 cd $(ProjectDir)$(ProjectName)
 SET ZLIB_SOURCE=$(ProjectDir)zlib
 SET VS_UNICODE_OUTPUT=""
-.\bjam.exe runtime-link=static threading=multi link=static variant=debug address-model=$(PlatformArchitecture) --build-type=complete --build-dir=$(SolutionDir)obj --stagedir=$(SolutionDir)packages\$(ProjectName)\build\native
+.\bjam.exe runtime-link=static threading=multi link=static variant=debug address-model=$(PlatformArchitecture) --build-type=complete --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\$(ProjectName)\build\native
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" (mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include &amp; mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\boost $(ProjectDir)$(ProjectName)\boost)
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)
@@ -86,6 +86,7 @@ move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <NMakeOutput>
@@ -97,7 +98,7 @@ if not exist ".\bjam.exe" (call bootstrap.bat) else (echo skipping tools rebuild
 cd $(ProjectDir)$(ProjectName)
 SET ZLIB_SOURCE=$(ProjectDir)zlib
 SET VS_UNICODE_OUTPUT=""
-.\bjam.exe runtime-link=static threading=multi link=static variant=debug address-model=$(PlatformArchitecture) --build-type=complete --build-dir=$(SolutionDir)obj --stagedir=$(SolutionDir)packages\$(ProjectName)\build\native
+.\bjam.exe runtime-link=static threading=multi link=static variant=debug address-model=$(PlatformArchitecture) --build-type=complete --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\$(ProjectName)\build\native
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" (mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include &amp; mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\boost $(ProjectDir)$(ProjectName)\boost)
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)
@@ -113,6 +114,7 @@ $(NMakeBuildCommandLine)</NMakeReBuildCommandLine>
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
@@ -127,7 +129,7 @@ if not exist ".\bjam.exe" (call bootstrap.bat) else (echo skipping tools rebuild
 cd $(ProjectDir)$(ProjectName)
 SET ZLIB_SOURCE=$(ProjectDir)zlib
 SET VS_UNICODE_OUTPUT=""
-.\bjam.exe runtime-link=static threading=multi link=static variant=release address-model=$(PlatformArchitecture) --build-type=complete --build-dir=$(SolutionDir)obj --stagedir=$(SolutionDir)packages\$(ProjectName)\build\native
+.\bjam.exe runtime-link=static threading=multi link=static variant=release address-model=$(PlatformArchitecture) --build-type=complete --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\$(ProjectName)\build\native
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" (mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include &amp; mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\boost $(ProjectDir)$(ProjectName)\boost)
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)
@@ -139,6 +141,7 @@ move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <NMakeOutput>
@@ -155,7 +158,7 @@ if not exist ".\bjam.exe" (call bootstrap.bat) else (echo skipping tools rebuild
 cd $(ProjectDir)$(ProjectName)
 SET ZLIB_SOURCE=$(ProjectDir)zlib
 SET VS_UNICODE_OUTPUT=""
-.\bjam.exe runtime-link=static threading=multi link=static variant=release address-model=$(PlatformArchitecture) --build-type=complete --build-dir=$(SolutionDir)obj --stagedir=$(SolutionDir)packages\$(ProjectName)\build\native
+.\bjam.exe runtime-link=static threading=multi link=static variant=release address-model=$(PlatformArchitecture) --build-type=complete --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\$(ProjectName)\build\native
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" (mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include &amp; mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\boost $(ProjectDir)$(ProjectName)\boost)
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)
@@ -166,6 +169,7 @@ move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>

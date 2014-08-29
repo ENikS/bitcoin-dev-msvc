@@ -67,7 +67,7 @@
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
     <TargetName>$(ProjectName).$(PlatformArchitecture).d</TargetName>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -75,7 +75,7 @@
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
     <TargetName>$(ProjectName).$(PlatformArchitecture).d</TargetName>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -83,7 +83,7 @@
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName).$(PlatformArchitecture)</TargetName>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -91,7 +91,7 @@
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName).$(PlatformArchitecture)</TargetName>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

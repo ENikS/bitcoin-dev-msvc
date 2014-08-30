@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DD38CA87-A51B-46E8-AE6D-15C1233F8B5B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)bitcoin\src;$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\leveldb\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
+    <IntDir>$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)bitcoin\src;$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\leveldb\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
+    <IntDir>$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)bitcoin\src;$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\leveldb\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
+    <IntDir>$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)bitcoin\src;$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\leveldb\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
+    <IntDir>$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;HAVE_WORKING_BOOST_SLEEP_FOR;_WIN32_WINNT=0x0501;</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
+      <ForcedIncludeFiles>$(SolutionDir)msvc\ssize_t_fix.h</ForcedIncludeFiles>
+      <ShowIncludes>false</ShowIncludes>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_WIN64;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);_WIN32_WINNT=0x0501;HAVE_WORKING_BOOST_SLEEP_FORHAVE_WORKING_BOOST_SLEEP_FOR_WIN32_WINNT=0x0501</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
+      <ForcedIncludeFiles>$(SolutionDir)msvc\ssize_t_fix.h</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions);_WIN32_WINNT=0x0501;HAVE_WORKING_BOOST_SLEEP_FORHAVE_WORKING_BOOST_SLEEP_FOR_WIN32_WINNT=0x0501</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
+      <ForcedIncludeFiles>$(SolutionDir)msvc\ssize_t_fix.h</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_WIN64;NDEBUG;_WINDOWS;%(PreprocessorDefinitions);_WIN32_WINNT=0x0501;HAVE_WORKING_BOOST_SLEEP_FORHAVE_WORKING_BOOST_SLEEP_FOR_WIN32_WINNT=0x0501</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
+      <ForcedIncludeFiles>$(SolutionDir)msvc\ssize_t_fix.h</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="bitcoin\src\allocators.cpp" />
+    <ClCompile Include="bitcoin\src\base58.cpp" />
+    <ClCompile Include="bitcoin\src\chainparams.cpp" />
+    <ClCompile Include="bitcoin\src\core.cpp" />
+    <ClCompile Include="bitcoin\src\hash.cpp" />
+    <ClCompile Include="bitcoin\src\key.cpp" />
+    <ClCompile Include="bitcoin\src\netbase.cpp" />
+    <ClCompile Include="bitcoin\src\protocol.cpp" />
+    <ClCompile Include="bitcoin\src\rpcprotocol.cpp" />
+    <ClCompile Include="bitcoin\src\script.cpp" />
+    <ClCompile Include="bitcoin\src\sync.cpp" />
+    <ClCompile Include="bitcoin\src\util.cpp" />
+    <ClCompile Include="bitcoin\src\version.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bitcoin\src\addrman.h" />
+    <ClInclude Include="bitcoin\src\alert.h" />
+    <ClInclude Include="bitcoin\src\allocators.h" />
+    <ClInclude Include="bitcoin\src\base58.h" />
+    <ClInclude Include="bitcoin\src\bignum.h" />
+    <ClInclude Include="bitcoin\src\bloom.h" />
+    <ClInclude Include="bitcoin\src\chainparams.h" />
+    <ClInclude Include="bitcoin\src\checkpoints.h" />
+    <ClInclude Include="bitcoin\src\checkqueue.h" />
+    <ClInclude Include="bitcoin\src\clientversion.h" />
+    <ClInclude Include="bitcoin\src\coincontrol.h" />
+    <ClInclude Include="bitcoin\src\coins.h" />
+    <ClInclude Include="bitcoin\src\compat.h" />
+    <ClInclude Include="bitcoin\src\core.h" />
+    <ClInclude Include="bitcoin\src\crypter.h" />
+    <ClInclude Include="bitcoin\src\db.h" />
+    <ClInclude Include="bitcoin\src\hash.h" />
+    <ClInclude Include="bitcoin\src\init.h" />
+    <ClInclude Include="bitcoin\src\key.h" />
+    <ClInclude Include="bitcoin\src\keystore.h" />
+    <ClInclude Include="bitcoin\src\leveldbwrapper.h" />
+    <ClInclude Include="bitcoin\src\limitedmap.h" />
+    <ClInclude Include="bitcoin\src\main.h" />
+    <ClInclude Include="bitcoin\src\miner.h" />
+    <ClInclude Include="bitcoin\src\mruset.h" />
+    <ClInclude Include="bitcoin\src\net.h" />
+    <ClInclude Include="bitcoin\src\netbase.h" />
+    <ClInclude Include="bitcoin\src\noui.h" />
+    <ClInclude Include="bitcoin\src\protocol.h" />
+    <ClInclude Include="bitcoin\src\rpcclient.h" />
+    <ClInclude Include="bitcoin\src\rpcprotocol.h" />
+    <ClInclude Include="bitcoin\src\rpcserver.h" />
+    <ClInclude Include="bitcoin\src\script.h" />
+    <ClInclude Include="bitcoin\src\serialize.h" />
+    <ClInclude Include="bitcoin\src\sync.h" />
+    <ClInclude Include="bitcoin\src\threadsafety.h" />
+    <ClInclude Include="bitcoin\src\tinyformat.h" />
+    <ClInclude Include="bitcoin\src\txdb.h" />
+    <ClInclude Include="bitcoin\src\txmempool.h" />
+    <ClInclude Include="bitcoin\src\uint256.h" />
+    <ClInclude Include="bitcoin\src\ui_interface.h" />
+    <ClInclude Include="bitcoin\src\util.h" />
+    <ClInclude Include="bitcoin\src\version.h" />
+    <ClInclude Include="bitcoin\src\wallet.h" />
+    <ClInclude Include="bitcoin\src\walletdb.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

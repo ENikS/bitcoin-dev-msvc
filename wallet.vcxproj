@@ -21,6 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{80CD21EA-79CF-42FC-B467-8C53F9BD6FB3}</ProjectGuid>
     <RootNamespace>bitcoind</RootNamespace>
+    <ProjectName>bitcoin_wallet</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

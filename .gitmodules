@@ -10,3 +10,6 @@
 [submodule "dependencies/openssl"]
 	path = dependencies/openssl
 	url = https://github.com/ENikS/openssl.git
+[submodule "dependencies/miniupnp"]
+	path = dependencies/miniupnp
+	url = https://github.com/miniupnp/miniupnp.git

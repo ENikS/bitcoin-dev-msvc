@@ -21,6 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BE0F7870-CE2D-4A8B-A3C9-59DB37C807D7}</ProjectGuid>
     <RootNamespace>bitcoind</RootNamespace>
+    <ProjectName>bitcoin_server</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -87,7 +88,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PreprocessorDefinitions>WIN32;%(PreprocessorDefinitions);STATICLIB;UNICODE;USE_UPNP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;HAVE_WORKING_BOOST_SLEEP_FOR</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WIN32_WINNT=0x0501;STATICLIB;UNICODE;USE_UPNP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;HAVE_WORKING_BOOST_SLEEP_FOR</PreprocessorDefinitions>
       <DisableSpecificWarnings>4018; 4244; 4290; 4800; 4996 </DisableSpecificWarnings>
     </ClCompile>
     <Link>

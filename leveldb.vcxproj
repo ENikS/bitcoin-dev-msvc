@@ -65,33 +65,33 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;$(SolutionDir)packages\snappy\build\native\include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
-    <TargetName>$(ProjectName).$(PlatformArchitecture).d</TargetName>
+    <TargetName>leveldb</TargetName>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
-    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;$(SolutionDir)packages\snappy\build\native\include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
-    <TargetName>$(ProjectName).$(PlatformArchitecture).d</TargetName>
+    <TargetName>leveldb</TargetName>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
-    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;$(SolutionDir)packages\snappy\build\native\include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
-    <TargetName>$(ProjectName).$(PlatformArchitecture)</TargetName>
-    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>leveldb</TargetName>
+    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;$(SolutionDir)packages\snappy\build\native\include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
-    <TargetName>$(ProjectName).$(PlatformArchitecture)</TargetName>
-    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>leveldb</TargetName>
+    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

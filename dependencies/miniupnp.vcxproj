@@ -67,23 +67,23 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
-    <TargetName>$(ProjectName).$(PlatformArchitecture).d</TargetName>
+    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj\</IntDir>
+    <TargetName>miniupnp</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <TargetName>$(ProjectName).$(PlatformArchitecture).d</TargetName>
+    <TargetName>miniupnp</TargetName>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
-    <TargetName>$(ProjectName).$(PlatformArchitecture)</TargetName>
+    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj\</IntDir>
+    <TargetName>miniupnp</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
-    <TargetName>$(ProjectName).$(PlatformArchitecture)</TargetName>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)$(Configuration)\$(Platform)\</IntDir>
+    <TargetName>miniupnp</TargetName>
+    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

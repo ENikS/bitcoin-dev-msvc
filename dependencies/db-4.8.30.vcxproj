@@ -66,30 +66,30 @@
     <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)packages\berkeleydb\build\native\obj\</IntDir>
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
     <IncludePath>$(ProjectDir)$(ProjectName);$(ProjectDir)$(ProjectName)\build_windows;$(IncludePath)</IncludePath>
     <SourcePath>$(SourcePath)</SourcePath>
-    <TargetName>berkeleydb.$(PlatformArchitecture).d</TargetName>
+    <TargetName>berkeleydb</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)packages\berkeleydb\build\native\obj\</IntDir>
     <IncludePath>$(ProjectDir)$(ProjectName);$(ProjectDir)$(ProjectName)\build_windows;$(IncludePath)</IncludePath>
     <SourcePath>$(SourcePath)</SourcePath>
-    <TargetName>berkeleydb.$(PlatformArchitecture)</TargetName>
+    <TargetName>berkeleydb</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)packages\berkeleydb\build\native\obj\</IntDir>
     <SourcePath>$(SourcePath)</SourcePath>
-    <TargetName>berkeleydb.$(PlatformArchitecture).d</TargetName>
+    <TargetName>berkeleydb</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)packages\berkeleydb\build\native\obj\</IntDir>
     <SourcePath>$(SourcePath)</SourcePath>
-    <TargetName>berkeleydb.$(PlatformArchitecture)</TargetName>
+    <TargetName>berkeleydb</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -85,7 +85,7 @@ if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)
 move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
@@ -113,7 +113,7 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\include
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
 </NMakeCleanCommandLine>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
@@ -143,7 +143,7 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\include
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
 </NMakeCleanCommandLine>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
@@ -171,7 +171,7 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\include
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
 </NMakeCleanCommandLine>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>

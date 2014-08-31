@@ -67,7 +67,7 @@
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <TargetName>leveldb</TargetName>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
-    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj\</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -75,7 +75,7 @@
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <TargetName>leveldb</TargetName>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
-    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj\</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -83,7 +83,7 @@
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
     <TargetName>leveldb</TargetName>
-    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj\</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -91,7 +91,7 @@
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
     <TargetName>leveldb</TargetName>
-    <IntDir>$(SolutionDir)packages\$(ProjectName)\build\native\obj\</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

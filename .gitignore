@@ -1,20 +1,20 @@
 Debug
 Release
-
 x86
 x64
 Win32
 Win64
-
-
 obj
+
 
 *.sdf
 *.opensdf
 *.suo
+*.user
 
 /*.sdf
 /packages
 
 db-4.8.30
 boost_1_56_0
+

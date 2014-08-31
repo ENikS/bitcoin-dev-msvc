@@ -69,7 +69,7 @@ if not exist ".\bjam.exe" (call bootstrap.bat) else (echo skipping tools rebuild
 cd $(ProjectDir)$(ProjectName)
 SET ZLIB_SOURCE=$(ProjectDir)zlib
 SET VS_UNICODE_OUTPUT=""
-.\bjam.exe runtime-link=static threading=multi link=static variant=debug address-model=$(PlatformArchitecture) --build-type=minimal --build-dir=$(SolutionDir)packages --stagedir=$(SolutionDir)packages\boost\build\native
+.\bjam.exe runtime-link=static threading=multi link=static variant=debug address-model=$(PlatformArchitecture) --build-dir=$(SolutionDir)packages --stagedir=$(SolutionDir)packages\boost\build\native
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(ProjectName)\boost)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)
@@ -80,10 +80,10 @@ move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\
     <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
     <NMakeCleanCommandLine>if exist "$(ProjectDir)$(ProjectName)\bjam.exe" (del $(ProjectDir)$(ProjectName)\bjam.exe)
 if exist "$(SolutionDir)packages\boost\build\native\lib" rd /s /q $(SolutionDir)packages\boost\build\native\lib
-if exist "$(SolutionDir)packages\boost\bin.v2" rd /s /q $(SolutionDir)packages\boost\bin.v2
+if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(ProjectDir)obj\$(Platform)\$(Configuration)\boost
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
-    <IntDir>$(SolutionDir)packages\boost\bin.v2</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)</IntDir>
     <OutDir>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -96,7 +96,7 @@ if not exist ".\bjam.exe" (call bootstrap.bat) else (echo skipping tools rebuild
 cd $(ProjectDir)$(ProjectName)
 SET ZLIB_SOURCE=$(ProjectDir)zlib
 SET VS_UNICODE_OUTPUT=""
-.\bjam.exe runtime-link=static threading=multi link=static variant=debug address-model=$(PlatformArchitecture) --layout=system --build-dir=$(SolutionDir)packages --stagedir=$(SolutionDir)packages\boost\build\native
+.\bjam.exe runtime-link=static threading=multi link=static variant=debug address-model=$(PlatformArchitecture) --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(ProjectName)\boost)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)
@@ -106,10 +106,10 @@ move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\
     </NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>if exist "$(ProjectDir)$(ProjectName)\bjam.exe" (del $(ProjectDir)$(ProjectName)\bjam.exe)
 if exist "$(SolutionDir)packages\boost\build\native\lib" rd /s /q $(SolutionDir)packages\boost\build\native\lib
-if exist "$(SolutionDir)packages\boost\bin.v2" rd /s /q $(SolutionDir)packages\boost\bin.v2
+if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(ProjectDir)obj\$(Platform)\$(Configuration)\boost
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
-    <IntDir>$(SolutionDir)packages\boost\bin.v2</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)</IntDir>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -122,7 +122,7 @@ if not exist ".\bjam.exe" (call bootstrap.bat) else (echo skipping tools rebuild
 cd $(ProjectDir)$(ProjectName)
 SET ZLIB_SOURCE=$(ProjectDir)zlib
 SET VS_UNICODE_OUTPUT=""
-.\bjam.exe runtime-link=static threading=multi link=static variant=release address-model=$(PlatformArchitecture) --layout=system --build-dir=$(SolutionDir)packages --stagedir=$(SolutionDir)packages\boost\build\native
+.\bjam.exe runtime-link=static threading=multi link=static variant=release address-model=$(PlatformArchitecture) --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(ProjectName)\boost)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)
@@ -131,10 +131,10 @@ move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\
     <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
     <NMakeCleanCommandLine>if exist "$(ProjectDir)$(ProjectName)\bjam.exe" (del $(ProjectDir)$(ProjectName)\bjam.exe)
 if exist "$(SolutionDir)packages\boost\build\native\lib" rd /s /q $(SolutionDir)packages\boost\build\native\lib
-if exist "$(SolutionDir)packages\boost\bin.v2" rd /s /q $(SolutionDir)packages\boost\bin.v2
+if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(ProjectDir)obj\$(Platform)\$(Configuration)\boost
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
-    <IntDir>$(SolutionDir)packages\boost\bin.v2</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)</IntDir>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -149,7 +149,7 @@ if not exist ".\bjam.exe" (call bootstrap.bat) else (echo skipping tools rebuild
 cd $(ProjectDir)$(ProjectName)
 SET ZLIB_SOURCE=$(ProjectDir)zlib
 SET VS_UNICODE_OUTPUT=""
-.\bjam.exe runtime-link=static threading=multi link=static variant=release address-model=$(PlatformArchitecture) --layout=system --build-dir=$(SolutionDir)packages --stagedir=$(SolutionDir)packages\boost\build\native
+.\bjam.exe runtime-link=static threading=multi link=static variant=release address-model=$(PlatformArchitecture) --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(ProjectName)\boost)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)
@@ -157,10 +157,10 @@ move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\
 </NMakeBuildCommandLine>
     <NMakeCleanCommandLine>if exist "$(ProjectDir)$(ProjectName)\bjam.exe" (del $(ProjectDir)$(ProjectName)\bjam.exe)
 if exist "$(SolutionDir)packages\boost\build\native\lib" rd /s /q $(SolutionDir)packages\boost\build\native\lib
-if exist "$(SolutionDir)packages\boost\bin.v2" rd /s /q $(SolutionDir)packages\boost\bin.v2
+if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(ProjectDir)obj\$(Platform)\$(Configuration)\boost
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
-    <IntDir>$(SolutionDir)packages\boost\bin.v2</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)</IntDir>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup>

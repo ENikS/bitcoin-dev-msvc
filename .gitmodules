@@ -7,9 +7,14 @@
 [submodule "dependencies/boost"]
 	path = dependencies/boost
 	url = https://github.com/ENikS/boost.git
+	fetchRecurseSubmodules = on-demand
 [submodule "dependencies/openssl"]
 	path = dependencies/openssl
 	url = https://github.com/ENikS/openssl.git
+	fetchRecurseSubmodules = on-demand
 [submodule "dependencies/miniupnp"]
+	
 	path = dependencies/miniupnp
+	
 	url = https://github.com/miniupnp/miniupnp.git
+

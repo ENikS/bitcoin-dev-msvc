@@ -84,7 +84,7 @@ if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(Projec
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)</IntDir>
-    <OutDir>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\boost\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <NMakeOutput>
@@ -110,7 +110,7 @@ if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(Projec
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)</IntDir>
-    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\boost\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
@@ -135,7 +135,7 @@ if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(Projec
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)</IntDir>
-    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\boost\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <NMakeOutput>
@@ -161,7 +161,7 @@ if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(Projec
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)</IntDir>
-    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\boost\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>

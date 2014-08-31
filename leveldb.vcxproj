@@ -65,7 +65,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;$(SolutionDir)packages\snappy\build\native\include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
-    <TargetName>leveldb</TargetName>
+    <TargetName>leveldb-d</TargetName>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
@@ -73,7 +73,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;$(SolutionDir)packages\snappy\build\native\include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
-    <TargetName>leveldb</TargetName>
+    <TargetName>leveldb-d</TargetName>
     <LibraryPath>$(SolutionDir)packages\snappy\build\native\lib\$(Configuration)\$(Platform);$(LibraryPath)</LibraryPath>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
@@ -109,7 +109,8 @@
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include
+      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include 
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include\leveldb
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -128,7 +129,8 @@ if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include
+      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include 
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include\leveldb
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -149,7 +151,8 @@ if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include
+      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include 
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include\leveldb
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -169,7 +172,8 @@ if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include
+      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include 
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include\leveldb
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

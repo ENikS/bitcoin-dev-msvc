@@ -95,13 +95,13 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);LEVELDB_PLATFORM_WINDOWS;LEVELDB_PLATFORM_WINDOWSSNAPPY</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);LEVELDB_PLATFORM_WINDOWS;LEVELDB_PLATFORM_WINDOWSSNAPPY;ssize_t=SSIZE_T</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <DisableSpecificWarnings>4996; 4018; 4244</DisableSpecificWarnings>
-      <ForcedIncludeFiles>$(SolutionDir)msvc\ssize_t_fix.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>BaseTsd.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
@@ -109,35 +109,37 @@
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include</Command>
+      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PreprocessorDefinitions>WIN64;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);LEVELDB_PLATFORM_WINDOWS;LEVELDB_PLATFORM_WINDOWSSNAPPY</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN64;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);LEVELDB_PLATFORM_WINDOWS;LEVELDB_PLATFORM_WINDOWSSNAPPY;ssize_t=SSIZE_T</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <DisableSpecificWarnings>4996; 4018; 4244</DisableSpecificWarnings>
-      <ForcedIncludeFiles>$(SolutionDir)msvc\ssize_t_fix.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>BaseTsd.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include</Command>
+      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions);LEVELDB_PLATFORM_WINDOWS;LEVELDB_PLATFORM_WINDOWSSNAPPY</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions);LEVELDB_PLATFORM_WINDOWS;LEVELDB_PLATFORM_WINDOWSSNAPPY;ssize_t=SSIZE_T</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4996; 4018; 4244</DisableSpecificWarnings>
-      <ForcedIncludeFiles>$(SolutionDir)msvc\ssize_t_fix.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>BaseTsd.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
@@ -147,17 +149,18 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include</Command>
+      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PreprocessorDefinitions>WIN64;NDEBUG;_WINDOWS;%(PreprocessorDefinitions);LEVELDB_PLATFORM_WINDOWS;LEVELDB_PLATFORM_WINDOWSSNAPPY</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN64;NDEBUG;_WINDOWS;%(PreprocessorDefinitions);LEVELDB_PLATFORM_WINDOWS;LEVELDB_PLATFORM_WINDOWSSNAPPY;ssize_t=SSIZE_T</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4996; 4018; 4244</DisableSpecificWarnings>
-      <ForcedIncludeFiles>$(SolutionDir)msvc\ssize_t_fix.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>BaseTsd.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -166,7 +169,8 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include</Command>
+      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)bitcoin\src\leveldb\include
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

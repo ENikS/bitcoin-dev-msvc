@@ -18,6 +18,10 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bitcoin\src\bitcoind.cpp" />
+    <ClCompile Include="bitcoin\src\util.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{EAB106DE-8D57-4221-95BD-C29779D5C87D}</ProjectGuid>
     <RootNamespace>bitcoind</RootNamespace>
@@ -65,16 +69,41 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)packages\bincoin\build\native\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)packages\bitcoin\build\native\obj\$(ProjectName)\</IntDir>
+    <TargetName>bincoind</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)packages\bincoin\build\native\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)packages\bitcoin\build\native\obj\$(ProjectName)\</IntDir>
+    <TargetName>bincoind</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)packages\bincoin\build\native\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)packages\bitcoin\build\native\obj\$(ProjectName)\</IntDir>
+    <TargetName>bincoind</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)packages\bincoin\build\native\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)packages\bitcoin\build\native\obj\$(ProjectName)\</IntDir>
+    <TargetName>bincoind</TargetName>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <DisableSpecificWarnings>4996; 4018; 4244</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\leveldb\build\native\include\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32; _MBCS;%(PreprocessorDefinitions); _WIN32_WINNT=0x0501; HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__</PreprocessorDefinitions>
+      <ForcedIncludeFiles>$(SolutionDir)msvc\core_fix.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;D:\bitcoin-dev-msvc\packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay32.lib;ssleay32.lib;leveldb.lib;berkeleydb.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -82,10 +111,15 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <DisableSpecificWarnings>4996; 4018; 4244</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\; $(SolutionDir)packages\openssl\build\native\include\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WIN64; _MBCS;%(PreprocessorDefinitions); _WIN32_WINNT=0x0501; HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__</PreprocessorDefinitions>
+      <ForcedIncludeFiles>$(SolutionDir)msvc\core_fix.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;D:\bitcoin-dev-msvc\packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -95,12 +129,17 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <DisableSpecificWarnings>4996; 4018; 4244</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\; $(SolutionDir)packages\openssl\build\native\include\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32; _MBCS;%(PreprocessorDefinitions); _WIN32_WINNT=0x0501; HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__</PreprocessorDefinitions>
+      <ForcedIncludeFiles>$(SolutionDir)msvc\core_fix.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;D:\bitcoin-dev-msvc\packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -110,16 +149,19 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <DisableSpecificWarnings>4996; 4018; 4244</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\; $(SolutionDir)packages\openssl\build\native\include\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WIN64; _MBCS;%(PreprocessorDefinitions); _WIN32_WINNT=0x0501; HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__</PreprocessorDefinitions>
+      <ForcedIncludeFiles>$(SolutionDir)msvc\core_fix.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;D:\bitcoin-dev-msvc\packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

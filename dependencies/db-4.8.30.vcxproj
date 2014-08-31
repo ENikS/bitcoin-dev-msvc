@@ -67,26 +67,26 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IntDir>$(SolutionDir)packages\berkeleydb\build\native\obj\</IntDir>
-    <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
+    <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <IncludePath>$(ProjectDir)$(ProjectName);$(ProjectDir)$(ProjectName)\build_windows;$(IncludePath)</IncludePath>
     <SourcePath>$(SourcePath)</SourcePath>
     <TargetName>berkeleydb</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
+    <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)packages\berkeleydb\build\native\obj\</IntDir>
     <IncludePath>$(ProjectDir)$(ProjectName);$(ProjectDir)$(ProjectName)\build_windows;$(IncludePath)</IncludePath>
     <SourcePath>$(SourcePath)</SourcePath>
     <TargetName>berkeleydb</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
+    <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)packages\berkeleydb\build\native\obj\</IntDir>
     <SourcePath>$(SourcePath)</SourcePath>
     <TargetName>berkeleydb</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
+    <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)packages\berkeleydb\build\native\obj\</IntDir>
     <SourcePath>$(SourcePath)</SourcePath>
     <TargetName>berkeleydb</TargetName>

@@ -97,7 +97,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
-      <ForcedIncludeFiles>BaseTsd.h;$(SolutionDir)msvc\core_fix.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>BaseTsd.h;$(SolutionDir)workarounds\core_fix.h</ForcedIncludeFiles>
       <ShowIncludes>false</ShowIncludes>
       <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(ProjectDir)bitcoin\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -118,7 +118,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
-      <ForcedIncludeFiles>BaseTsd.h;$(SolutionDir)msvc\core_fix.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>BaseTsd.h;$(SolutionDir)workarounds\core_fix.h</ForcedIncludeFiles>
       <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(ProjectDir)bitcoin\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -136,7 +136,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
-      <ForcedIncludeFiles>BaseTsd.h;$(SolutionDir)msvc\core_fix.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>BaseTsd.h;$(SolutionDir)workarounds\core_fix.h</ForcedIncludeFiles>
       <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(ProjectDir)bitcoin\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -157,7 +157,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
-      <ForcedIncludeFiles>BaseTsd.h;$(SolutionDir)msvc\core_fix.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>BaseTsd.h;$(SolutionDir)workarounds\core_fix.h</ForcedIncludeFiles>
       <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(ProjectDir)bitcoin\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>

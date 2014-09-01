@@ -99,7 +99,7 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\leveldb\build\native\include\</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32; _MBCS;%(PreprocessorDefinitions); _WIN32_WINNT=0x0501; HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__</PreprocessorDefinitions>
-      <ForcedIncludeFiles>$(SolutionDir)msvc\core_fix.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>$(SolutionDir)workarounds\core_fix.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -116,7 +116,7 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\; $(SolutionDir)packages\openssl\build\native\include\</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WIN64; _MBCS;%(PreprocessorDefinitions); _WIN32_WINNT=0x0501; HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__</PreprocessorDefinitions>
-      <ForcedIncludeFiles>$(SolutionDir)msvc\core_fix.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>$(SolutionDir)workarounds\core_fix.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -135,7 +135,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\; $(SolutionDir)packages\openssl\build\native\include\</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32; _MBCS;%(PreprocessorDefinitions); _WIN32_WINNT=0x0501; HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__</PreprocessorDefinitions>
-      <ForcedIncludeFiles>$(SolutionDir)msvc\core_fix.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>$(SolutionDir)workarounds\core_fix.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -156,7 +156,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\; $(SolutionDir)packages\openssl\build\native\include\</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_WIN64; _MBCS;%(PreprocessorDefinitions); _WIN32_WINNT=0x0501; HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__</PreprocessorDefinitions>
-      <ForcedIncludeFiles>$(SolutionDir)msvc\core_fix.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>$(SolutionDir)workarounds\core_fix.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

@@ -16,5 +16,5 @@ obj
 /packages
 
 db-4.8.30
-boost_1_56_0
+boost_*
 

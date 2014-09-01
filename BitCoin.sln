@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencie
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{60F0E511-0C50-4DE0-866E-637736138EFF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "boost_1_56_0", "dependencies\boost_1_56_0.vcxproj", "{E6F67299-7248-46E4-8379-AD0D91C2A4B6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "boost", "dependencies\boost.vcxproj", "{E6F67299-7248-46E4-8379-AD0D91C2A4B6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "openssl", "dependencies\openssl.vcxproj", "{B7600A5E-BC1C-41F6-B1BE-80EB57932BAB}"
 EndProject

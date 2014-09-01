@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bitcoin\src\bitcoind.cpp" />
+    <ClCompile Include="bitcoin\src\rpcclient.cpp" />
     <ClCompile Include="bitcoin\src\util.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -70,23 +71,23 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)packages\bincoin\build\native\bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)packages\bitcoin\build\native\obj\$(ProjectName)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>bincoind</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)packages\bincoin\build\native\bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)packages\bitcoin\build\native\obj\$(ProjectName)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>bincoind</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)packages\bincoin\build\native\bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)packages\bitcoin\build\native\obj\$(ProjectName)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>bincoind</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)packages\bincoin\build\native\bin\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)packages\bitcoin\build\native\obj\$(ProjectName)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>bincoind</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -102,8 +103,8 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;D:\bitcoin-dev-msvc\packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libeay32.lib;ssleay32.lib;leveldb.lib;berkeleydb.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay32.lib;ssleay32.lib;Shlwapi.lib;leveldbd.lib;memenvd.lib;berkeleydbd.lib;bitcoin_commond.lib;bitcoin_serverd.lib;bitcoin_walletd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -119,7 +120,8 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;D:\bitcoin-dev-msvc\packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay32.lib;ssleay32.lib;Shlwapi.lib;leveldbd.lib;memenvd.lib;berkeleydbd.lib;bitcoin_commond.lib;bitcoin_serverd.lib;bitcoin_walletd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -139,7 +141,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;D:\bitcoin-dev-msvc\packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay32.lib;ssleay32.lib;Shlwapi.lib;leveldb.lib;memenv.lib;berkeleydb.lib;bitcoin_common.lib;bitcoin_server.lib;bitcoin_wallet.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -159,7 +162,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;D:\bitcoin-dev-msvc\packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay32.lib;ssleay32.lib;Shlwapi.lib;leveldb.lib;memenv.lib;berkeleydb.lib;bitcoin_common.lib;bitcoin_server.lib;bitcoin_wallet.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -70,7 +70,7 @@
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <IncludePath>$(ProjectDir)$(ProjectName);$(ProjectDir)$(ProjectName)\build_windows;$(IncludePath)</IncludePath>
     <SourcePath>$(SourcePath)</SourcePath>
-    <TargetName>berkeleydb-d</TargetName>
+    <TargetName>berkeleydbd</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
@@ -83,7 +83,7 @@
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <SourcePath>$(SourcePath)</SourcePath>
-    <TargetName>berkeleydb-d</TargetName>
+    <TargetName>berkeleydbd</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\</OutDir>

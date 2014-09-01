@@ -63,25 +63,31 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
-    <IntDir>$(SolutionDir)packages\bitcoin\build\native\obj\$(ProjectName)\</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
+    <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
-    <IntDir>$(SolutionDir)packages\bitcoin\build\native\obj\$(ProjectName)\</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
+    <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
-    <IntDir>$(SolutionDir)packages\bitcoin\build\native\obj\$(ProjectName)\</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
-    <IntDir>$(SolutionDir)packages\bitcoin\build\native\obj\$(ProjectName)\</IntDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -93,7 +99,7 @@
       <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
       <ForcedIncludeFiles>$(SolutionDir)msvc\core_fix.h; $(SolutionDir)msvc\addrman_fix.h</ForcedIncludeFiles>
       <ShowIncludes>false</ShowIncludes>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\leveldb\build\native\include\;$(ProjectDir)bitcoin\src\;$(ProjectDir)bitcoin\src\leveldb\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(ProjectDir)bitcoin\src\;$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\leveldb\helpers\memenv\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
@@ -113,7 +119,7 @@
       <Optimization>Disabled</Optimization>
       <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
       <ForcedIncludeFiles>$(SolutionDir)msvc\core_fix.h; $(SolutionDir)msvc\addrman_fix.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\leveldb\build\native\include\;$(ProjectDir)bitcoin\src\;$(ProjectDir)bitcoin\src\leveldb\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(ProjectDir)bitcoin\src\;$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\leveldb\helpers\memenv\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -131,7 +137,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
       <ForcedIncludeFiles>$(SolutionDir)msvc\core_fix.h; $(SolutionDir)msvc\addrman_fix.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\leveldb\build\native\include\;$(ProjectDir)bitcoin\src\;$(ProjectDir)bitcoin\src\leveldb\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(ProjectDir)bitcoin\src\;$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\leveldb\helpers\memenv\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
@@ -152,7 +158,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4101;4146;4244;4267;4288;4290;4345;4503;4717;4786;4800;4804;4805;4996;</DisableSpecificWarnings>
       <ForcedIncludeFiles>$(SolutionDir)msvc\core_fix.h; $(SolutionDir)msvc\addrman_fix.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\leveldb\build\native\include\;$(ProjectDir)bitcoin\src\;$(ProjectDir)bitcoin\src\leveldb\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(ProjectDir)bitcoin\src\;$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\leveldb\helpers\memenv\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

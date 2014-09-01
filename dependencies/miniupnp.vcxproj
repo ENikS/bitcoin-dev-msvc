@@ -68,10 +68,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <TargetName>miniupnp-d</TargetName>
+    <TargetName>miniupnpd</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <TargetName>miniupnp-d</TargetName>
+    <TargetName>miniupnpd</TargetName>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>

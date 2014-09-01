@@ -73,6 +73,7 @@ if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Config
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(ProjectName)\boost)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
+if exist "$(ProjectDir)$(ProjectName)\bootstrap.log" del $(ProjectDir)$(ProjectName)\bootstrap.log
 if exist "$(SolutionDir)workarounds\boost.bat" $(SolutionDir)workarounds\boost.bat $(SolutionDir)packages\boost\build\native\include $(ProjectDir)$(ProjectName)
 </NMakeBuildCommandLine>
     <NMakeAssemblySearchPath>
@@ -100,6 +101,7 @@ if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Config
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(ProjectName)\boost)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
+if exist "$(ProjectDir)$(ProjectName)\bootstrap.log" del $(ProjectDir)$(ProjectName)\bootstrap.log
 if exist "$(SolutionDir)workarounds\boost.bat" $(SolutionDir)workarounds\boost.bat $(SolutionDir)packages\boost\build\native\include $(ProjectDir)$(ProjectName)
 </NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>
@@ -126,6 +128,7 @@ if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Config
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(ProjectName)\boost)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
+if exist "$(ProjectDir)$(ProjectName)\bootstrap.log" del $(ProjectDir)$(ProjectName)\bootstrap.log
 if exist "$(SolutionDir)workarounds\boost.bat" $(SolutionDir)workarounds\boost.bat $(SolutionDir)packages\boost\build\native\include $(ProjectDir)$(ProjectName)
 </NMakeBuildCommandLine>
     <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
@@ -153,6 +156,7 @@ if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Config
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(ProjectName)\boost)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
+if exist "$(ProjectDir)$(ProjectName)\bootstrap.log" del $(ProjectDir)$(ProjectName)\bootstrap.log
 if exist "$(SolutionDir)workarounds\boost.bat" $(SolutionDir)workarounds\boost.bat $(SolutionDir)packages\boost\build\native\include $(ProjectDir)$(ProjectName)
 </NMakeBuildCommandLine>
     <NMakeCleanCommandLine>if exist "$(SolutionDir)packages\boost\build\native\bin"  rd /s /q $(SolutionDir)packages\boost\build\native\bin

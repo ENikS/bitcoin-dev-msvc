@@ -10,6 +10,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "boost", "dependencies\boost.vcxproj", "{E6F67299-7248-46E4-8379-AD0D91C2A4B6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "openssl", "dependencies\openssl.vcxproj", "{B7600A5E-BC1C-41F6-B1BE-80EB57932BAB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B626E4B6-B2DB-4235-B640-811BD775C349} = {B626E4B6-B2DB-4235-B640-811BD775C349}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "leveldb", "leveldb.vcxproj", "{746AFB6E-4CD3-42EF-A6F4-3F73118D9CB9}"
 EndProject

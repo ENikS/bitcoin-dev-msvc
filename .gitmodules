@@ -1,17 +1,21 @@
 [submodule "bitcoin"]
 	path = bitcoin
 	url = https://github.com/ENikS/bitcoin.git
+
 [submodule "dependencies/zlib"]
 	path = dependencies/zlib
 	url = https://github.com/madler/zlib.git
+
 [submodule "dependencies/boost"]
 	path = dependencies/boost
 	url = https://github.com/ENikS/boost.git
 	fetchRecurseSubmodules = on-demand
+
 [submodule "dependencies/openssl"]
 	path = dependencies/openssl
-	url = https://github.com/ENikS/openssl.git
+	url = https://github.com/openssl/openssl.git
 	fetchRecurseSubmodules = on-demand
+
 [submodule "dependencies/miniupnp"]
 	
 	path = dependencies/miniupnp

@@ -61,30 +61,35 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <NMakeCleanCommandLine>del $(ProjectDir)$(ProjectName)\ms\*.rc
-del $(ProjectDir)$(ProjectName)\ms\*.obj
-del $(ProjectDir)$(ProjectName)\ms\*.mak
-del $(ProjectDir)$(ProjectName)\ms\*.def
-del $(ProjectDir)$(ProjectName)\ms\*.asm
-del $(ProjectDir)$(ProjectName)\ms\*.aps
-del $(ProjectDir)$(ProjectName)\makefile
+    <NMakeCleanCommandLine>del /q $(ProjectDir)$(ProjectName)\ms\*.rc
+del /q $(ProjectDir)$(ProjectName)\ms\*.obj
+del /q $(ProjectDir)$(ProjectName)\ms\*.mak
+del /q $(ProjectDir)$(ProjectName)\ms\*.def
+del /q $(ProjectDir)$(ProjectName)\ms\*.asm
+del /q $(ProjectDir)$(ProjectName)\ms\*.aps
+del /q $(ProjectDir)$(ProjectName)\makefile
+del /q $(ProjectDir)$(ProjectName)\Makefile
+del /q $(ProjectDir)$(ProjectName)\MINFO
+del /q $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\*.mak
 rd /s /q $(ProjectDir)$(ProjectName)\inc32
 rd /s /q $(ProjectDir)$(ProjectName)\out32.dbg
 rd /s /q $(ProjectDir)$(ProjectName)\tmp32.dbg
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\bin
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\include
-rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
+rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)
 </NMakeCleanCommandLine>
     <NMakeBuildCommandLine>call "$(VCInstallDir)vcvarsall.bat" x86
 cd $(ProjectDir)$(ProjectName) 
 if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure debug-VC-WIN32 no-asm --prefix=$(SolutionDir)packages\$(ProjectName)\build\native
-call $(ProjectDir)$(ProjectName)\ms\do_ms
-nmake -f ms\nt.mak install
+if exist "$(ProjectDir)$(ProjectName)\ms\version32.rc" del /q $(ProjectDir)$(ProjectName)\ms\version32.rc
+if not exist "$(ProjectDir)$(ProjectName)\MINFO" perl util\mkfiles.pl &gt;MINFO
+if not exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak" perl util\mk1mf.pl no-asm VC-WIN32 &gt;$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+nmake -f $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+if not exist "D:\Work\packages\openssl\build\native\include" xcopy /E D:\Work\openssl\inc32\* D:\Work\packages\openssl\build\native\include\*
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
-move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\ &amp; copy $(ProjectDir)$(ProjectName)\out32.dbg\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\ &amp; copy $(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
-    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -92,57 +97,67 @@ move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)
     <NMakeBuildCommandLine>call "$(VCInstallDir)vcvarsall.bat" x64
 cd $(ProjectDir)$(ProjectName) 
 if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure debug-VC-WIN64A no-asm --prefix=$(SolutionDir)packages\$(ProjectName)\build\native
-call $(ProjectDir)$(ProjectName)\ms\do_win64a
-nmake -f ms\nt.mak install
+if exist "$(ProjectDir)$(ProjectName)\ms\version32.rc" del /q $(ProjectDir)$(ProjectName)\ms\version32.rc
+if not exist "$(ProjectDir)$(ProjectName)\MINFO" perl util\mkfiles.pl &gt;MINFO
+if not exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak" perl util\mk1mf.pl no-asm VC-WIN64A  &gt;$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+nmake -f $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+if not exist "D:\Work\packages\openssl\build\native\include" xcopy /E D:\Work\openssl\inc32\* D:\Work\packages\openssl\build\native\include\*
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
-move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\ &amp; copy $(ProjectDir)$(ProjectName)\out32.dbg\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\ &amp; copy $(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
-    <NMakeCleanCommandLine>del $(ProjectDir)$(ProjectName)\ms\*.rc
-del $(ProjectDir)$(ProjectName)\ms\*.obj
-del $(ProjectDir)$(ProjectName)\ms\*.mak
-del $(ProjectDir)$(ProjectName)\ms\*.def
-del $(ProjectDir)$(ProjectName)\ms\*.asm
-del $(ProjectDir)$(ProjectName)\ms\*.aps
-del $(ProjectDir)$(ProjectName)\makefile
+    <NMakeCleanCommandLine>del /q $(ProjectDir)$(ProjectName)\ms\*.rc
+del /q $(ProjectDir)$(ProjectName)\ms\*.obj
+del /q $(ProjectDir)$(ProjectName)\ms\*.mak
+del /q $(ProjectDir)$(ProjectName)\ms\*.def
+del /q $(ProjectDir)$(ProjectName)\ms\*.asm
+del /q $(ProjectDir)$(ProjectName)\ms\*.aps
+del /q $(ProjectDir)$(ProjectName)\makefile
+del /q $(ProjectDir)$(ProjectName)\Makefile
+del /q $(ProjectDir)$(ProjectName)\MINFO
+del /q $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\*.mak
 rd /s /q $(ProjectDir)$(ProjectName)\inc32
 rd /s /q $(ProjectDir)$(ProjectName)\out32.dbg
 rd /s /q $(ProjectDir)$(ProjectName)\tmp32.dbg
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\bin
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\include
-rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
+rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)
 </NMakeCleanCommandLine>
-    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeBuildCommandLine>call "$(VCInstallDir)vcvarsall.bat" x86
 cd $(ProjectDir)$(ProjectName) 
-if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure VC-WIN32 no-asm --openssldir=$(SolutionDir)packages\$(ProjectName)\build\native
-call $(ProjectDir)$(ProjectName)\ms\do_ms
-nmake -f ms\nt.mak install
+if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure VC-WIN32 no-asm --prefix=$(SolutionDir)packages\$(ProjectName)\build\native
+if exist "$(ProjectDir)$(ProjectName)\ms\version32.rc" del /q $(ProjectDir)$(ProjectName)\ms\version32.rc
+if not exist "$(ProjectDir)$(ProjectName)\MINFO" perl util\mkfiles.pl &gt;MINFO
+if not exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak" perl util\mk1mf.pl no-asm VC-WIN32 &gt;$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+nmake -f $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+if not exist "D:\Work\packages\openssl\build\native\include" xcopy /E D:\Work\openssl\inc32\* D:\Work\packages\openssl\build\native\include\*
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
-move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\ &amp; copy $(ProjectDir)$(ProjectName)\out32\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>
     </NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>del $(ProjectDir)$(ProjectName)\ms\*.rc
-del $(ProjectDir)$(ProjectName)\ms\*.obj
-del $(ProjectDir)$(ProjectName)\ms\*.mak
-del $(ProjectDir)$(ProjectName)\ms\*.def
-del $(ProjectDir)$(ProjectName)\ms\*.asm
-del $(ProjectDir)$(ProjectName)\ms\*.aps
-del $(ProjectDir)$(ProjectName)\makefile
+    <NMakeCleanCommandLine>del /q $(ProjectDir)$(ProjectName)\ms\*.rc
+del /q $(ProjectDir)$(ProjectName)\ms\*.obj
+del /q $(ProjectDir)$(ProjectName)\ms\*.mak
+del /q $(ProjectDir)$(ProjectName)\ms\*.def
+del /q $(ProjectDir)$(ProjectName)\ms\*.asm
+del /q $(ProjectDir)$(ProjectName)\ms\*.aps
+del /q $(ProjectDir)$(ProjectName)\makefile
+del /q $(ProjectDir)$(ProjectName)\Makefile
+del /q $(ProjectDir)$(ProjectName)\MINFO
+del /q $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\*.mak
 rd /s /q $(ProjectDir)$(ProjectName)\inc32
 rd /s /q $(ProjectDir)$(ProjectName)\out32
 rd /s /q $(ProjectDir)$(ProjectName)\tmp32
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\bin
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\include
-rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
+rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)
 </NMakeCleanCommandLine>
-    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -150,27 +165,32 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
     <NMakeBuildCommandLine>call "$(VCInstallDir)vcvarsall.bat" x64
 cd $(ProjectDir)$(ProjectName) 
 if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure VC-WIN64A no-asm --prefix=$(SolutionDir)packages\$(ProjectName)\build\native
-call $(ProjectDir)$(ProjectName)\ms\do_win64a
-nmake -f ms\nt.mak install
+if exist "$(ProjectDir)$(ProjectName)\ms\version32.rc" del /q $(ProjectDir)$(ProjectName)\ms\version32.rc
+if not exist "$(ProjectDir)$(ProjectName)\MINFO" perl util\mkfiles.pl &gt;MINFO
+if not exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak" perl util\mk1mf.pl no-asm VC-WIN64A  &gt;$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+nmake -f $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+if not exist "D:\Work\packages\openssl\build\native\include" xcopy /E D:\Work\openssl\inc32\* D:\Work\packages\openssl\build\native\include\*
 if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
-move $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\ &amp; copy $(ProjectDir)$(ProjectName)\out32\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
-    <NMakeCleanCommandLine>del $(ProjectDir)$(ProjectName)\ms\*.rc
-del $(ProjectDir)$(ProjectName)\ms\*.obj
-del $(ProjectDir)$(ProjectName)\ms\*.mak
-del $(ProjectDir)$(ProjectName)\ms\*.def
-del $(ProjectDir)$(ProjectName)\ms\*.asm
-del $(ProjectDir)$(ProjectName)\ms\*.aps
-del $(ProjectDir)$(ProjectName)\makefile
+    <NMakeCleanCommandLine>del /q $(ProjectDir)$(ProjectName)\ms\*.rc
+del /q $(ProjectDir)$(ProjectName)\ms\*.obj
+del /q $(ProjectDir)$(ProjectName)\ms\*.mak
+del /q $(ProjectDir)$(ProjectName)\ms\*.def
+del /q $(ProjectDir)$(ProjectName)\ms\*.asm
+del /q $(ProjectDir)$(ProjectName)\ms\*.aps
+del /q $(ProjectDir)$(ProjectName)\makefile
+del /q $(ProjectDir)$(ProjectName)\Makefile
+del /q $(ProjectDir)$(ProjectName)\MINFO
+del /q $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\*.mak
 rd /s /q $(ProjectDir)$(ProjectName)\inc32
 rd /s /q $(ProjectDir)$(ProjectName)\out32
 rd /s /q $(ProjectDir)$(ProjectName)\tmp32
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\bin
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\include
-rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib
+rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)
 </NMakeCleanCommandLine>
-    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>

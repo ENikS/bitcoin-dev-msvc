@@ -8,7 +8,7 @@
 
 [submodule "dependencies/boost"]
 	path = dependencies/boost
-	url = https://github.com/ENikS/boost.git
+	url = https://github.com/boostorg/boost.git
 	fetchRecurseSubmodules = on-demand
 
 [submodule "dependencies/openssl"]

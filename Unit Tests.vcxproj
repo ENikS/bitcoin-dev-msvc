@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bitcoin\src\json\json_spirit_reader.cpp" />
+    <ClCompile Include="bitcoin\src\json\json_spirit_value.cpp" />
+    <ClCompile Include="bitcoin\src\rpcclient.cpp" />
+    <ClCompile Include="bitcoin\src\test\accounting_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\alert_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\allocator_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\base32_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\base64_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\bloom_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\checkblock_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\Checkpoints_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\compress_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\crypto_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\getarg_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\hash_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\key_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\main_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\miner_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\mruset_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\multisig_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\netbase_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\pmt_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\rpc_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\rpc_wallet_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\scriptnum_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\serialize_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\sigopcount_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\skiplist_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\test_bitcoin.cpp" />
+    <ClCompile Include="bitcoin\src\test\timedata_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\uint256_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\univalue_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\util_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\wallet_tests.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="bitcoin_common.vcxproj">
+      <Project>{dd38ca87-a51b-46e8-ae6d-15c1233f8b5b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="bitcoin_crypto.vcxproj">
+      <Project>{2bdc5df2-1770-489e-a05a-1ab1d6459a45}</Project>
+    </ProjectReference>
+    <ProjectReference Include="bitcoin_server.vcxproj">
+      <Project>{5d2a7351-8573-45e9-8e65-7ff5e290e20c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="bitcoin_univalue.vcxproj">
+      <Project>{e41a90d6-0856-4587-afaf-8fe9cc7823b7}</Project>
+    </ProjectReference>
+    <ProjectReference Include="bitcoin_util.vcxproj">
+      <Project>{9977466d-1f5e-4a71-baac-e4807ee0ac53}</Project>
+    </ProjectReference>
+    <ProjectReference Include="bitcoin_wallet.vcxproj">
+      <Project>{7648671f-3e91-49f5-b253-f82a00637131}</Project>
+    </ProjectReference>
+    <ProjectReference Include="dependencies\boost.vcxproj">
+      <Project>{e6f67299-7248-46e4-8379-ad0d91c2a4b6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="dependencies\db-4.8.30.NC.vcxproj">
+      <Project>{671539aa-d9a6-4b7b-8044-61b511d6f432}</Project>
+    </ProjectReference>
+    <ProjectReference Include="dependencies\openssl.vcxproj">
+      <Project>{b7600a5e-bc1c-41f6-b1be-80eb57932bab}</Project>
+    </ProjectReference>
+    <ProjectReference Include="dependencies\zlib.vcxproj">
+      <Project>{b626e4b6-b2db-4235-b640-811bd775c349}</Project>
+    </ProjectReference>
+    <ProjectReference Include="leveldb.vcxproj">
+      <Project>{746afb6e-4cd3-42ef-a6f4-3f73118d9cb9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="memenv.vcxproj">
+      <Project>{78fcc1f8-f181-4280-9c94-8d0c5d387aa1}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{16395CCB-3034-42EC-BE29-64661A3ECF0C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectName>Unit Tests</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\tests\</OutDir>
+    <TargetName>test_bitcoin</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\tests\</OutDir>
+    <TargetName>test_bitcoin</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\tests\</OutDir>
+    <TargetName>test_bitcoin</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\tests\</OutDir>
+    <TargetName>test_bitcoin</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;HAVE_WORKING_BOOST_SLEEP_FOR;__func__=__FUNCTION__;_WIN32_WINNT=0x0501;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <DisableSpecificWarnings>4018;4101;4146;4244;4800;4290;</DisableSpecificWarnings>
+      <ForcedIncludeFiles>$(SolutionDir)packages\berkeleydb\build\native\include\db.h</ForcedIncludeFiles>
+      <ShowIncludes>false</ShowIncludes>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;berkeleydbd.lib;leveldbd.lib;memenvd.lib;bitcoin_commond.lib;bitcoin_serverd.lib;bitcoin_walletd.lib;bitcoin_cryptod.lib;bitcoin_univalued.lib;bitcoin_utild.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\openssl\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_WIN64;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);HAVE_WORKING_BOOST_SLEEP_FOR;__func__=__FUNCTION__;_WIN32_WINNT=0x0501;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <DisableSpecificWarnings>4018;4101;4146;4244;4800;4290;</DisableSpecificWarnings>
+      <ForcedIncludeFiles>$(SolutionDir)packages\berkeleydb\build\native\include\db.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;berkeleydbd.lib;leveldbd.lib;memenvd.lib;bitcoin_commond.lib;bitcoin_serverd.lib;bitcoin_walletd.lib;bitcoin_cryptod.lib;bitcoin_univalued.lib;bitcoin_utild.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\openssl\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions);HAVE_WORKING_BOOST_SLEEP_FOR;__func__=__FUNCTION__;_WIN32_WINNT=0x0501;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;BOOST_TEST_DYN_LINK</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4018;4101;4146;4244;4800;4290;</DisableSpecificWarnings>
+      <ForcedIncludeFiles>$(SolutionDir)packages\berkeleydb\build\native\include\db.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;leveldb.lib;memenv.lib;berkeleydb.lib;bitcoin_common.lib;bitcoin_server.lib;bitcoin_wallet.lib;bitcoin_crypto.lib;bitcoin_univalue.lib;bitcoin_util.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\openssl\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_WIN64;NDEBUG;_WINDOWS;%(PreprocessorDefinitions);HAVE_WORKING_BOOST_SLEEP_FOR;__func__=__FUNCTION__;_WIN32_WINNT=0x0501;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;BOOST_TEST_DYN_LINK</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4018;4101;4146;4244;4800;4290;</DisableSpecificWarnings>
+      <ForcedIncludeFiles>$(SolutionDir)packages\berkeleydb\build\native\include\db.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;leveldb.lib;memenv.lib;berkeleydb.lib;bitcoin_common.lib;bitcoin_server.lib;bitcoin_wallet.lib;bitcoin_crypto.lib;bitcoin_univalue.lib;bitcoin_util.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\openssl\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

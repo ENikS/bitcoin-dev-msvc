@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{746AFB6E-4CD3-42EF-A6F4-3F73118D9CB9}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)workarounds\;$(IncludePath)</IncludePath>
+    <TargetName>$(ProjectName)d</TargetName>
+    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)workarounds\;$(IncludePath)</IncludePath>
+    <TargetName>$(ProjectName)d</TargetName>
+    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)workarounds\;$(IncludePath)</IncludePath>
+    <TargetName>$(ProjectName)</TargetName>
+    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)workarounds\;$(IncludePath)</IncludePath>
+    <TargetName>$(ProjectName)</TargetName>
+    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);LEVELDB_PLATFORM_WINDOWS;LEVELDB_PLATFORM_WINDOWSSNAPPY;ssize_t=SSIZE_T</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <ForcedIncludeFiles>BaseTsd.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4018; 4244; 4800; 4996; </DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include 
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb $(ProjectDir)bitcoin\src\leveldb\include\leveldb
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);LEVELDB_PLATFORM_WINDOWS;LEVELDB_PLATFORM_WINDOWSSNAPPY;ssize_t=SSIZE_T</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <ForcedIncludeFiles>BaseTsd.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4018; 4244; 4800; 4996; </DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include 
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb $(ProjectDir)bitcoin\src\leveldb\include\leveldb
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);LEVELDB_PLATFORM_WINDOWS;LEVELDB_PLATFORM_WINDOWSSNAPPY;ssize_t=SSIZE_T</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>BaseTsd.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4018; 4244; 4800; 4996; </DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include 
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb $(ProjectDir)bitcoin\src\leveldb\include\leveldb
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);LEVELDB_PLATFORM_WINDOWS;LEVELDB_PLATFORM_WINDOWSSNAPPY;ssize_t=SSIZE_T</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>BaseTsd.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4018; 4244; 4800; 4996; </DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include 
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb $(ProjectDir)bitcoin\src\leveldb\include\leveldb
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="bitcoin\src\leveldb\db\builder.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\db\c.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\db\dbformat.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\db\db_impl.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\db\db_iter.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\db\filename.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\db\log_reader.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\db\log_writer.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\db\memtable.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\db\repair.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\db\table_cache.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\db\version_edit.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\db\version_set.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\db\write_batch.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\port\port_win.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\table\block.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\table\block_builder.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\table\filter_block.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\table\format.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\table\iterator.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\table\merger.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\table\table.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\table\table_builder.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\table\two_level_iterator.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\arena.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\bloom.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\cache.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\coding.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\comparator.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\crc32c.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\env.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\env_win.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\filter_policy.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\hash.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\histogram.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\logging.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\options.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\status.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\testharness.cc" />
+    <ClCompile Include="bitcoin\src\leveldb\util\testutil.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bitcoin\src\leveldb\db\builder.h" />
+    <ClInclude Include="bitcoin\src\leveldb\db\dbformat.h" />
+    <ClInclude Include="bitcoin\src\leveldb\db\db_impl.h" />
+    <ClInclude Include="bitcoin\src\leveldb\db\db_iter.h" />
+    <ClInclude Include="bitcoin\src\leveldb\db\filename.h" />
+    <ClInclude Include="bitcoin\src\leveldb\db\log_format.h" />
+    <ClInclude Include="bitcoin\src\leveldb\db\log_reader.h" />
+    <ClInclude Include="bitcoin\src\leveldb\db\log_writer.h" />
+    <ClInclude Include="bitcoin\src\leveldb\db\memtable.h" />
+    <ClInclude Include="bitcoin\src\leveldb\db\skiplist.h" />
+    <ClInclude Include="bitcoin\src\leveldb\db\snapshot.h" />
+    <ClInclude Include="bitcoin\src\leveldb\db\table_cache.h" />
+    <ClInclude Include="bitcoin\src\leveldb\db\version_edit.h" />
+    <ClInclude Include="bitcoin\src\leveldb\db\version_set.h" />
+    <ClInclude Include="bitcoin\src\leveldb\db\write_batch_internal.h" />
+    <ClInclude Include="bitcoin\src\leveldb\include\leveldb\c.h" />
+    <ClInclude Include="bitcoin\src\leveldb\include\leveldb\cache.h" />
+    <ClInclude Include="bitcoin\src\leveldb\include\leveldb\comparator.h" />
+    <ClInclude Include="bitcoin\src\leveldb\include\leveldb\db.h" />
+    <ClInclude Include="bitcoin\src\leveldb\include\leveldb\env.h" />
+    <ClInclude Include="bitcoin\src\leveldb\include\leveldb\filter_policy.h" />
+    <ClInclude Include="bitcoin\src\leveldb\include\leveldb\iterator.h" />
+    <ClInclude Include="bitcoin\src\leveldb\include\leveldb\options.h" />
+    <ClInclude Include="bitcoin\src\leveldb\include\leveldb\slice.h" />
+    <ClInclude Include="bitcoin\src\leveldb\include\leveldb\status.h" />
+    <ClInclude Include="bitcoin\src\leveldb\include\leveldb\table.h" />
+    <ClInclude Include="bitcoin\src\leveldb\include\leveldb\table_builder.h" />
+    <ClInclude Include="bitcoin\src\leveldb\include\leveldb\write_batch.h" />
+    <ClInclude Include="bitcoin\src\leveldb\port\atomic_pointer.h" />
+    <ClInclude Include="bitcoin\src\leveldb\port\port.h" />
+    <ClInclude Include="bitcoin\src\leveldb\port\port_example.h" />
+    <ClInclude Include="bitcoin\src\leveldb\port\port_posix.h" />
+    <ClInclude Include="bitcoin\src\leveldb\port\port_win.h" />
+    <ClInclude Include="bitcoin\src\leveldb\port\thread_annotations.h" />
+    <ClInclude Include="bitcoin\src\leveldb\port\win\stdint.h" />
+    <ClInclude Include="bitcoin\src\leveldb\table\block.h" />
+    <ClInclude Include="bitcoin\src\leveldb\table\block_builder.h" />
+    <ClInclude Include="bitcoin\src\leveldb\table\filter_block.h" />
+    <ClInclude Include="bitcoin\src\leveldb\table\format.h" />
+    <ClInclude Include="bitcoin\src\leveldb\table\iterator_wrapper.h" />
+    <ClInclude Include="bitcoin\src\leveldb\table\merger.h" />
+    <ClInclude Include="bitcoin\src\leveldb\table\two_level_iterator.h" />
+    <ClInclude Include="bitcoin\src\leveldb\util\arena.h" />
+    <ClInclude Include="bitcoin\src\leveldb\util\coding.h" />
+    <ClInclude Include="bitcoin\src\leveldb\util\crc32c.h" />
+    <ClInclude Include="bitcoin\src\leveldb\util\hash.h" />
+    <ClInclude Include="bitcoin\src\leveldb\util\histogram.h" />
+    <ClInclude Include="bitcoin\src\leveldb\util\logging.h" />
+    <ClInclude Include="bitcoin\src\leveldb\util\mutexlock.h" />
+    <ClInclude Include="bitcoin\src\leveldb\util\posix_logger.h" />
+    <ClInclude Include="bitcoin\src\leveldb\util\random.h" />
+    <ClInclude Include="bitcoin\src\leveldb\util\testharness.h" />
+    <ClInclude Include="bitcoin\src\leveldb\util\testutil.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

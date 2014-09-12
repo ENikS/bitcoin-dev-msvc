@@ -11,8 +11,8 @@ In order to build and develop bitcoin core you will need:
 1. **Visual Studio** of your choice, express version will suffice. 
   Everyone knows where Microsoft lives...
 
-2. **ActivePerl**, required to build openssl. 
-  Could be downloaded from here:	http://www.activestate.com/activeperl/downloads <br>
+2. **Perl**, required to build openssl and QT. 
+  I like Active Perl, but it is just my personal preference. Could be downloaded from here:	http://www.perl.org/ <br>
   You have to be careful to position Perl in PATH variable so that it will be first to execute. GIT and MinGW are bundled with versions of Perl which are not compatible and will fail the build if executed. There is a pending issue at openssl repo for this bug (https://github.com/openssl/openssl/issues/174).
 ```
 PATH=C:\Program Files\Perl\bin\;C:\Program Files\git\cmd\;C:\Windows\SYSTEM32...
@@ -20,12 +20,6 @@ PATH=C:\Program Files\Perl\bin\;C:\Program Files\git\cmd\;C:\Windows\SYSTEM32...
 
 3. **Python**, required to build boost. 
   Could be downloaded from here:	https://www.python.org/
-
-4. **WGET**, required to download BerkeleyDB. 
-  Could be downloaded from here:	http://gnuwin32.sourceforge.net/packages/wget.htm
-
-5. **7z**, required to unzip the BerkeleyDB. 
-  Could be downloaded from here:	http://www.7-zip.org/ 
 
 
 ## Dependencies

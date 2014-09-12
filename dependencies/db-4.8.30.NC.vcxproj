@@ -119,13 +119,18 @@
       <Command>if not exist "$(SolutionDir)packages\berkeleydb\build\native\include" (mklink /j $(SolutionDir)packages\berkeleydb\build\native\include $(ProjectDir)$(MSBuildProjectName)\build_windows)</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>SET _BerkleyDB="http://download.oracle.com/berkeley-db"
-SET _BerkleyDBFile="db-4.8.30.NC"
+      <Command>SET URL=http://download.oracle.com/berkeley-db
 
-if exist "%_BerkleyDBFile%" exit
-if exist "C:\Program Files\GnuWin32\bin\wget.exe" ("C:\Program Files\GnuWin32\bin\wget.exe" %_BerkleyDB%/%_BerkleyDBFile%.zip) else (if exist "C:\Program Files (x86)\GnuWin32\bin\wget.exe" ("C:\Program Files (x86)\GnuWin32\bin\wget.exe" %_BerkleyDB%/%_BerkleyDBFile%.zip) else (wget.exe %_BerkleyDB%/%_BerkleyDBFile%.zip)) 
-if exist "C:\Program Files (x86)\7-Zip\7z.exe" ("C:\Program Files (x86)\7-Zip\7z.exe"  x %_BerkleyDBFile%.zip) else (if exist "C:\Program Files\7-Zip\7z.exe" ("C:\Program Files\7-Zip\7z.exe"  x %_BerkleyDBFile%.zip) else (7z.exe  x %_BerkleyDBFile%.zip))
-del %_BerkleyDBFile%.zip</Command>
+if exist "$(MSBuildProjectName)" exit 
+
+echo "Downloading Berkeley DB from %URL%/$(MSBuildProjectName).zip ..."
+if not exist "$(ProjectDir)$(MSBuildProjectName).zip" PowerShell -Command "(new-object System.Net.WebClient).DownloadFile('%URL%/$(MSBuildProjectName).zip', '$(ProjectDir)$(MSBuildProjectName).zip')"
+if not exist "$(ProjectDir)$(MSBuildProjectName).zip" (echo "ERROR: Unable to download BerkleyDB source from '%URL%/$(MSBuildProjectName).zip'." &amp; exit 1)
+
+echo "Expanding $(ProjectDir)$(MSBuildProjectName).zip ..."
+PowerShell -Command "(New-Object -ComObject Shell.Application).NameSpace('$(ProjectDir)').CopyHere((New-Object -ComObject Shell.Application).NameSpace('$(ProjectDir)$(MSBuildProjectName).zip').Items())"
+del $(ProjectDir)$(MSBuildProjectName).zip
+</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -156,13 +161,18 @@ del %_BerkleyDBFile%.zip</Command>
       <Command>if not exist "$(SolutionDir)packages\berkeleydb\build\native\include" (mklink /j $(SolutionDir)packages\berkeleydb\build\native\include $(ProjectDir)$(MSBuildProjectName)\build_windows)</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>SET _BerkleyDB="http://download.oracle.com/berkeley-db"
-SET _BerkleyDBFile="db-4.8.30.NC"
+      <Command>SET URL=http://download.oracle.com/berkeley-db
 
-if exist "%_BerkleyDBFile%" exit
-if exist "C:\Program Files\GnuWin32\bin\wget.exe" ("C:\Program Files\GnuWin32\bin\wget.exe" %_BerkleyDB%/%_BerkleyDBFile%.zip) else (if exist "C:\Program Files (x86)\GnuWin32\bin\wget.exe" ("C:\Program Files (x86)\GnuWin32\bin\wget.exe" %_BerkleyDB%/%_BerkleyDBFile%.zip) else (wget.exe %_BerkleyDB%/%_BerkleyDBFile%.zip)) 
-if exist "C:\Program Files (x86)\7-Zip\7z.exe" ("C:\Program Files (x86)\7-Zip\7z.exe"  x %_BerkleyDBFile%.zip) else (if exist "C:\Program Files\7-Zip\7z.exe" ("C:\Program Files\7-Zip\7z.exe"  x %_BerkleyDBFile%.zip) else (7z.exe  x %_BerkleyDBFile%.zip))
-del %_BerkleyDBFile%.zip</Command>
+if exist "$(MSBuildProjectName)" exit 
+
+echo "Downloading Berkeley DB from %URL%/$(MSBuildProjectName).zip ..."
+if not exist "$(ProjectDir)$(MSBuildProjectName).zip" PowerShell -Command "(new-object System.Net.WebClient).DownloadFile('%URL%/$(MSBuildProjectName).zip', '$(ProjectDir)$(MSBuildProjectName).zip')"
+if not exist "$(ProjectDir)$(MSBuildProjectName).zip" (echo "ERROR: Unable to download BerkleyDB source from '%URL%/$(MSBuildProjectName).zip'." &amp; exit 1)
+
+echo "Expanding $(ProjectDir)$(MSBuildProjectName).zip ..."
+PowerShell -Command "(New-Object -ComObject Shell.Application).NameSpace('$(ProjectDir)').CopyHere((New-Object -ComObject Shell.Application).NameSpace('$(ProjectDir)$(MSBuildProjectName).zip').Items())"
+del $(ProjectDir)$(MSBuildProjectName).zip
+</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -191,13 +201,18 @@ del %_BerkleyDBFile%.zip</Command>
       <Command>if not exist "$(SolutionDir)packages\berkeleydb\build\native\include" (mklink /j $(SolutionDir)packages\berkeleydb\build\native\include $(ProjectDir)$(MSBuildProjectName)\build_windows)</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>SET _BerkleyDB="http://download.oracle.com/berkeley-db"
-SET _BerkleyDBFile="db-4.8.30.NC"
+      <Command>SET URL=http://download.oracle.com/berkeley-db
 
-if exist "%_BerkleyDBFile%" exit
-if exist "C:\Program Files\GnuWin32\bin\wget.exe" ("C:\Program Files\GnuWin32\bin\wget.exe" %_BerkleyDB%/%_BerkleyDBFile%.zip) else (if exist "C:\Program Files (x86)\GnuWin32\bin\wget.exe" ("C:\Program Files (x86)\GnuWin32\bin\wget.exe" %_BerkleyDB%/%_BerkleyDBFile%.zip) else (wget.exe %_BerkleyDB%/%_BerkleyDBFile%.zip)) 
-if exist "C:\Program Files (x86)\7-Zip\7z.exe" ("C:\Program Files (x86)\7-Zip\7z.exe"  x %_BerkleyDBFile%.zip) else (if exist "C:\Program Files\7-Zip\7z.exe" ("C:\Program Files\7-Zip\7z.exe"  x %_BerkleyDBFile%.zip) else (7z.exe  x %_BerkleyDBFile%.zip))
-del %_BerkleyDBFile%.zip</Command>
+if exist "$(MSBuildProjectName)" exit 
+
+echo "Downloading Berkeley DB from %URL%/$(MSBuildProjectName).zip ..."
+if not exist "$(ProjectDir)$(MSBuildProjectName).zip" PowerShell -Command "(new-object System.Net.WebClient).DownloadFile('%URL%/$(MSBuildProjectName).zip', '$(ProjectDir)$(MSBuildProjectName).zip')"
+if not exist "$(ProjectDir)$(MSBuildProjectName).zip" (echo "ERROR: Unable to download BerkleyDB source from '%URL%/$(MSBuildProjectName).zip'." &amp; exit 1)
+
+echo "Expanding $(ProjectDir)$(MSBuildProjectName).zip ..."
+PowerShell -Command "(New-Object -ComObject Shell.Application).NameSpace('$(ProjectDir)').CopyHere((New-Object -ComObject Shell.Application).NameSpace('$(ProjectDir)$(MSBuildProjectName).zip').Items())"
+del $(ProjectDir)$(MSBuildProjectName).zip
+</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -227,13 +242,18 @@ del %_BerkleyDBFile%.zip</Command>
       <Command>if not exist "$(SolutionDir)packages\berkeleydb\build\native\include" (mklink /j $(SolutionDir)packages\berkeleydb\build\native\include $(ProjectDir)$(MSBuildProjectName)\build_windows)</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>SET _BerkleyDB="http://download.oracle.com/berkeley-db"
-SET _BerkleyDBFile="db-4.8.30.NC"
+      <Command>SET URL=http://download.oracle.com/berkeley-db
 
-if exist "%_BerkleyDBFile%" exit
-if exist "C:\Program Files\GnuWin32\bin\wget.exe" ("C:\Program Files\GnuWin32\bin\wget.exe" %_BerkleyDB%/%_BerkleyDBFile%.zip) else (if exist "C:\Program Files (x86)\GnuWin32\bin\wget.exe" ("C:\Program Files (x86)\GnuWin32\bin\wget.exe" %_BerkleyDB%/%_BerkleyDBFile%.zip) else (wget.exe %_BerkleyDB%/%_BerkleyDBFile%.zip)) 
-if exist "C:\Program Files (x86)\7-Zip\7z.exe" ("C:\Program Files (x86)\7-Zip\7z.exe"  x %_BerkleyDBFile%.zip) else (if exist "C:\Program Files\7-Zip\7z.exe" ("C:\Program Files\7-Zip\7z.exe"  x %_BerkleyDBFile%.zip) else (7z.exe  x %_BerkleyDBFile%.zip))
-del %_BerkleyDBFile%.zip</Command>
+if exist "$(MSBuildProjectName)" exit 
+
+echo "Downloading Berkeley DB from %URL%/$(MSBuildProjectName).zip ..."
+if not exist "$(ProjectDir)$(MSBuildProjectName).zip" PowerShell -Command "(new-object System.Net.WebClient).DownloadFile('%URL%/$(MSBuildProjectName).zip', '$(ProjectDir)$(MSBuildProjectName).zip')"
+if not exist "$(ProjectDir)$(MSBuildProjectName).zip" (echo "ERROR: Unable to download BerkleyDB source from '%URL%/$(MSBuildProjectName).zip'." &amp; exit 1)
+
+echo "Expanding $(ProjectDir)$(MSBuildProjectName).zip ..."
+PowerShell -Command "(New-Object -ComObject Shell.Application).NameSpace('$(ProjectDir)').CopyHere((New-Object -ComObject Shell.Application).NameSpace('$(ProjectDir)$(MSBuildProjectName).zip').Items())"
+del $(ProjectDir)$(MSBuildProjectName).zip
+</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

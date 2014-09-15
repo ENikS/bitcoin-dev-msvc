@@ -73,7 +73,7 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Co
 </NMakeCleanCommandLine>
     <NMakeBuildCommandLine>SET INCLUDE=%INCLUDE%;$(SolutionDir)packages\zlib\build\native\include
 SET LIB=%LIB%;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)
-call "$(VCInstallDir)vcvarsall.bat" x86
+call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
 cd $(ProjectDir)$(ProjectName) 
 if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure debug-VC-WIN32 no-asm zlib --prefix=$(SolutionDir)packages\$(ProjectName)\build\native -wd4996
 if not exist "$(ProjectDir)$(ProjectName)\MINFO" perl util\mkfiles.pl &gt;MINFO
@@ -89,7 +89,7 @@ if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)
     <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeBuildCommandLine>SET INCLUDE=%INCLUDE%;$(SolutionDir)packages\zlib\build\native\include
 SET LIB=%LIB%;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)
-call "$(VCInstallDir)vcvarsall.bat" x64
+call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
 cd $(ProjectDir)$(ProjectName) 
 if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure debug-VC-WIN64A no-asm zlib --prefix=$(SolutionDir)packages\$(ProjectName)\build\native -wd4996
 if not exist "$(ProjectDir)$(ProjectName)\MINFO" perl util\mkfiles.pl &gt;MINFO
@@ -115,7 +115,7 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Co
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeBuildCommandLine>SET INCLUDE=%INCLUDE%;$(SolutionDir)packages\zlib\build\native\include
 SET LIB=%LIB%;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)
-call "$(VCInstallDir)vcvarsall.bat" x86
+call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
 cd $(ProjectDir)$(ProjectName) 
 if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure VC-WIN32 no-asm zlib --prefix=$(SolutionDir)packages\$(ProjectName)\build\native -wd4996
 if not exist "$(ProjectDir)$(ProjectName)\MINFO" perl util\mkfiles.pl &gt;MINFO
@@ -143,7 +143,7 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Co
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeBuildCommandLine>SET INCLUDE=%INCLUDE%;$(SolutionDir)packages\zlib\build\native\include
 SET LIB=%LIB%;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)
-call "$(VCInstallDir)vcvarsall.bat" x64
+call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
 cd $(ProjectDir)$(ProjectName) 
 if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure VC-WIN64A no-asm zlib --prefix=$(SolutionDir)packages\$(ProjectName)\build\native -wd4996
 if not exist "$(ProjectDir)$(ProjectName)\MINFO" perl util\mkfiles.pl &gt;MINFO

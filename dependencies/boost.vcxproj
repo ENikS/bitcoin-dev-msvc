@@ -64,14 +64,45 @@
     <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeReBuildCommandLine>
     </NMakeReBuildCommandLine>
-    <NMakeBuildCommandLine>if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\build.bat" echo "Please fetch submodules and try again" &amp; exit
+    <NMakeBuildCommandLine>REM ** Check if need rebuild **
+
+if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\build.bat" echo "Please fetch submodules and try again" &amp; exit
+if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) else (echo skipping tools rebuild...)
+if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" echo "Skipping library rebuild..." &amp; exit
+
+REM ** Settings **
+
+SET _LIBRARIES= --with-chrono --with-date_time --with-filesystem --with-program_options --with-regex --with-system --with-thread --with-test
+SET _PARAMS= runtime-link=static threading=multi link=static
+SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
+SET _DIRECTORIES= --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native
+
+setlocal enabledelayedexpansion
+
+SET _VARIANT=$(Configuration)
 SET ZLIB_SOURCE=$(ProjectDir)zlib
 SET VS_UNICODE_OUTPUT=""
-if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) else (echo skipping tools rebuild...)
+
+REM ** Lowercase _VARIANT **
+@echo off
+set "_UCASE=DR"
+set "_LCASE=dr"
+for /l %%a in (0,1,1) do (
+   call set "_FROM=%%_UCASE:~%%a,1%%
+   call set "_TO=%%_LCASE:~%%a,1%%
+   call set "_VARIANT=%%_VARIANT:!_FROM!=!_TO!%%
+)
+@echo on
+
+REM ** Build **
+
 cd $(ProjectDir)$(MSBuildProjectName)
-if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" echo "echo skipping library rebuild..." &amp; exit
 if not exist "$(ProjectDir)$(MSBuildProjectName)\boost" $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe toolset=msvc headers
-$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe toolset=msvc runtime-link=static threading=multi link=static variant=debug address-model=$(PlatformArchitecture) --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native cxxflags="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
+$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe toolset=msvc %_PARAMS% variant=%_VARIANT% address-model=$(PlatformArchitecture) %_LIBRARIES% %_DIRECTORIES% cxxflags=%_FLAGS%
+if not exist "$(SolutionDir)packages\boost\build\native\lib" exit
+
+REM ** Install **
+
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(MSBuildProjectName)\boost)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
@@ -90,14 +121,45 @@ if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(Projec
     <NMakeOutput>
     </NMakeOutput>
     <NMakePreprocessorDefinitions>WIN64;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <NMakeBuildCommandLine>if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\build.bat" echo "Please fetch submodules and try again" &amp; exit
+    <NMakeBuildCommandLine>REM ** Check if need rebuild **
+
+if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\build.bat" echo "Please fetch submodules and try again" &amp; exit
+if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) else (echo skipping tools rebuild...)
+if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" echo "Skipping library rebuild..." &amp; exit
+
+REM ** Settings **
+
+SET _LIBRARIES= --with-chrono --with-date_time --with-filesystem --with-program_options --with-regex --with-system --with-thread --with-test
+SET _PARAMS= runtime-link=static threading=multi link=static
+SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
+SET _DIRECTORIES= --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native
+
+setlocal enabledelayedexpansion
+
+SET _VARIANT=$(Configuration)
 SET ZLIB_SOURCE=$(ProjectDir)zlib
 SET VS_UNICODE_OUTPUT=""
-if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) else (echo skipping tools rebuild...)
+
+REM ** Lowercase _VARIANT **
+@echo off
+set "_UCASE=DR"
+set "_LCASE=dr"
+for /l %%a in (0,1,1) do (
+   call set "_FROM=%%_UCASE:~%%a,1%%
+   call set "_TO=%%_LCASE:~%%a,1%%
+   call set "_VARIANT=%%_VARIANT:!_FROM!=!_TO!%%
+)
+@echo on
+
+REM ** Build **
+
 cd $(ProjectDir)$(MSBuildProjectName)
-if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" echo "echo skipping library rebuild..." &amp; exit
 if not exist "$(ProjectDir)$(MSBuildProjectName)\boost" $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe toolset=msvc headers
-$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe toolset=msvc runtime-link=static threading=multi link=static variant=debug address-model=$(PlatformArchitecture) --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native cxxflags="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
+$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe toolset=msvc %_PARAMS% variant=%_VARIANT% address-model=$(PlatformArchitecture) %_LIBRARIES% %_DIRECTORIES% cxxflags=%_FLAGS%
+if not exist "$(SolutionDir)packages\boost\build\native\lib" exit
+
+REM ** Install **
+
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(MSBuildProjectName)\boost)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
@@ -115,14 +177,45 @@ if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(Projec
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeReBuildCommandLine>
     </NMakeReBuildCommandLine>
-    <NMakeBuildCommandLine>if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\build.bat" echo "Please fetch submodules and try again" &amp; exit
+    <NMakeBuildCommandLine>REM ** Check if need rebuild **
+
+if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\build.bat" echo "Please fetch submodules and try again" &amp; exit
+if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) else (echo skipping tools rebuild...)
+if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" echo "Skipping library rebuild..." &amp; exit
+
+REM ** Settings **
+
+SET _LIBRARIES= --with-chrono --with-date_time --with-filesystem --with-program_options --with-regex --with-system --with-thread --with-test
+SET _PARAMS= runtime-link=static threading=multi link=static
+SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
+SET _DIRECTORIES= --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native
+
+setlocal enabledelayedexpansion
+
+SET _VARIANT=$(Configuration)
 SET ZLIB_SOURCE=$(ProjectDir)zlib
 SET VS_UNICODE_OUTPUT=""
-if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) else (echo skipping tools rebuild...)
+
+REM ** Lowercase _VARIANT **
+@echo off
+set "_UCASE=DR"
+set "_LCASE=dr"
+for /l %%a in (0,1,1) do (
+   call set "_FROM=%%_UCASE:~%%a,1%%
+   call set "_TO=%%_LCASE:~%%a,1%%
+   call set "_VARIANT=%%_VARIANT:!_FROM!=!_TO!%%
+)
+@echo on
+
+REM ** Build **
+
 cd $(ProjectDir)$(MSBuildProjectName)
-if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" echo "echo skipping library rebuild..." &amp; exit
 if not exist "$(ProjectDir)$(MSBuildProjectName)\boost" $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe toolset=msvc headers
-$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe toolset=msvc runtime-link=static threading=multi link=static variant=release address-model=$(PlatformArchitecture) --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native cxxflags="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
+$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe toolset=msvc %_PARAMS% variant=%_VARIANT% address-model=$(PlatformArchitecture) %_LIBRARIES% %_DIRECTORIES% cxxflags=%_FLAGS%
+if not exist "$(SolutionDir)packages\boost\build\native\lib" exit
+
+REM ** Install **
+
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(MSBuildProjectName)\boost)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
@@ -141,14 +234,45 @@ if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(Projec
     <NMakePreprocessorDefinitions>WIN64;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeReBuildCommandLine>
     </NMakeReBuildCommandLine>
-    <NMakeBuildCommandLine>if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\build.bat" echo "Please fetch submodules and try again" &amp; exit
+    <NMakeBuildCommandLine>REM ** Check if need rebuild **
+
+if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\build.bat" echo "Please fetch submodules and try again" &amp; exit
+if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) else (echo skipping tools rebuild...)
+if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" echo "Skipping library rebuild..." &amp; exit
+
+REM ** Settings **
+
+SET _LIBRARIES= --with-chrono --with-date_time --with-filesystem --with-program_options --with-regex --with-system --with-thread --with-test
+SET _PARAMS= runtime-link=static threading=multi link=static
+SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
+SET _DIRECTORIES= --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native
+
+setlocal enabledelayedexpansion
+
+SET _VARIANT=$(Configuration)
 SET ZLIB_SOURCE=$(ProjectDir)zlib
 SET VS_UNICODE_OUTPUT=""
-if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) else (echo skipping tools rebuild...)
+
+REM ** Lowercase _VARIANT **
+@echo off
+set "_UCASE=DR"
+set "_LCASE=dr"
+for /l %%a in (0,1,1) do (
+   call set "_FROM=%%_UCASE:~%%a,1%%
+   call set "_TO=%%_LCASE:~%%a,1%%
+   call set "_VARIANT=%%_VARIANT:!_FROM!=!_TO!%%
+)
+@echo on
+
+REM ** Build **
+
 cd $(ProjectDir)$(MSBuildProjectName)
-if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" echo "echo skipping library rebuild..." &amp; exit
 if not exist "$(ProjectDir)$(MSBuildProjectName)\boost" $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe toolset=msvc headers
-$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe toolset=msvc runtime-link=static threading=multi link=static variant=release address-model=$(PlatformArchitecture) --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native cxxflags="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
+$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe toolset=msvc %_PARAMS% variant=%_VARIANT% address-model=$(PlatformArchitecture) %_LIBRARIES% %_DIRECTORIES% cxxflags=%_FLAGS%
+if not exist "$(SolutionDir)packages\boost\build\native\lib" exit
+
+REM ** Install **
+
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(MSBuildProjectName)\boost)
 if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>

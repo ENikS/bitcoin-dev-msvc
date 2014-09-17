@@ -29,17 +29,17 @@
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
@@ -85,76 +85,167 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PreprocessorDefinitions>WIN32;_DEBUG;</PreprocessorDefinitions>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
       <AdditionalIncludeDirectories>$(ProjectDir)$(ProjectName)\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <Link>
-      <TargetMachine>MachineX86</TargetMachine>
+    <ClCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <ClCompile Condition="'$(ConfigurationType)'=='StaticLibrary'">
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Midl Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(OUTDIR)$(TargetName).tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <RedirectOutputAndErrors>NUL</RedirectOutputAndErrors>
+    </Midl>
+    <ResourceCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OUTDIR)$(TargetName).bsc</OutputFile>
+    </Bscmake>
+    <Link Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <ModuleDefinitionFile>$(ProjectDir)$(MSBuildProjectName)\win32\zlib.def</ModuleDefinitionFile>
     </Link>
+    <Lib Condition="'$(ConfigurationType)'=='StaticLibrary'">
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)$(ProjectName)\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PreprocessorDefinitions>_WIN64;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PreprocessorDefinitions>_WIN64;_DEBUG;</PreprocessorDefinitions>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
       <AdditionalIncludeDirectories>$(ProjectDir)$(ProjectName)\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <Link>
+    <ClCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <ClCompile Condition="'$(ConfigurationType)'=='StaticLibrary'">
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Midl Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(OUTDIR)$(TargetName).tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <RedirectOutputAndErrors>NUL</RedirectOutputAndErrors>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OUTDIR)$(TargetName).bsc</OutputFile>
+    </Bscmake>
+    <Link Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <ModuleDefinitionFile>$(ProjectDir)$(MSBuildProjectName)\win32\zlib.def</ModuleDefinitionFile>
     </Link>
+    <Lib Condition="'$(ConfigurationType)'=='StaticLibrary'">
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)$(ProjectName)\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>WIN32;NDEBUG;</PreprocessorDefinitions>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
       <AdditionalIncludeDirectories>$(ProjectDir)$(ProjectName)\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <Link>
-      <TargetMachine>MachineX86</TargetMachine>
+    <ClCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <ClCompile Condition="'$(ConfigurationType)'=='StaticLibrary'">
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Midl Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(OUTDIR)$(TargetName).tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <RedirectOutputAndErrors>NUL</RedirectOutputAndErrors>
+    </Midl>
+    <ResourceCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Link Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <ModuleDefinitionFile>$(ProjectDir)$(MSBuildProjectName)\win32\zlib.def</ModuleDefinitionFile>
     </Link>
+    <Lib Condition="'$(ConfigurationType)'=='StaticLibrary'">
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)$(ProjectName)\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PreprocessorDefinitions>_WIN64;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>_WIN64;NDEBUG;</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
       <AdditionalIncludeDirectories>$(ProjectDir)$(ProjectName)\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <Link>
+    <ClCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <ClCompile Condition="'$(ConfigurationType)'=='StaticLibrary'">
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Midl Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(OUTDIR)$(TargetName).tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <RedirectOutputAndErrors>NUL</RedirectOutputAndErrors>
+    </Midl>
+    <ResourceCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Link Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <ModuleDefinitionFile>$(ProjectDir)$(MSBuildProjectName)\win32\zlib.def</ModuleDefinitionFile>
     </Link>
+    <Lib Condition="'$(ConfigurationType)'=='StaticLibrary'">
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include $(ProjectDir)$(ProjectName)\</Command>
     </PostBuildEvent>

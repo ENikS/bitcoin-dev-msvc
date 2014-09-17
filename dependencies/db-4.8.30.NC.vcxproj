@@ -24,7 +24,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <PlatformToolset>v120</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
@@ -36,13 +36,13 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <PlatformToolset>v120</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <PlatformToolset>v120</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
@@ -63,45 +63,39 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup>
-    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</IntDir>
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <IncludePath>$(ProjectDir)$(MSBuildProjectName);$(ProjectDir)$(MSBuildProjectName)\build_windows;$(IncludePath)</IncludePath>
     <SourcePath>$(SourcePath)</SourcePath>
-    <TargetName>berkeleydbd</TargetName>
+    <TargetName>libdb48d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</IntDir>
     <IncludePath>$(ProjectDir)$(MSBuildProjectName);$(ProjectDir)$(MSBuildProjectName)\build_windows;$(IncludePath)</IncludePath>
     <SourcePath>$(SourcePath)</SourcePath>
-    <TargetName>berkeleydb</TargetName>
+    <TargetName>libdb48</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</IntDir>
     <SourcePath>$(SourcePath)</SourcePath>
-    <TargetName>berkeleydbd</TargetName>
+    <TargetName>libdb48d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</IntDir>
     <SourcePath>$(SourcePath)</SourcePath>
-    <TargetName>berkeleydb</TargetName>
+    <TargetName>libdb48</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <MinimalRebuild>true</MinimalRebuild>
       <AdditionalIncludeDirectories>$(ProjectDir)$(MSBuildProjectName)/build_windows/;$(ProjectDir)$(MSBuildProjectName)/;$(ProjectDir)$(MSBuildProjectName)/dbinc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG;_UNICODE;UNICODE;DIAGNOSTIC;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;_UNICODE;UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_DEBUG;DIAGNOSTIC</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PrecompiledHeader />
-      <PrecompiledHeaderOutputFile>$(IntDir)$(MSBuildProjectName).pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>$(IntDir)$(MSBuildProjectName)/</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)$(MSBuildProjectName)/</ObjectFileName>
       <WarningLevel>Level3</WarningLevel>
@@ -111,9 +105,41 @@
       <CompileAs>Default</CompileAs>
       <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
     </ClCompile>
-    <Lib>
-      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    <ClCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <ClCompile Condition="'$(ConfigurationType)'=='StaticLibrary'">
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Midl Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(OUTDIR)db_dll.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <RedirectOutputAndErrors>NUL</RedirectOutputAndErrors>
+    </Midl>
+    <ResourceCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OUTDIR)db_dll.bsc</OutputFile>
+    </Bscmake>
+    <Link Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <AdditionalLibraryDirectories>$(OUTDIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions> /FIXED:NO  /export:__db_assert</AdditionalOptions>
+      <BaseAddress>0x13000000</BaseAddress>
+      <AdditionalDependencies>ws2_32.lib;Advapi32.lib;</AdditionalDependencies>
+      <ModuleDefinitionFile>$(ProjectDir)$(MSBuildProjectName)\build_windows\libdb.def</ModuleDefinitionFile>
+    </Link>
+    <Lib Condition="'$(ConfigurationType)'=='StaticLibrary'">
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Lib>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)packages\berkeleydb\build\native\include" (mklink /j $(SolutionDir)packages\berkeleydb\build\native\include $(ProjectDir)$(MSBuildProjectName)\build_windows)</Command>
@@ -139,12 +165,9 @@ del $(ProjectDir)$(MSBuildProjectName).zip
       <MinimalRebuild>true</MinimalRebuild>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>$(ProjectDir)$(MSBuildProjectName)/build_windows/;$(ProjectDir)$(MSBuildProjectName)/;$(ProjectDir)$(MSBuildProjectName)/dbinc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;_UNICODE;UNICODE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;_UNICODE;UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;NDEBUG</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <PrecompiledHeader />
-      <PrecompiledHeaderOutputFile>$(IntDir)$(MSBuildProjectName).pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>$(IntDir)$(MSBuildProjectName)/</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)$(MSBuildProjectName)/</ObjectFileName>
       <WarningLevel>Level3</WarningLevel>
@@ -153,9 +176,41 @@ del $(ProjectDir)$(MSBuildProjectName).zip
       <CompileAs>Default</CompileAs>
       <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
     </ClCompile>
-    <Lib>
-      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    <ClCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <ClCompile Condition="'$(ConfigurationType)'=='StaticLibrary'">
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Midl Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(OUTDIR)db_dll.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <RedirectOutputAndErrors>NUL</RedirectOutputAndErrors>
+    </Midl>
+    <ResourceCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OUTDIR)db_dll.bsc</OutputFile>
+    </Bscmake>
+    <Link Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <AdditionalLibraryDirectories>$(OUTDIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions> /FIXED:NO  /export:__db_assert</AdditionalOptions>
+      <BaseAddress>0x13000000</BaseAddress>
+      <AdditionalDependencies>ws2_32.lib;Advapi32.lib;</AdditionalDependencies>
+      <ModuleDefinitionFile>$(ProjectDir)$(MSBuildProjectName)\build_windows\libdb.def</ModuleDefinitionFile>
+    </Link>
+    <Lib Condition="'$(ConfigurationType)'=='StaticLibrary'">
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Lib>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)packages\berkeleydb\build\native\include" (mklink /j $(SolutionDir)packages\berkeleydb\build\native\include $(ProjectDir)$(MSBuildProjectName)\build_windows)</Command>
@@ -180,11 +235,8 @@ del $(ProjectDir)$(MSBuildProjectName).zip
       <Optimization>Disabled</Optimization>
       <MinimalRebuild>true</MinimalRebuild>
       <AdditionalIncludeDirectories>$(ProjectDir)$(MSBuildProjectName)/build_windows/;$(ProjectDir)$(MSBuildProjectName)/;$(ProjectDir)$(MSBuildProjectName)/dbinc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG;_UNICODE;UNICODE;DIAGNOSTIC;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;_UNICODE;UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN64;_DEBUG;DIAGNOSTIC</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PrecompiledHeader />
-      <PrecompiledHeaderOutputFile>$(IntDir)$(MSBuildProjectName).pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>$(IntDir)$(MSBuildProjectName)/</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)$(MSBuildProjectName)/</ObjectFileName>
       <WarningLevel>Level3</WarningLevel>
@@ -194,7 +246,40 @@ del $(ProjectDir)$(MSBuildProjectName).zip
       <CompileAs>Default</CompileAs>
       <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
     </ClCompile>
-    <Lib>
+    <ClCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <ClCompile Condition="'$(ConfigurationType)'=='StaticLibrary'">
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Midl Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(OUTDIR)db_dll.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <RedirectOutputAndErrors>NUL</RedirectOutputAndErrors>
+    </Midl>
+    <ResourceCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OUTDIR)db_dll.bsc</OutputFile>
+    </Bscmake>
+    <Link Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX64</TargetMachine>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <AdditionalLibraryDirectories>$(OUTDIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions> /FIXED:NO  /export:__db_assert</AdditionalOptions>
+      <BaseAddress>0x13000000</BaseAddress>
+      <AdditionalDependencies>ws2_32.lib;Advapi32.lib;</AdditionalDependencies>
+      <ModuleDefinitionFile>$(ProjectDir)$(MSBuildProjectName)\build_windows\libdb.def</ModuleDefinitionFile>
+    </Link>
+    <Lib Condition="'$(ConfigurationType)'=='StaticLibrary'">
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Lib>
     <PostBuildEvent>
@@ -221,12 +306,9 @@ del $(ProjectDir)$(MSBuildProjectName).zip
       <MinimalRebuild>true</MinimalRebuild>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>$(ProjectDir)$(MSBuildProjectName)/build_windows/;$(ProjectDir)$(MSBuildProjectName)/;$(ProjectDir)$(MSBuildProjectName)/dbinc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;_UNICODE;UNICODE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;_UNICODE;UNICODE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN64;NDEBUG</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <PrecompiledHeader />
-      <PrecompiledHeaderOutputFile>$(IntDir)$(MSBuildProjectName).pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>$(IntDir)$(MSBuildProjectName)/</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)$(MSBuildProjectName)/</ObjectFileName>
       <WarningLevel>Level3</WarningLevel>
@@ -235,7 +317,40 @@ del $(ProjectDir)$(MSBuildProjectName).zip
       <CompileAs>Default</CompileAs>
       <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
     </ClCompile>
-    <Lib>
+    <ClCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <ClCompile Condition="'$(ConfigurationType)'=='StaticLibrary'">
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Midl Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>$(OUTDIR)db_dll.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <RedirectOutputAndErrors>NUL</RedirectOutputAndErrors>
+    </Midl>
+    <ResourceCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OUTDIR)db_dll.bsc</OutputFile>
+    </Bscmake>
+    <Link Condition="'$(ConfigurationType)'=='DynamicLibrary'">
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX64</TargetMachine>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <AdditionalLibraryDirectories>$(OUTDIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions> /FIXED:NO  /export:__db_assert</AdditionalOptions>
+      <BaseAddress>0x13000000</BaseAddress>
+      <AdditionalDependencies>ws2_32.lib;Advapi32.lib;</AdditionalDependencies>
+      <ModuleDefinitionFile>$(ProjectDir)$(MSBuildProjectName)\build_windows\libdb.def</ModuleDefinitionFile>
+    </Link>
+    <Lib Condition="'$(ConfigurationType)'=='StaticLibrary'">
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Lib>
     <PostBuildEvent>
@@ -491,9 +606,6 @@ del $(ProjectDir)$(MSBuildProjectName).zip
     <ClCompile Include="$(ProjectDir)$(MSBuildProjectName)\txn\txn_region.c" />
     <ClCompile Include="$(ProjectDir)$(MSBuildProjectName)\txn\txn_stat.c" />
     <ClCompile Include="$(ProjectDir)$(MSBuildProjectName)\txn\txn_util.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="$(ProjectDir)$(MSBuildProjectName)\build_windows\libdb.def" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ProjectDir)$(MSBuildProjectName)\build_windows\libdb.rc">

@@ -74,6 +74,8 @@ REM ** Settings **
 
 SET _LIBRARIES= --with-chrono --with-date_time --with-filesystem --with-program_options --with-regex --with-system --with-thread --with-test
 SET _PARAMS= runtime-link=static threading=multi link=static
+rem SET _PARAMS= runtime-link=shared threading=multi link=shared
+SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
 SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
 SET _DIRECTORIES= --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native
 
@@ -104,7 +106,7 @@ if not exist "$(SolutionDir)packages\boost\build\native\lib" exit
 REM ** Install **
 
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(MSBuildProjectName)\boost)
-if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
+if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.* $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
     <NMakeAssemblySearchPath>
     </NMakeAssemblySearchPath>
@@ -131,6 +133,8 @@ REM ** Settings **
 
 SET _LIBRARIES= --with-chrono --with-date_time --with-filesystem --with-program_options --with-regex --with-system --with-thread --with-test
 SET _PARAMS= runtime-link=static threading=multi link=static
+rem SET _PARAMS= runtime-link=shared threading=multi link=shared
+SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
 SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
 SET _DIRECTORIES= --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native
 
@@ -161,7 +165,7 @@ if not exist "$(SolutionDir)packages\boost\build\native\lib" exit
 REM ** Install **
 
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(MSBuildProjectName)\boost)
-if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
+if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.* $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>
     </NMakeReBuildCommandLine>
@@ -187,6 +191,8 @@ REM ** Settings **
 
 SET _LIBRARIES= --with-chrono --with-date_time --with-filesystem --with-program_options --with-regex --with-system --with-thread --with-test
 SET _PARAMS= runtime-link=static threading=multi link=static
+rem SET _PARAMS= runtime-link=shared threading=multi link=shared
+SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
 SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
 SET _DIRECTORIES= --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native
 
@@ -217,7 +223,7 @@ if not exist "$(SolutionDir)packages\boost\build\native\lib" exit
 REM ** Install **
 
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(MSBuildProjectName)\boost)
-if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
+if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.* $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
     <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
     <NMakeCleanCommandLine>if exist "$(SolutionDir)packages\boost\build\native\bin"  rd /s /q $(SolutionDir)packages\boost\build\native\bin
@@ -244,6 +250,8 @@ REM ** Settings **
 
 SET _LIBRARIES= --with-chrono --with-date_time --with-filesystem --with-program_options --with-regex --with-system --with-thread --with-test
 SET _PARAMS= runtime-link=static threading=multi link=static
+rem SET _PARAMS= runtime-link=shared threading=multi link=shared
+SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
 SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
 SET _DIRECTORIES= --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native
 
@@ -274,7 +282,7 @@ if not exist "$(SolutionDir)packages\boost\build\native\lib" exit
 REM ** Install **
 
 if not exist "$(SolutionDir)packages\boost\build\native\include" (mkdir $(SolutionDir)packages\boost\build\native\include &amp; mklink /j $(SolutionDir)packages\boost\build\native\include\boost $(ProjectDir)$(MSBuildProjectName)\boost)
-if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.lib $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
+if not exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" mkdir $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration) &amp; move $(SolutionDir)packages\boost\build\native\lib\*.* $(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\
 </NMakeBuildCommandLine>
     <NMakeCleanCommandLine>if exist "$(SolutionDir)packages\boost\build\native\bin"  rd /s /q $(SolutionDir)packages\boost\build\native\bin
 if exist "$(SolutionDir)packages\boost\build\native\lib" rd /s /q $(SolutionDir)packages\boost\build\native\lib

@@ -180,19 +180,44 @@
       <DisableSpecificWarnings>4018;4101;4146;4244;4800;4290;</DisableSpecificWarnings>
       <ForcedIncludeFiles>$(SolutionDir)packages\berkeleydb\build\native\include\db.h</ForcedIncludeFiles>
       <ShowIncludes>false</ShowIncludes>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;berkeleydbd.lib;leveldbd.lib;memenvd.lib;bitcoin_commond.lib;bitcoin_serverd.lib;bitcoin_walletd.lib;bitcoin_cryptod.lib;bitcoin_univalued.lib;bitcoin_utild.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;libdb48d.lib;leveldbd.lib;memenvd.lib;bitcoin_commond.lib;bitcoin_serverd.lib;bitcoin_walletd.lib;bitcoin_cryptod.lib;bitcoin_univalued.lib;bitcoin_utild.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\openssl\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4221</AdditionalOptions>
     </Lib>
+    <PreBuildEvent>
+      <Command>@setlocal enabledelayedexpansion
+@echo off
+
+set "_path=$(IntDir)data\"
+set "_data_path=$(ProjectDir)bitcoin\src\test\data\"
+
+if not exist "!_path!" mkdir "!_path!"
+
+for /f "tokens=*" %%f in ('dir /b "!_data_path!*.raw"') do if not exist "!_path!%%f.h" (
+  @echo Generating %%f.h
+  @echo namespace alert_tests { &gt;&gt; "!_path!%%f.h" &amp;  @echo     static unsigned const char %%~nf[] = { &gt;&gt; "!_path!%%f.h"
+  PowerShell -ExecutionPolicy Bypass -File "$(SolutionDir)workarounds\Get-HexDump.ps1" "!_data_path!%%f" &gt;&gt; "!_path!%%f.h"
+  @echo     }; &gt;&gt; "!_path!%%f.h" &amp; @echo }; &gt;&gt; "!_path!%%f.h"
+)
+
+for /f "tokens=*" %%j in ('dir /b "!_data_path!*.json"') do if not exist "!_path!%%j.h" (
+  @echo Generating %%j.h
+  @echo namespace json_tests { &gt;&gt; "!_path!%%j.h" &amp;  @echo     static unsigned const char %%~nj[] = {  &gt;&gt; "!_path!%%j.h"
+  PowerShell -ExecutionPolicy Bypass -File "$(SolutionDir)workarounds\Get-HexDump.ps1"  "!_data_path!%%j" &gt;&gt; "!_path!%%j.h"
+  @echo     }; &gt;&gt; "!_path!%%j.h" &amp; @echo }; &gt;&gt; "!_path!%%j.h"
+)
+
+</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -203,18 +228,43 @@
       <Optimization>Disabled</Optimization>
       <DisableSpecificWarnings>4018;4101;4146;4244;4800;4290;</DisableSpecificWarnings>
       <ForcedIncludeFiles>$(SolutionDir)packages\berkeleydb\build\native\include\db.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;berkeleydbd.lib;leveldbd.lib;memenvd.lib;bitcoin_commond.lib;bitcoin_serverd.lib;bitcoin_walletd.lib;bitcoin_cryptod.lib;bitcoin_univalued.lib;bitcoin_utild.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;libdb48d.lib;leveldbd.lib;memenvd.lib;bitcoin_commond.lib;bitcoin_serverd.lib;bitcoin_walletd.lib;bitcoin_cryptod.lib;bitcoin_univalued.lib;bitcoin_utild.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\openssl\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4221</AdditionalOptions>
     </Lib>
+    <PreBuildEvent>
+      <Command>@setlocal enabledelayedexpansion
+@echo off
+
+set "_path=$(IntDir)data\"
+set "_data_path=$(ProjectDir)bitcoin\src\test\data\"
+
+if not exist "!_path!" mkdir "!_path!"
+
+for /f "tokens=*" %%f in ('dir /b "!_data_path!*.raw"') do if not exist "!_path!%%f.h" (
+  @echo Generating %%f.h
+  @echo namespace alert_tests { &gt;&gt; "!_path!%%f.h" &amp;  @echo     static unsigned const char %%~nf[] = { &gt;&gt; "!_path!%%f.h"
+  PowerShell -ExecutionPolicy Bypass -File "$(SolutionDir)workarounds\Get-HexDump.ps1" "!_data_path!%%f" &gt;&gt; "!_path!%%f.h"
+  @echo     }; &gt;&gt; "!_path!%%f.h" &amp; @echo }; &gt;&gt; "!_path!%%f.h"
+)
+
+for /f "tokens=*" %%j in ('dir /b "!_data_path!*.json"') do if not exist "!_path!%%j.h" (
+  @echo Generating %%j.h
+  @echo namespace json_tests { &gt;&gt; "!_path!%%j.h" &amp;  @echo     static unsigned const char %%~nj[] = {  &gt;&gt; "!_path!%%j.h"
+  PowerShell -ExecutionPolicy Bypass -File "$(SolutionDir)workarounds\Get-HexDump.ps1"  "!_data_path!%%j" &gt;&gt; "!_path!%%j.h"
+  @echo     }; &gt;&gt; "!_path!%%j.h" &amp; @echo }; &gt;&gt; "!_path!%%j.h"
+)
+
+</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -224,7 +274,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4018;4101;4146;4244;4800;4290;</DisableSpecificWarnings>
       <ForcedIncludeFiles>$(SolutionDir)packages\berkeleydb\build\native\include\db.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
@@ -233,12 +283,37 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;leveldb.lib;memenv.lib;berkeleydb.lib;bitcoin_common.lib;bitcoin_server.lib;bitcoin_wallet.lib;bitcoin_crypto.lib;bitcoin_univalue.lib;bitcoin_util.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;leveldb.lib;memenv.lib;libdb48.lib;bitcoin_common.lib;bitcoin_server.lib;bitcoin_wallet.lib;bitcoin_crypto.lib;bitcoin_univalue.lib;bitcoin_util.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\openssl\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4221</AdditionalOptions>
     </Lib>
+    <PreBuildEvent>
+      <Command>@setlocal enabledelayedexpansion
+@echo off
+
+set "_path=$(IntDir)data\"
+set "_data_path=$(ProjectDir)bitcoin\src\test\data\"
+
+if not exist "!_path!" mkdir "!_path!"
+
+for /f "tokens=*" %%f in ('dir /b "!_data_path!*.raw"') do if not exist "!_path!%%f.h" (
+  @echo Generating %%f.h
+  @echo namespace alert_tests { &gt;&gt; "!_path!%%f.h" &amp;  @echo     static unsigned const char %%~nf[] = { &gt;&gt; "!_path!%%f.h"
+  PowerShell -ExecutionPolicy Bypass -File "$(SolutionDir)workarounds\Get-HexDump.ps1" "!_data_path!%%f" &gt;&gt; "!_path!%%f.h"
+  @echo     }; &gt;&gt; "!_path!%%f.h" &amp; @echo }; &gt;&gt; "!_path!%%f.h"
+)
+
+for /f "tokens=*" %%j in ('dir /b "!_data_path!*.json"') do if not exist "!_path!%%j.h" (
+  @echo Generating %%j.h
+  @echo namespace json_tests { &gt;&gt; "!_path!%%j.h" &amp;  @echo     static unsigned const char %%~nj[] = {  &gt;&gt; "!_path!%%j.h"
+  PowerShell -ExecutionPolicy Bypass -File "$(SolutionDir)workarounds\Get-HexDump.ps1"  "!_data_path!%%j" &gt;&gt; "!_path!%%j.h"
+  @echo     }; &gt;&gt; "!_path!%%j.h" &amp; @echo }; &gt;&gt; "!_path!%%j.h"
+)
+
+</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -248,7 +323,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4018;4101;4146;4244;4800;4290;</DisableSpecificWarnings>
       <ForcedIncludeFiles>$(SolutionDir)packages\berkeleydb\build\native\include\db.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -256,12 +331,37 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;leveldb.lib;memenv.lib;berkeleydb.lib;bitcoin_common.lib;bitcoin_server.lib;bitcoin_wallet.lib;bitcoin_crypto.lib;bitcoin_univalue.lib;bitcoin_util.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;leveldb.lib;memenv.lib;libdb48.lib;bitcoin_common.lib;bitcoin_server.lib;bitcoin_wallet.lib;bitcoin_crypto.lib;bitcoin_univalue.lib;bitcoin_util.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\openssl\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4221</AdditionalOptions>
     </Lib>
+    <PreBuildEvent>
+      <Command>@setlocal enabledelayedexpansion
+@echo off
+
+set "_path=$(IntDir)data\"
+set "_data_path=$(ProjectDir)bitcoin\src\test\data\"
+
+if not exist "!_path!" mkdir "!_path!"
+
+for /f "tokens=*" %%f in ('dir /b "!_data_path!*.raw"') do if not exist "!_path!%%f.h" (
+  @echo Generating %%f.h
+  @echo namespace alert_tests { &gt;&gt; "!_path!%%f.h" &amp;  @echo     static unsigned const char %%~nf[] = { &gt;&gt; "!_path!%%f.h"
+  PowerShell -ExecutionPolicy Bypass -File "$(SolutionDir)workarounds\Get-HexDump.ps1" "!_data_path!%%f" &gt;&gt; "!_path!%%f.h"
+  @echo     }; &gt;&gt; "!_path!%%f.h" &amp; @echo }; &gt;&gt; "!_path!%%f.h"
+)
+
+for /f "tokens=*" %%j in ('dir /b "!_data_path!*.json"') do if not exist "!_path!%%j.h" (
+  @echo Generating %%j.h
+  @echo namespace json_tests { &gt;&gt; "!_path!%%j.h" &amp;  @echo     static unsigned const char %%~nj[] = {  &gt;&gt; "!_path!%%j.h"
+  PowerShell -ExecutionPolicy Bypass -File "$(SolutionDir)workarounds\Get-HexDump.ps1"  "!_data_path!%%j" &gt;&gt; "!_path!%%j.h"
+  @echo     }; &gt;&gt; "!_path!%%j.h" &amp; @echo }; &gt;&gt; "!_path!%%j.h"
+)
+
+</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -7,15 +7,6 @@
     <ClCompile Include="bitcoin\src\test\test_bitcoin.cpp">
       <Filter>Infrastructure</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\json\json_spirit_reader.cpp">
-      <Filter>Infrastructure\json</Filter>
-    </ClCompile>
-    <ClCompile Include="bitcoin\src\json\json_spirit_value.cpp">
-      <Filter>Infrastructure\json</Filter>
-    </ClCompile>
-    <ClCompile Include="bitcoin\src\test\alert_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
     <ClCompile Include="bitcoin\src\test\allocator_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
@@ -43,19 +34,10 @@
     <ClCompile Include="bitcoin\src\test\getarg_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\test\hash_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
     <ClCompile Include="bitcoin\src\test\key_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\test\main_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
     <ClCompile Include="bitcoin\src\test\miner_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
-    <ClCompile Include="bitcoin\src\test\mruset_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
     <ClCompile Include="bitcoin\src\test\multisig_tests.cpp">
@@ -64,23 +46,14 @@
     <ClCompile Include="bitcoin\src\test\netbase_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\test\pmt_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
     <ClCompile Include="bitcoin\src\test\rpc_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
-    <ClCompile Include="bitcoin\src\test\accounting_tests.cpp">
-      <Filter>Wallet Tests</Filter>
     </ClCompile>
     <ClCompile Include="bitcoin\src\test\wallet_tests.cpp">
       <Filter>Wallet Tests</Filter>
     </ClCompile>
     <ClCompile Include="bitcoin\src\test\rpc_wallet_tests.cpp">
       <Filter>Wallet Tests</Filter>
-    </ClCompile>
-    <ClCompile Include="bitcoin\src\test\scriptnum_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
     </ClCompile>
     <ClCompile Include="bitcoin\src\test\serialize_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
@@ -103,6 +76,18 @@
     <ClCompile Include="bitcoin\src\test\util_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
+    <ClCompile Include="bitcoin\src\test\canonical_tests.cpp">
+      <Filter>Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\scriptnum_tests.cpp">
+      <Filter>Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\sighash_tests.cpp">
+      <Filter>Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="workarounds\RawToArray.cpp">
+      <Filter>Infrastructure</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bitcoin Tests">
@@ -114,11 +99,46 @@
     <Filter Include="Infrastructure">
       <UniqueIdentifier>{b91d630b-8097-463e-939e-cfe17aaf6ee7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Infrastructure\json">
-      <UniqueIdentifier>{a8648700-c035-4f7a-b063-ce877e4f110a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Infrastructure\libbitcoin-cli">
       <UniqueIdentifier>{a0ecae05-54ae-489f-a72f-6ce56e0cfb8f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Test Data">
+      <UniqueIdentifier>{58d102b1-1f2f-40da-85b2-147b17689ddb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bitcoin\src\test\data\base58_encode_decode.json">
+      <Filter>Test Data</Filter>
+    </None>
+    <None Include="bitcoin\src\test\data\base58_keys_invalid.json">
+      <Filter>Test Data</Filter>
+    </None>
+    <None Include="bitcoin\src\test\data\base58_keys_valid.json">
+      <Filter>Test Data</Filter>
+    </None>
+    <None Include="bitcoin\src\test\data\script_invalid.json">
+      <Filter>Test Data</Filter>
+    </None>
+    <None Include="bitcoin\src\test\data\script_valid.json">
+      <Filter>Test Data</Filter>
+    </None>
+    <None Include="bitcoin\src\test\data\sig_canonical.json">
+      <Filter>Test Data</Filter>
+    </None>
+    <None Include="bitcoin\src\test\data\sig_noncanonical.json">
+      <Filter>Test Data</Filter>
+    </None>
+    <None Include="bitcoin\src\test\data\sighash.json">
+      <Filter>Test Data</Filter>
+    </None>
+    <None Include="bitcoin\src\test\data\tx_invalid.json">
+      <Filter>Test Data</Filter>
+    </None>
+    <None Include="bitcoin\src\test\data\tx_valid.json">
+      <Filter>Test Data</Filter>
+    </None>
+    <None Include="bitcoin\src\test\data\alertTests.raw">
+      <Filter>Test Data</Filter>
+    </None>
   </ItemGroup>
 </Project>

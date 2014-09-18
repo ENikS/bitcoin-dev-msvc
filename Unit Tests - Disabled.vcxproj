@@ -19,11 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bitcoin\src\test\accounting_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\alert_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\base58_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\canonical_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\hash_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\main_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\mruset_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\pmt_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\script_P2SH_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\script_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\sighash_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\transaction_tests.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

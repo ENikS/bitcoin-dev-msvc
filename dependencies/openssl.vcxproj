@@ -71,32 +71,174 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\bin
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\include
 rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)
 </NMakeCleanCommandLine>
-    <NMakeBuildCommandLine>SET INCLUDE=%INCLUDE%;$(SolutionDir)packages\zlib\build\native\include
+    <NMakeBuildCommandLine>@echo off
+
+REM ** Check if need rebuild **
+
+if exist "$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\" exit
+
+
+REM ** Settings **
+
+SET INCLUDE=%INCLUDE%;$(SolutionDir)packages\zlib\build\native\include
 SET LIB=%LIB%;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)
-call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
+SET _PREFIX=$(SolutionDir)packages\$(ProjectName)\build\native
+SET _WARNINGS=-wd4996
+SET _CONFIG_OPTIONS=
+SET "_TYPE=static"
+
+
+REM ** Detect Features **
+
+@echo off
+@setlocal enableextensions enabledelayedexpansion
+set _configuration="$(Configuration)"
+set _path="%PATH%"
+IF 32==$(PlatformArchitecture) ( SET _ARCHITECTURE=VC-WIN32) else ( SET _ARCHITECTURE=VC-WIN64A)
+if not x%_configuration:Debug=%==x%_configuration% (SET _DEBUG=debug-)
+if %_TYPE%==static (SET _SHARED=zlib) else (SET _SHARED=shared zlib-dynamic &amp; SET _DLL=dll)
+if not x%_path:nasm=%==x%_path% (SET _NASM=asm ) else  ( SET _NASM=no-asm )
+
+REM ** Configure **
+
 cd $(ProjectDir)$(ProjectName) 
-if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure debug-VC-WIN32 no-asm zlib --prefix=$(SolutionDir)packages\$(ProjectName)\build\native -wd4996
-if not exist "$(ProjectDir)$(ProjectName)\MINFO" perl util\mkfiles.pl &gt;MINFO
-if not exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak" perl util\mk1mf.pl no-asm VC-WIN32 &gt;$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
+perl Configure %_CONFIG_OPTIONS% %_DEBUG%%_ARCHITECTURE% %_SHARED% %_NASM% --prefix=%_PREFIX% %_WARNINGS%
+perl util\mkfiles.pl &gt; MINFO
+if not %_TYPE%==static (
+  perl util\mkdef.pl 32 libeay &gt; ms\libeay32.def
+  perl util\mkdef.pl 32 ssleay &gt; ms\ssleay32.def
+)
+perl util\mk1mf.pl %_DLL% %_NASM% %_ARCHITECTURE%  &gt; $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+
+
+REM ** Build **
+
 nmake -f $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
-if not exist "$(SolutionDir)packages\openssl\build\native\include" xcopy /E $(ProjectDir)$(ProjectName)\inc32\* $(SolutionDir)packages\openssl\build\native\include\*
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\ &amp; copy $(ProjectDir)$(ProjectName)\out32.dbg\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\* &amp; copy $(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+
+
+REM ** Install **
+
+nmake -f $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak install
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\lib\engines $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\bin\*.dll $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\bin\*.exe $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+
+if not x%_configuration:Debug=%==x%_configuration% (
+  if exist "$(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+  if exist "$(ProjectDir)$(ProjectName)\tmp32dll.dbg\lib.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+  if exist "$(ProjectDir)$(ProjectName)\tmp32.dbg\app.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\app.pdb $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+  if exist "$(ProjectDir)$(ProjectName)\tmp32dll.dbg\app.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\app.pdb $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+)
+
+
+REM ** Cleanup **
+
+if exist "$(ProjectDir)$(ProjectName)\MINFO" del $(ProjectDir)$(ProjectName)\MINFO
+if exist "$(ProjectDir)$(ProjectName)\Makefile" del $(ProjectDir)$(ProjectName)\Makefile
+if exist "$(ProjectDir)$(ProjectName)\crypto\buildinf.h" del $(ProjectDir)$(ProjectName)\crypto\buildinf.h
+if exist "$(ProjectDir)$(ProjectName)\crypto\opensslconf.h" del $(ProjectDir)$(ProjectName)\crypto\opensslconf.h
+if exist "$(ProjectDir)$(ProjectName)\ms\libeay32.def" del $(ProjectDir)$(ProjectName)\ms\libeay32.def
+if exist "$(ProjectDir)$(ProjectName)\ms\ssleay32.def" del $(ProjectDir)$(ProjectName)\ms\ssleay32.def
+if exist "$(ProjectDir)$(ProjectName)\ms\version32.rc" del $(ProjectDir)$(ProjectName)\ms\version32.rc
+if exist "$(ProjectDir)$(ProjectName)\inc32" rd /s /q $(ProjectDir)$(ProjectName)\inc32
+if exist "$(ProjectDir)$(ProjectName)\out32dll.dbg" rd /s /q $(ProjectDir)$(ProjectName)\out32dll.dbg
+if exist "$(ProjectDir)$(ProjectName)\tmp32dll.dbg" rd /s /q $(ProjectDir)$(ProjectName)\tmp32dll.dbg
+if exist "$(ProjectDir)$(ProjectName)\out32.dbg" rd /s /q $(ProjectDir)$(ProjectName)\out32.dbg
+if exist "$(ProjectDir)$(ProjectName)\tmp32.dbg" rd /s /q $(ProjectDir)$(ProjectName)\tmp32.dbg
+if exist "$(ProjectDir)$(ProjectName)\out32" rd /s /q $(ProjectDir)$(ProjectName)\out32
+if exist "$(ProjectDir)$(ProjectName)\tmp32" rd /s /q $(ProjectDir)$(ProjectName)\tmp32
 </NMakeBuildCommandLine>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <NMakeBuildCommandLine>SET INCLUDE=%INCLUDE%;$(SolutionDir)packages\zlib\build\native\include
+    <NMakeBuildCommandLine>@echo off
+
+REM ** Check if need rebuild **
+
+if exist "$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\" exit
+
+
+REM ** Settings **
+
+SET INCLUDE=%INCLUDE%;$(SolutionDir)packages\zlib\build\native\include
 SET LIB=%LIB%;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)
-call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
+SET _PREFIX=$(SolutionDir)packages\$(ProjectName)\build\native
+SET _WARNINGS=-wd4996
+SET _CONFIG_OPTIONS=
+SET "_TYPE=static"
+
+
+REM ** Detect Features **
+
+@echo off
+@setlocal enableextensions enabledelayedexpansion
+set _configuration="$(Configuration)"
+set _path="%PATH%"
+IF 32==$(PlatformArchitecture) ( SET _ARCHITECTURE=VC-WIN32) else ( SET _ARCHITECTURE=VC-WIN64A)
+if not x%_configuration:Debug=%==x%_configuration% (SET _DEBUG=debug-)
+if %_TYPE%==static (SET _SHARED=zlib) else (SET _SHARED=shared zlib-dynamic &amp; SET _DLL=dll)
+if not x%_path:nasm=%==x%_path% (SET _NASM=asm ) else  ( SET _NASM=no-asm )
+
+REM ** Configure **
+
 cd $(ProjectDir)$(ProjectName) 
-if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure debug-VC-WIN64A no-asm zlib --prefix=$(SolutionDir)packages\$(ProjectName)\build\native -wd4996
-if not exist "$(ProjectDir)$(ProjectName)\MINFO" perl util\mkfiles.pl &gt;MINFO
-if not exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak" perl util\mk1mf.pl no-asm VC-WIN64A  &gt;$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
+perl Configure %_CONFIG_OPTIONS% %_DEBUG%%_ARCHITECTURE% %_SHARED% %_NASM% --prefix=%_PREFIX% %_WARNINGS%
+perl util\mkfiles.pl &gt; MINFO
+if not %_TYPE%==static (
+  perl util\mkdef.pl 32 libeay &gt; ms\libeay32.def
+  perl util\mkdef.pl 32 ssleay &gt; ms\ssleay32.def
+)
+perl util\mk1mf.pl %_DLL% %_NASM% %_ARCHITECTURE%  &gt; $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+
+
+REM ** Build **
+
 nmake -f $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
-if not exist "$(SolutionDir)packages\openssl\build\native\include" xcopy /E $(ProjectDir)$(ProjectName)\inc32\* $(SolutionDir)packages\openssl\build\native\include\*
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\ &amp; copy $(ProjectDir)$(ProjectName)\out32.dbg\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\* &amp; copy $(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+
+
+REM ** Install **
+
+nmake -f $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak install
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\lib\engines $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\bin\*.dll $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\bin\*.exe $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+
+if not x%_configuration:Debug=%==x%_configuration% (
+  if exist "$(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+  if exist "$(ProjectDir)$(ProjectName)\tmp32dll.dbg\lib.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+  if exist "$(ProjectDir)$(ProjectName)\tmp32.dbg\app.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\app.pdb $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+  if exist "$(ProjectDir)$(ProjectName)\tmp32dll.dbg\app.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\app.pdb $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+)
+
+
+REM ** Cleanup **
+
+if exist "$(ProjectDir)$(ProjectName)\MINFO" del $(ProjectDir)$(ProjectName)\MINFO
+if exist "$(ProjectDir)$(ProjectName)\Makefile" del $(ProjectDir)$(ProjectName)\Makefile
+if exist "$(ProjectDir)$(ProjectName)\crypto\buildinf.h" del $(ProjectDir)$(ProjectName)\crypto\buildinf.h
+if exist "$(ProjectDir)$(ProjectName)\crypto\opensslconf.h" del $(ProjectDir)$(ProjectName)\crypto\opensslconf.h
+if exist "$(ProjectDir)$(ProjectName)\ms\libeay32.def" del $(ProjectDir)$(ProjectName)\ms\libeay32.def
+if exist "$(ProjectDir)$(ProjectName)\ms\ssleay32.def" del $(ProjectDir)$(ProjectName)\ms\ssleay32.def
+if exist "$(ProjectDir)$(ProjectName)\ms\version32.rc" del $(ProjectDir)$(ProjectName)\ms\version32.rc
+if exist "$(ProjectDir)$(ProjectName)\inc32" rd /s /q $(ProjectDir)$(ProjectName)\inc32
+if exist "$(ProjectDir)$(ProjectName)\out32dll.dbg" rd /s /q $(ProjectDir)$(ProjectName)\out32dll.dbg
+if exist "$(ProjectDir)$(ProjectName)\tmp32dll.dbg" rd /s /q $(ProjectDir)$(ProjectName)\tmp32dll.dbg
+if exist "$(ProjectDir)$(ProjectName)\out32.dbg" rd /s /q $(ProjectDir)$(ProjectName)\out32.dbg
+if exist "$(ProjectDir)$(ProjectName)\tmp32.dbg" rd /s /q $(ProjectDir)$(ProjectName)\tmp32.dbg
+if exist "$(ProjectDir)$(ProjectName)\out32" rd /s /q $(ProjectDir)$(ProjectName)\out32
+if exist "$(ProjectDir)$(ProjectName)\tmp32" rd /s /q $(ProjectDir)$(ProjectName)\tmp32
 </NMakeBuildCommandLine>
     <NMakeCleanCommandLine>del /q $(ProjectDir)$(ProjectName)\Makefile
 del /q $(ProjectDir)$(ProjectName)\MINFO
@@ -113,16 +255,87 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Co
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <NMakeBuildCommandLine>SET INCLUDE=%INCLUDE%;$(SolutionDir)packages\zlib\build\native\include
+    <NMakeBuildCommandLine>@echo off
+
+REM ** Check if need rebuild **
+
+if exist "$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\" exit
+
+
+REM ** Settings **
+
+SET INCLUDE=%INCLUDE%;$(SolutionDir)packages\zlib\build\native\include
 SET LIB=%LIB%;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)
-call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
+SET _PREFIX=$(SolutionDir)packages\$(ProjectName)\build\native
+SET _WARNINGS=-wd4996
+SET _CONFIG_OPTIONS=
+SET "_TYPE=static"
+
+
+REM ** Detect Features **
+
+@echo off
+@setlocal enableextensions enabledelayedexpansion
+set _configuration="$(Configuration)"
+set _path="%PATH%"
+IF 32==$(PlatformArchitecture) ( SET _ARCHITECTURE=VC-WIN32) else ( SET _ARCHITECTURE=VC-WIN64A)
+if not x%_configuration:Debug=%==x%_configuration% (SET _DEBUG=debug-)
+if %_TYPE%==static (SET _SHARED=zlib) else (SET _SHARED=shared zlib-dynamic &amp; SET _DLL=dll)
+if not x%_path:nasm=%==x%_path% (SET _NASM=asm ) else  ( SET _NASM=no-asm )
+
+REM ** Configure **
+
 cd $(ProjectDir)$(ProjectName) 
-if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure VC-WIN32 no-asm zlib --prefix=$(SolutionDir)packages\$(ProjectName)\build\native -wd4996
-if not exist "$(ProjectDir)$(ProjectName)\MINFO" perl util\mkfiles.pl &gt;MINFO
-if not exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak" perl util\mk1mf.pl no-asm VC-WIN32 &gt;$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
+perl Configure %_CONFIG_OPTIONS% %_DEBUG%%_ARCHITECTURE% %_SHARED% %_NASM% --prefix=%_PREFIX% %_WARNINGS%
+perl util\mkfiles.pl &gt; MINFO
+if not %_TYPE%==static (
+  perl util\mkdef.pl 32 libeay &gt; ms\libeay32.def
+  perl util\mkdef.pl 32 ssleay &gt; ms\ssleay32.def
+)
+perl util\mk1mf.pl %_DLL% %_NASM% %_ARCHITECTURE%  &gt; $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+
+
+REM ** Build **
+
 nmake -f $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
-if not exist "$(SolutionDir)packages\openssl\build\native\include" xcopy /E $(ProjectDir)$(ProjectName)\inc32\* $(SolutionDir)packages\openssl\build\native\include\*
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\ &amp; copy $(ProjectDir)$(ProjectName)\out32.dbg\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\* &amp; copy $(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+
+
+REM ** Install **
+
+nmake -f $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak install
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\lib\engines $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\bin\*.dll $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\bin\*.exe $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+
+if not x%_configuration:Debug=%==x%_configuration% (
+  if exist "$(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+  if exist "$(ProjectDir)$(ProjectName)\tmp32dll.dbg\lib.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+  if exist "$(ProjectDir)$(ProjectName)\tmp32.dbg\app.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\app.pdb $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+  if exist "$(ProjectDir)$(ProjectName)\tmp32dll.dbg\app.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\app.pdb $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+)
+
+
+REM ** Cleanup **
+
+if exist "$(ProjectDir)$(ProjectName)\MINFO" del $(ProjectDir)$(ProjectName)\MINFO
+if exist "$(ProjectDir)$(ProjectName)\Makefile" del $(ProjectDir)$(ProjectName)\Makefile
+if exist "$(ProjectDir)$(ProjectName)\crypto\buildinf.h" del $(ProjectDir)$(ProjectName)\crypto\buildinf.h
+if exist "$(ProjectDir)$(ProjectName)\crypto\opensslconf.h" del $(ProjectDir)$(ProjectName)\crypto\opensslconf.h
+if exist "$(ProjectDir)$(ProjectName)\ms\libeay32.def" del $(ProjectDir)$(ProjectName)\ms\libeay32.def
+if exist "$(ProjectDir)$(ProjectName)\ms\ssleay32.def" del $(ProjectDir)$(ProjectName)\ms\ssleay32.def
+if exist "$(ProjectDir)$(ProjectName)\ms\version32.rc" del $(ProjectDir)$(ProjectName)\ms\version32.rc
+if exist "$(ProjectDir)$(ProjectName)\inc32" rd /s /q $(ProjectDir)$(ProjectName)\inc32
+if exist "$(ProjectDir)$(ProjectName)\out32dll.dbg" rd /s /q $(ProjectDir)$(ProjectName)\out32dll.dbg
+if exist "$(ProjectDir)$(ProjectName)\tmp32dll.dbg" rd /s /q $(ProjectDir)$(ProjectName)\tmp32dll.dbg
+if exist "$(ProjectDir)$(ProjectName)\out32.dbg" rd /s /q $(ProjectDir)$(ProjectName)\out32.dbg
+if exist "$(ProjectDir)$(ProjectName)\tmp32.dbg" rd /s /q $(ProjectDir)$(ProjectName)\tmp32.dbg
+if exist "$(ProjectDir)$(ProjectName)\out32" rd /s /q $(ProjectDir)$(ProjectName)\out32
+if exist "$(ProjectDir)$(ProjectName)\tmp32" rd /s /q $(ProjectDir)$(ProjectName)\tmp32
 </NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>
     </NMakeReBuildCommandLine>
@@ -138,19 +351,91 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Co
 </NMakeCleanCommandLine>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <NMakeOutput>$(SolutionDir)packages\openssl\build\native\lib\libeay32.lib</NMakeOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <NMakeBuildCommandLine>SET INCLUDE=%INCLUDE%;$(SolutionDir)packages\zlib\build\native\include
+    <NMakeBuildCommandLine>@echo off
+
+REM ** Check if need rebuild **
+
+if exist "$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\" exit
+
+
+REM ** Settings **
+
+SET INCLUDE=%INCLUDE%;$(SolutionDir)packages\zlib\build\native\include
 SET LIB=%LIB%;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)
-call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
+SET _PREFIX=$(SolutionDir)packages\$(ProjectName)\build\native
+SET _WARNINGS=-wd4996
+SET _CONFIG_OPTIONS=
+SET "_TYPE=static"
+
+
+REM ** Detect Features **
+
+@echo off
+@setlocal enableextensions enabledelayedexpansion
+set _configuration="$(Configuration)"
+set _path="%PATH%"
+IF 32==$(PlatformArchitecture) ( SET _ARCHITECTURE=VC-WIN32) else ( SET _ARCHITECTURE=VC-WIN64A)
+if not x%_configuration:Debug=%==x%_configuration% (SET _DEBUG=debug-)
+if %_TYPE%==static (SET _SHARED=zlib) else (SET _SHARED=shared zlib-dynamic &amp; SET _DLL=dll)
+if not x%_path:nasm=%==x%_path% (SET _NASM=asm ) else  ( SET _NASM=no-asm )
+
+REM ** Configure **
+
 cd $(ProjectDir)$(ProjectName) 
-if not exist "$(ProjectDir)$(ProjectName)\makefile" perl Configure VC-WIN64A no-asm zlib --prefix=$(SolutionDir)packages\$(ProjectName)\build\native -wd4996
-if not exist "$(ProjectDir)$(ProjectName)\MINFO" perl util\mkfiles.pl &gt;MINFO
-if not exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak" perl util\mk1mf.pl no-asm VC-WIN64A  &gt;$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
+perl Configure %_CONFIG_OPTIONS% %_DEBUG%%_ARCHITECTURE% %_SHARED% %_NASM% --prefix=%_PREFIX% %_WARNINGS%
+perl util\mkfiles.pl &gt; MINFO
+if not %_TYPE%==static (
+  perl util\mkdef.pl 32 libeay &gt; ms\libeay32.def
+  perl util\mkdef.pl 32 ssleay &gt; ms\ssleay32.def
+)
+perl util\mk1mf.pl %_DLL% %_NASM% %_ARCHITECTURE%  &gt; $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
+
+
+REM ** Build **
+
 nmake -f $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak
-if not exist "$(SolutionDir)packages\openssl\build\native\include" xcopy /E $(ProjectDir)$(ProjectName)\inc32\* $(SolutionDir)packages\openssl\build\native\include\*
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\ &amp; copy $(ProjectDir)$(ProjectName)\out32.dbg\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\* &amp; copy $(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+
+
+REM ** Install **
+
+nmake -f $(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\nt.mak install
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\lib\*.lib $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\lib\engines $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\bin\*.dll $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+move /Y $(SolutionDir)packages\$(ProjectName)\build\native\bin\*.exe $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+
+if not x%_configuration:Debug=%==x%_configuration% (
+  if exist "$(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+  if exist "$(ProjectDir)$(ProjectName)\tmp32dll.dbg\lib.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\lib.pdb $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Configuration)\
+  if exist "$(ProjectDir)$(ProjectName)\tmp32.dbg\app.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\app.pdb $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+  if exist "$(ProjectDir)$(ProjectName)\tmp32dll.dbg\app.pdb" move /Y $(ProjectDir)$(ProjectName)\tmp32.dbg\app.pdb $(SolutionDir)packages\$(ProjectName)\build\native\bin\$(Platform)\$(Configuration)\
+)
+
+
+REM ** Cleanup **
+
+if exist "$(ProjectDir)$(ProjectName)\MINFO" del $(ProjectDir)$(ProjectName)\MINFO
+if exist "$(ProjectDir)$(ProjectName)\Makefile" del $(ProjectDir)$(ProjectName)\Makefile
+if exist "$(ProjectDir)$(ProjectName)\crypto\buildinf.h" del $(ProjectDir)$(ProjectName)\crypto\buildinf.h
+if exist "$(ProjectDir)$(ProjectName)\crypto\opensslconf.h" del $(ProjectDir)$(ProjectName)\crypto\opensslconf.h
+if exist "$(ProjectDir)$(ProjectName)\ms\libeay32.def" del $(ProjectDir)$(ProjectName)\ms\libeay32.def
+if exist "$(ProjectDir)$(ProjectName)\ms\ssleay32.def" del $(ProjectDir)$(ProjectName)\ms\ssleay32.def
+if exist "$(ProjectDir)$(ProjectName)\ms\version32.rc" del $(ProjectDir)$(ProjectName)\ms\version32.rc
+if exist "$(ProjectDir)$(ProjectName)\inc32" rd /s /q $(ProjectDir)$(ProjectName)\inc32
+if exist "$(ProjectDir)$(ProjectName)\out32dll.dbg" rd /s /q $(ProjectDir)$(ProjectName)\out32dll.dbg
+if exist "$(ProjectDir)$(ProjectName)\tmp32dll.dbg" rd /s /q $(ProjectDir)$(ProjectName)\tmp32dll.dbg
+if exist "$(ProjectDir)$(ProjectName)\out32.dbg" rd /s /q $(ProjectDir)$(ProjectName)\out32.dbg
+if exist "$(ProjectDir)$(ProjectName)\tmp32.dbg" rd /s /q $(ProjectDir)$(ProjectName)\tmp32.dbg
+if exist "$(ProjectDir)$(ProjectName)\out32" rd /s /q $(ProjectDir)$(ProjectName)\out32
+if exist "$(ProjectDir)$(ProjectName)\tmp32" rd /s /q $(ProjectDir)$(ProjectName)\tmp32
 </NMakeBuildCommandLine>
     <NMakeCleanCommandLine>del /q $(ProjectDir)$(ProjectName)\Makefile
 del /q $(ProjectDir)$(ProjectName)\MINFO
@@ -164,6 +449,7 @@ rd /s /q $(SolutionDir)packages\$(ProjectName)\build\native\lib\$(Platform)\$(Co
 </NMakeCleanCommandLine>
     <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <NMakeOutput>$(SolutionDir)packages\openssl\build\native\lib\libeay32.lib</NMakeOutput>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>

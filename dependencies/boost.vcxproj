@@ -67,8 +67,8 @@
     <NMakeBuildCommandLine>REM ** Check if need rebuild **
 
 if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\build.bat" echo "Please fetch submodules and try again" &amp; exit
-if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) else (echo skipping tools rebuild...)
-if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" echo "Skipping library rebuild..." &amp; exit
+if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) 
+if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" exit
 
 REM ** Settings **
 
@@ -126,8 +126,8 @@ if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(Projec
     <NMakeBuildCommandLine>REM ** Check if need rebuild **
 
 if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\build.bat" echo "Please fetch submodules and try again" &amp; exit
-if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) else (echo skipping tools rebuild...)
-if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" echo "Skipping library rebuild..." &amp; exit
+if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) 
+if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" exit
 
 REM ** Settings **
 
@@ -184,8 +184,8 @@ if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(Projec
     <NMakeBuildCommandLine>REM ** Check if need rebuild **
 
 if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\build.bat" echo "Please fetch submodules and try again" &amp; exit
-if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) else (echo skipping tools rebuild...)
-if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" echo "Skipping library rebuild..." &amp; exit
+if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) 
+if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" exit
 
 REM ** Settings **
 
@@ -243,8 +243,8 @@ if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(Projec
     <NMakeBuildCommandLine>REM ** Check if need rebuild **
 
 if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\build.bat" echo "Please fetch submodules and try again" &amp; exit
-if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) else (echo skipping tools rebuild...)
-if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" echo "Skipping library rebuild..." &amp; exit
+if not exist "$(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine\bin.ntx86\b2.exe" (cd $(ProjectDir)$(MSBuildProjectName)\tools\build\src\engine &amp; call build.bat msvc) 
+if exist "$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)" exit
 
 REM ** Settings **
 

@@ -60,6 +60,7 @@ Building of all these project generates bunch of files and directories. I've org
 
 ## Ready to ... well, still workign on few bits and pieces. 
 
-- Need to deal with these unit tests which require generated data headers
-- etc.
+- Need to deal with these generated unit test data headers
+- There are quite a few vector boundry violations
+- And etc.
 

@@ -79,14 +79,35 @@
     <ClCompile Include="bitcoin\src\test\canonical_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
+    <ClCompile Include="bitcoin\src\test\script_tests.cpp">
+      <Filter>Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\alert_tests.cpp">
+      <Filter>Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\base58_tests.cpp">
+      <Filter>Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\hash_tests.cpp">
+      <Filter>Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\mruset_tests.cpp">
+      <Filter>Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\pmt_tests.cpp">
+      <Filter>Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\script_P2SH_tests.cpp">
+      <Filter>Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\transaction_tests.cpp">
+      <Filter>Bitcoin Tests</Filter>
+    </ClCompile>
     <ClCompile Include="bitcoin\src\test\scriptnum_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
     <ClCompile Include="bitcoin\src\test\sighash_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
-    <ClCompile Include="workarounds\RawToArray.cpp">
-      <Filter>Infrastructure</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,5 +161,10 @@
     <None Include="bitcoin\src\test\data\alertTests.raw">
       <Filter>Test Data</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bitcoin\src\test\bignum.h">
+      <Filter>Bitcoin Tests</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

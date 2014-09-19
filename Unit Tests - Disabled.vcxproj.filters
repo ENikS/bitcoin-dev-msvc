@@ -1,24 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="bitcoin\src\test\transaction_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\script_tests.cpp">
-      <Filter>Failing Build</Filter>
-    </ClCompile>
-    <ClCompile Include="bitcoin\src\test\script_P2SH_tests.cpp">
-      <Filter>Failing Build</Filter>
-    </ClCompile>
-    <ClCompile Include="bitcoin\src\test\base58_tests.cpp">
-      <Filter>Json Related</Filter>
-    </ClCompile>
     <ClCompile Include="bitcoin\src\test\accounting_tests.cpp">
       <Filter>Failing Runtime\Wallet Tests</Filter>
     </ClCompile>
+    <ClCompile Include="bitcoin\src\test\main_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\DoS_tests.cpp">
+      <Filter>Failing Build</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Json Related">
-      <UniqueIdentifier>{20fa568a-1cdf-4844-a369-bfe388b9df2f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Failing Build">
       <UniqueIdentifier>{209bab52-8b2b-44ef-a840-8c9c592dca04}</UniqueIdentifier>
     </Filter>

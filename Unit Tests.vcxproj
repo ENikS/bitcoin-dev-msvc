@@ -20,8 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bitcoin\src\rpcclient.cpp" />
+    <ClCompile Include="bitcoin\src\test\alert_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\allocator_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\base32_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\base58_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\base64_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\bloom_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\canonical_tests.cpp" />
@@ -30,24 +32,29 @@
     <ClCompile Include="bitcoin\src\test\compress_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\crypto_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\getarg_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\hash_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\key_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\miner_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\mruset_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\multisig_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\netbase_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\pmt_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\rpc_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\rpc_wallet_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\scriptnum_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\script_P2SH_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\script_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\serialize_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\sighash_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\sigopcount_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\skiplist_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\test_bitcoin.cpp" />
     <ClCompile Include="bitcoin\src\test\timedata_tests.cpp" />
+    <ClCompile Include="bitcoin\src\test\transaction_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\uint256_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\univalue_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\util_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\wallet_tests.cpp" />
-    <ClCompile Include="workarounds\RawToArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="bitcoin_common.vcxproj">
@@ -99,6 +106,9 @@
     <None Include="bitcoin\src\test\data\sig_noncanonical.json" />
     <None Include="bitcoin\src\test\data\tx_invalid.json" />
     <None Include="bitcoin\src\test\data\tx_valid.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bitcoin\src\test\bignum.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{16395CCB-3034-42EC-BE29-64661A3ECF0C}</ProjectGuid>

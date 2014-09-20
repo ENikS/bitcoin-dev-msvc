@@ -60,7 +60,8 @@ Building of all these project generates bunch of files and directories. I've org
 
 ## Ready to ... well, still workign on few bits and pieces. 
 
-- Need to deal with these generated unit test data headers
+- All tests except one (Dos_tests.cpp has been filed as issue) are building
+- Working on fishing out all the run time problems
 - There are quite a few vector boundry violations
 - And etc.
 

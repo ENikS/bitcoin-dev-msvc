@@ -78,8 +78,9 @@
     <TargetName>libdb48</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\</OutDir>
+    <IncludePath>$(ProjectDir)$(MSBuildProjectName);$(ProjectDir)$(MSBuildProjectName)\build_windows;$(IncludePath)</IncludePath>
     <SourcePath>$(SourcePath)</SourcePath>
     <TargetName>libdb48d</TargetName>
   </PropertyGroup>
@@ -121,7 +122,7 @@
     <ResourceCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
-    <Bscmake>
+    <Bscmake Condition="'$(ConfigurationType)'=='DynamicLibrary'">
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>$(OUTDIR)db_dll.bsc</OutputFile>
     </Bscmake>
@@ -140,6 +141,7 @@
     </Link>
     <Lib Condition="'$(ConfigurationType)'=='StaticLibrary'">
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <TargetMachine>MachineX86</TargetMachine>
     </Lib>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)packages\berkeleydb\build\native\include" (mklink /j $(SolutionDir)packages\berkeleydb\build\native\include $(ProjectDir)$(MSBuildProjectName)\build_windows)</Command>
@@ -211,6 +213,7 @@ del $(ProjectDir)$(MSBuildProjectName).zip
     </Link>
     <Lib Condition="'$(ConfigurationType)'=='StaticLibrary'">
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <TargetMachine>MachineX86</TargetMachine>
     </Lib>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)packages\berkeleydb\build\native\include" (mklink /j $(SolutionDir)packages\berkeleydb\build\native\include $(ProjectDir)$(MSBuildProjectName)\build_windows)</Command>
@@ -281,6 +284,7 @@ del $(ProjectDir)$(MSBuildProjectName).zip
     </Link>
     <Lib Condition="'$(ConfigurationType)'=='StaticLibrary'">
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <TargetMachine>MachineX64</TargetMachine>
     </Lib>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)packages\berkeleydb\build\native\include" (mklink /j $(SolutionDir)packages\berkeleydb\build\native\include $(ProjectDir)$(MSBuildProjectName)\build_windows)</Command>
@@ -352,6 +356,7 @@ del $(ProjectDir)$(MSBuildProjectName).zip
     </Link>
     <Lib Condition="'$(ConfigurationType)'=='StaticLibrary'">
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <TargetMachine>MachineX64</TargetMachine>
     </Lib>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)packages\berkeleydb\build\native\include" (mklink /j $(SolutionDir)packages\berkeleydb\build\native\include $(ProjectDir)$(MSBuildProjectName)\build_windows)</Command>

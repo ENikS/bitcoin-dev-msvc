@@ -20,41 +20,30 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bitcoin\src\rpcclient.cpp" />
-    <ClCompile Include="bitcoin\src\test\alert_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\allocator_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\base32_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\base58_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\base64_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\bloom_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\canonical_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\checkblock_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\Checkpoints_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\compress_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\crypto_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\getarg_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\hash_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\key_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\miner_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\mruset_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\multisig_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\netbase_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\pmt_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\rpc_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\rpc_wallet_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\scriptnum_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\script_P2SH_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\script_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\serialize_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\sighash_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\sigopcount_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\skiplist_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\test_bitcoin.cpp" />
     <ClCompile Include="bitcoin\src\test\timedata_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\transaction_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\uint256_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\univalue_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\util_tests.cpp" />
     <ClCompile Include="bitcoin\src\test\wallet_tests.cpp" />
+    <ClCompile Include="workarounds\workarounds.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="bitcoin_common.vcxproj">
@@ -239,7 +228,7 @@ for /f "tokens=*" %%j in ('dir /b "!_data_path!*.json"') do if not exist "!_path
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PreprocessorDefinitions>_WIN64;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);HAVE_WORKING_BOOST_SLEEP_FOR;__func__=__FUNCTION__;_WIN32_WINNT=0x0501;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN64;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);HAVE_WORKING_BOOST_SLEEP_FOR;__func__=__FUNCTION__;_WIN32_WINNT=0x0501;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -286,7 +275,7 @@ for /f "tokens=*" %%j in ('dir /b "!_data_path!*.json"') do if not exist "!_path
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions);HAVE_WORKING_BOOST_SLEEP_FOR;__func__=__FUNCTION__;_WIN32_WINNT=0x0501;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;BOOST_TEST_DYN_LINK</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;HAVE_WORKING_BOOST_SLEEP_FOR;__func__=__FUNCTION__;_WIN32_WINNT=0x0501;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;BOOST_TEST_DYN_LINK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>

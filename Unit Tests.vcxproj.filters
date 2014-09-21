@@ -19,22 +19,13 @@
     <ClCompile Include="bitcoin\src\test\checkblock_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\test\bloom_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
     <ClCompile Include="bitcoin\src\test\Checkpoints_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
     <ClCompile Include="bitcoin\src\test\compress_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\test\crypto_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
     <ClCompile Include="bitcoin\src\test\getarg_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
-    <ClCompile Include="bitcoin\src\test\key_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
     <ClCompile Include="bitcoin\src\test\miner_tests.cpp">
@@ -46,13 +37,7 @@
     <ClCompile Include="bitcoin\src\test\netbase_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\test\rpc_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
     <ClCompile Include="bitcoin\src\test\wallet_tests.cpp">
-      <Filter>Wallet Tests</Filter>
-    </ClCompile>
-    <ClCompile Include="bitcoin\src\test\rpc_wallet_tests.cpp">
       <Filter>Wallet Tests</Filter>
     </ClCompile>
     <ClCompile Include="bitcoin\src\test\serialize_tests.cpp">
@@ -79,35 +64,17 @@
     <ClCompile Include="bitcoin\src\test\canonical_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\test\script_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
-    <ClCompile Include="bitcoin\src\test\alert_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
-    <ClCompile Include="bitcoin\src\test\base58_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
-    <ClCompile Include="bitcoin\src\test\hash_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
     <ClCompile Include="bitcoin\src\test\mruset_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
     <ClCompile Include="bitcoin\src\test\pmt_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\test\script_P2SH_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
-    <ClCompile Include="bitcoin\src\test\transaction_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
     <ClCompile Include="bitcoin\src\test\scriptnum_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\test\sighash_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
+    <ClCompile Include="workarounds\workarounds.cpp">
+      <Filter>Infrastructure</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

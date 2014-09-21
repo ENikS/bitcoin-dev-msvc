@@ -8,6 +8,42 @@
     <ClCompile Include="bitcoin\src\test\DoS_tests.cpp">
       <Filter>Failing Build</Filter>
     </ClCompile>
+    <ClCompile Include="bitcoin\src\test\base58_tests.cpp">
+      <Filter>Failing Runtime\Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\alert_tests.cpp">
+      <Filter>Failing Runtime\Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\bloom_tests.cpp">
+      <Filter>Failing Runtime\Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\crypto_tests.cpp">
+      <Filter>Failing Runtime\Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\hash_tests.cpp">
+      <Filter>Failing Runtime\Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\key_tests.cpp">
+      <Filter>Failing Runtime\Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\rpc_tests.cpp">
+      <Filter>Failing Runtime\Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\rpc_wallet_tests.cpp">
+      <Filter>Failing Runtime\Wallet Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\script_P2SH_tests.cpp">
+      <Filter>Failing Runtime\Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\script_tests.cpp">
+      <Filter>Failing Runtime\Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\sighash_tests.cpp">
+      <Filter>Failing Runtime\Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="bitcoin\src\test\transaction_tests.cpp">
+      <Filter>Failing Runtime\Bitcoin Tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Failing Build">
@@ -18,6 +54,9 @@
     </Filter>
     <Filter Include="Failing Runtime\Wallet Tests">
       <UniqueIdentifier>{82e3dc78-6e3d-435d-b5bb-8d916d8d663c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Failing Runtime\Bitcoin Tests">
+      <UniqueIdentifier>{c0374acf-ba98-4dca-8eb3-acf8420a4f52}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

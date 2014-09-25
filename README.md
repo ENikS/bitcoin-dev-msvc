@@ -60,6 +60,6 @@ Building of all these project generates bunch of files and directories. I've org
 
 ## Ready to ... well, still workign on few bits and pieces. 
 
-- All tests except one (Dos_tests.cpp has been filed as issue) are building
-- Only 71 out of 120+ tests are passing.
-- There are quite a few vector boundry violations so working on improving vector logic in the project.
+- All tests are building now
+- 127 tests are passing.
+- sighash_tests.cpp is the only one failing pendign fix.

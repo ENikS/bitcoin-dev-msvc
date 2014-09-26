@@ -19,3 +19,10 @@
 	path = dependencies/qt
 	
 	url = https://github.com/qtproject/qt5.git
+
+
+[submodule "dependencies/miniupnp"]
+	
+	path = dependencies/miniupnp
+	
+	url = https://github.com/miniupnp/miniupnp.git

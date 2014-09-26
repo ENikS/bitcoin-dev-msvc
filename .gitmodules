@@ -13,3 +13,9 @@
 [submodule "dependencies/boost"]
 	path = dependencies/boost
 	url = https://github.com/boostorg/boost.git
+
+[submodule "dependencies/qt"]
+	
+	path = dependencies/qt
+	
+	url = https://github.com/qtproject/qt5.git

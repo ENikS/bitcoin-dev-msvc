@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D7BC530C-A38D-4C39-9AA2-0123BAADFB36}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+    <BaseIntermediateOutputPath>$(SolutionDir)</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakePreprocessorDefinitions>
+    </NMakePreprocessorDefinitions>
+    <NMakeCleanCommandLine>
+    </NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>REM ** Sanity Check **
+
+if not exist "$(SolutionDir)packages\openssl\build\native\include" (echo "ERROR: Library openssl is missing. Please build openssl library first." &amp; exit 1)
+
+REM ** Lowercase _VARIANT **
+
+setlocal enabledelayedexpansion
+set _VARIANT=$(Configuration)
+@echo off
+set "_UCASE=DR"
+set "_LCASE=dr"
+for /l %%a in (0,1,1) do (
+   call set "_FROM=%%_UCASE:~%%a,1%%
+   call set "_TO=%%_LCASE:~%%a,1%%
+   call set "_VARIANT=%%_VARIANT:!_FROM!=!_TO!%%
+)
+@echo on
+
+REM ** Configuration Options **
+
+set _opts=-opensource -confirm-license  -platform win32-msvc2010  -static 
+set _opts=%_opts% -no-audio-backend
+set _opts=%_opts% -no-cups
+set _opts=%_opts% -no-freetype
+set _opts=%_opts% -no-gif
+set _opts=%_opts% -no-iconv
+set _opts=%_opts% -no-icu
+set _opts=%_opts% -no-nis
+set _opts=%_opts% -no-qml-debug
+set _opts=%_opts% -no-sql-db2
+set _opts=%_opts% -no-sql-ibase
+set _opts=%_opts% -no-sql-mysql
+set _opts=%_opts% -no-sql-oci
+set _opts=%_opts% -no-sql-odbc
+set _opts=%_opts% -no-sql-psql
+set _opts=%_opts% -no-sql-sqlite
+set _opts=%_opts% -no-sql-sqlite2
+set _opts=%_opts% -no-sql-tds
+
+set _opts=%_opts% -qt-libjpeg
+set _opts=%_opts% -qt-libpng
+set _opts=%_opts% -qt-pcre
+set _opts=%_opts% -qt-zlib
+
+set _opts=%_opts% -skip qtactiveqt
+set _opts=%_opts% -skip qtconnectivity
+set _opts=%_opts% -skip qtdeclarative
+set _opts=%_opts% -skip qtdoc
+set _opts=%_opts% -skip qtimageformats
+set _opts=%_opts% -skip qtlocation
+set _opts=%_opts% -skip qtmacextras
+set _opts=%_opts% -skip qtmultimedia
+set _opts=%_opts% -skip qtquick1
+set _opts=%_opts% -skip qtquickcontrols
+set _opts=%_opts% -skip qtscript
+set _opts=%_opts% -skip qtsensors
+set _opts=%_opts% -skip qtserialport
+set _opts=%_opts% -skip qtsvg
+set _opts=%_opts% -skip qtwebkit
+set _opts=%_opts% -skip qtwebkit-examples
+set _opts=%_opts% -skip qtwinextras
+set _opts=%_opts% -skip qtxmlpatterns
+
+set _opts=%_opts% -nomake examples
+set _opts=%_opts% -nomake tests
+
+REM ** Local Directories **
+
+set _opts=%_opts% -prefix $(SolutionDir)packages\qt\build\native\
+set _opts=%_opts% -openssl -I $(SolutionDir)packages\openssl\build\native\include -L $(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)
+
+REM ** Resort to desktop opengl if no DirectX SDK **
+
+if not defined DXSDK_DIR  ( set _opts=%_opts% -opengl desktop )     
+
+
+REM ** Configure &amp;  Build **
+
+call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
+cd $(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\
+if exist "$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\Makefile" goto qt_install
+
+if exist "$(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)" rd /q /s $(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)
+call $(ProjectDir)qt\configure %_opts% -%_VARIANT%
+nmake
+
+REM ** Install **
+
+:qt_install
+if exist "$(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)" goto qt_done
+
+nmake install
+mkdir $(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)
+move $(SolutionDir)packages\qt\build\native\lib\*.* $(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)\
+
+:qt_done</NMakeBuildCommandLine>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <NMakePreprocessorDefinitions>
+    </NMakePreprocessorDefinitions>
+    <NMakeBuildCommandLine>REM ** Sanity Check **
+
+if not exist "$(SolutionDir)packages\openssl\build\native\include" (echo "ERROR: Library openssl is missing. Please build openssl library first." &amp; exit 1)
+
+REM ** Lowercase _VARIANT **
+
+setlocal enabledelayedexpansion
+set _VARIANT=$(Configuration)
+@echo off
+set "_UCASE=DR"
+set "_LCASE=dr"
+for /l %%a in (0,1,1) do (
+   call set "_FROM=%%_UCASE:~%%a,1%%
+   call set "_TO=%%_LCASE:~%%a,1%%
+   call set "_VARIANT=%%_VARIANT:!_FROM!=!_TO!%%
+)
+@echo on
+
+REM ** Configuration Options **
+
+set _opts=-opensource -confirm-license  -platform win32-msvc2010  -static 
+set _opts=%_opts% -no-audio-backend
+set _opts=%_opts% -no-cups
+set _opts=%_opts% -no-freetype
+set _opts=%_opts% -no-gif
+set _opts=%_opts% -no-iconv
+set _opts=%_opts% -no-icu
+set _opts=%_opts% -no-nis
+set _opts=%_opts% -no-qml-debug
+set _opts=%_opts% -no-sql-db2
+set _opts=%_opts% -no-sql-ibase
+set _opts=%_opts% -no-sql-mysql
+set _opts=%_opts% -no-sql-oci
+set _opts=%_opts% -no-sql-odbc
+set _opts=%_opts% -no-sql-psql
+set _opts=%_opts% -no-sql-sqlite
+set _opts=%_opts% -no-sql-sqlite2
+set _opts=%_opts% -no-sql-tds
+
+set _opts=%_opts% -qt-libjpeg
+set _opts=%_opts% -qt-libpng
+set _opts=%_opts% -qt-pcre
+set _opts=%_opts% -qt-zlib
+
+set _opts=%_opts% -skip qtactiveqt
+set _opts=%_opts% -skip qtconnectivity
+set _opts=%_opts% -skip qtdeclarative
+set _opts=%_opts% -skip qtdoc
+set _opts=%_opts% -skip qtimageformats
+set _opts=%_opts% -skip qtlocation
+set _opts=%_opts% -skip qtmacextras
+set _opts=%_opts% -skip qtmultimedia
+set _opts=%_opts% -skip qtquick1
+set _opts=%_opts% -skip qtquickcontrols
+set _opts=%_opts% -skip qtscript
+set _opts=%_opts% -skip qtsensors
+set _opts=%_opts% -skip qtserialport
+set _opts=%_opts% -skip qtsvg
+set _opts=%_opts% -skip qtwebkit
+set _opts=%_opts% -skip qtwebkit-examples
+set _opts=%_opts% -skip qtwinextras
+set _opts=%_opts% -skip qtxmlpatterns
+
+set _opts=%_opts% -nomake examples
+set _opts=%_opts% -nomake tests
+
+REM ** Local Directories **
+
+set _opts=%_opts% -prefix $(SolutionDir)packages\qt\build\native\
+set _opts=%_opts% -openssl -I $(SolutionDir)packages\openssl\build\native\include -L $(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)
+
+REM ** Resort to desktop opengl if no DirectX SDK **
+
+if not defined DXSDK_DIR  ( set _opts=%_opts% -opengl desktop )     
+
+
+REM ** Configure &amp;  Build **
+
+call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
+cd $(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\
+if exist "$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\Makefile" goto qt_install
+
+if exist "$(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)" rd /q /s $(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)
+call $(ProjectDir)qt\configure %_opts% -%_VARIANT%
+nmake
+
+REM ** Install **
+
+:qt_install
+if exist "$(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)" goto qt_done
+
+nmake install
+mkdir $(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)
+move $(SolutionDir)packages\qt\build\native\lib\*.* $(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)\
+
+:qt_done</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>
+    </NMakeCleanCommandLine>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakePreprocessorDefinitions>
+    </NMakePreprocessorDefinitions>
+    <NMakeBuildCommandLine>REM ** Sanity Check **
+
+if not exist "$(SolutionDir)packages\openssl\build\native\include" (echo "ERROR: Library openssl is missing. Please build openssl library first." &amp; exit 1)
+
+REM ** Lowercase _VARIANT **
+
+setlocal enabledelayedexpansion
+set _VARIANT=$(Configuration)
+@echo off
+set "_UCASE=DR"
+set "_LCASE=dr"
+for /l %%a in (0,1,1) do (
+   call set "_FROM=%%_UCASE:~%%a,1%%
+   call set "_TO=%%_LCASE:~%%a,1%%
+   call set "_VARIANT=%%_VARIANT:!_FROM!=!_TO!%%
+)
+@echo on
+
+REM ** Configuration Options **
+
+set _opts=-opensource -confirm-license  -platform win32-msvc2010  -static 
+set _opts=%_opts% -no-audio-backend
+set _opts=%_opts% -no-cups
+set _opts=%_opts% -no-freetype
+set _opts=%_opts% -no-gif
+set _opts=%_opts% -no-iconv
+set _opts=%_opts% -no-icu
+set _opts=%_opts% -no-nis
+set _opts=%_opts% -no-qml-debug
+set _opts=%_opts% -no-sql-db2
+set _opts=%_opts% -no-sql-ibase
+set _opts=%_opts% -no-sql-mysql
+set _opts=%_opts% -no-sql-oci
+set _opts=%_opts% -no-sql-odbc
+set _opts=%_opts% -no-sql-psql
+set _opts=%_opts% -no-sql-sqlite
+set _opts=%_opts% -no-sql-sqlite2
+set _opts=%_opts% -no-sql-tds
+
+set _opts=%_opts% -qt-libjpeg
+set _opts=%_opts% -qt-libpng
+set _opts=%_opts% -qt-pcre
+set _opts=%_opts% -qt-zlib
+
+set _opts=%_opts% -skip qtactiveqt
+set _opts=%_opts% -skip qtconnectivity
+set _opts=%_opts% -skip qtdeclarative
+set _opts=%_opts% -skip qtdoc
+set _opts=%_opts% -skip qtimageformats
+set _opts=%_opts% -skip qtlocation
+set _opts=%_opts% -skip qtmacextras
+set _opts=%_opts% -skip qtmultimedia
+set _opts=%_opts% -skip qtquick1
+set _opts=%_opts% -skip qtquickcontrols
+set _opts=%_opts% -skip qtscript
+set _opts=%_opts% -skip qtsensors
+set _opts=%_opts% -skip qtserialport
+set _opts=%_opts% -skip qtsvg
+set _opts=%_opts% -skip qtwebkit
+set _opts=%_opts% -skip qtwebkit-examples
+set _opts=%_opts% -skip qtwinextras
+set _opts=%_opts% -skip qtxmlpatterns
+
+set _opts=%_opts% -nomake examples
+set _opts=%_opts% -nomake tests
+
+REM ** Local Directories **
+
+set _opts=%_opts% -prefix $(SolutionDir)packages\qt\build\native\
+set _opts=%_opts% -openssl -I $(SolutionDir)packages\openssl\build\native\include -L $(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)
+
+REM ** Resort to desktop opengl if no DirectX SDK **
+
+if not defined DXSDK_DIR  ( set _opts=%_opts% -opengl desktop )     
+
+
+REM ** Configure &amp;  Build **
+
+call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
+cd $(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\
+if exist "$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\Makefile" goto qt_install
+
+if exist "$(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)" rd /q /s $(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)
+call $(ProjectDir)qt\configure %_opts% -%_VARIANT%
+nmake
+
+REM ** Install **
+
+:qt_install
+if exist "$(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)" goto qt_done
+
+nmake install
+mkdir $(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)
+move $(SolutionDir)packages\qt\build\native\lib\*.* $(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)\
+
+:qt_done</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>
+    </NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>
+    </NMakeCleanCommandLine>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <NMakePreprocessorDefinitions>
+    </NMakePreprocessorDefinitions>
+    <NMakeBuildCommandLine>REM ** Sanity Check **
+
+if not exist "$(SolutionDir)packages\openssl\build\native\include" (echo "ERROR: Library openssl is missing. Please build openssl library first." &amp; exit 1)
+
+REM ** Lowercase _VARIANT **
+
+setlocal enabledelayedexpansion
+set _VARIANT=$(Configuration)
+@echo off
+set "_UCASE=DR"
+set "_LCASE=dr"
+for /l %%a in (0,1,1) do (
+   call set "_FROM=%%_UCASE:~%%a,1%%
+   call set "_TO=%%_LCASE:~%%a,1%%
+   call set "_VARIANT=%%_VARIANT:!_FROM!=!_TO!%%
+)
+@echo on
+
+REM ** Configuration Options **
+
+set _opts=-opensource -confirm-license  -platform win32-msvc2010  -static 
+set _opts=%_opts% -no-audio-backend
+set _opts=%_opts% -no-cups
+set _opts=%_opts% -no-freetype
+set _opts=%_opts% -no-gif
+set _opts=%_opts% -no-iconv
+set _opts=%_opts% -no-icu
+set _opts=%_opts% -no-nis
+set _opts=%_opts% -no-qml-debug
+set _opts=%_opts% -no-sql-db2
+set _opts=%_opts% -no-sql-ibase
+set _opts=%_opts% -no-sql-mysql
+set _opts=%_opts% -no-sql-oci
+set _opts=%_opts% -no-sql-odbc
+set _opts=%_opts% -no-sql-psql
+set _opts=%_opts% -no-sql-sqlite
+set _opts=%_opts% -no-sql-sqlite2
+set _opts=%_opts% -no-sql-tds
+
+set _opts=%_opts% -qt-libjpeg
+set _opts=%_opts% -qt-libpng
+set _opts=%_opts% -qt-pcre
+set _opts=%_opts% -qt-zlib
+
+set _opts=%_opts% -skip qtactiveqt
+set _opts=%_opts% -skip qtconnectivity
+set _opts=%_opts% -skip qtdeclarative
+set _opts=%_opts% -skip qtdoc
+set _opts=%_opts% -skip qtimageformats
+set _opts=%_opts% -skip qtlocation
+set _opts=%_opts% -skip qtmacextras
+set _opts=%_opts% -skip qtmultimedia
+set _opts=%_opts% -skip qtquick1
+set _opts=%_opts% -skip qtquickcontrols
+set _opts=%_opts% -skip qtscript
+set _opts=%_opts% -skip qtsensors
+set _opts=%_opts% -skip qtserialport
+set _opts=%_opts% -skip qtsvg
+set _opts=%_opts% -skip qtwebkit
+set _opts=%_opts% -skip qtwebkit-examples
+set _opts=%_opts% -skip qtwinextras
+set _opts=%_opts% -skip qtxmlpatterns
+
+set _opts=%_opts% -nomake examples
+set _opts=%_opts% -nomake tests
+
+REM ** Local Directories **
+
+set _opts=%_opts% -prefix $(SolutionDir)packages\qt\build\native\
+set _opts=%_opts% -openssl -I $(SolutionDir)packages\openssl\build\native\include -L $(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)
+
+REM ** Resort to desktop opengl if no DirectX SDK **
+
+if not defined DXSDK_DIR  ( set _opts=%_opts% -opengl desktop )     
+
+
+REM ** Configure &amp;  Build **
+
+call "$(VCInstallDir)vcvarsall.bat" $(PlatformTarget)
+cd $(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\
+if exist "$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\Makefile" goto qt_install
+
+if exist "$(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)" rd /q /s $(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)
+call $(ProjectDir)qt\configure %_opts% -%_VARIANT%
+nmake
+
+REM ** Install **
+
+:qt_install
+if exist "$(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)" goto qt_done
+
+nmake install
+mkdir $(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)
+move $(SolutionDir)packages\qt\build\native\lib\*.* $(SolutionDir)packages\qt\build\native\lib\$(Platform)\$(Configuration)\
+
+:qt_done</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>
+    </NMakeCleanCommandLine>
+    <OutDir>$(SolutionDir)packages\$(ProjectName)\build\native\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

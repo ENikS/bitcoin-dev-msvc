@@ -111,6 +111,7 @@
     </ClCompile>
     <ClCompile Condition="'$(ConfigurationType)'=='StaticLibrary'">
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ProgramDataBaseFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Midl Condition="'$(ConfigurationType)'=='DynamicLibrary'">
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -251,6 +252,7 @@ del $(ProjectDir)$(MSBuildProjectName).zip
     </ClCompile>
     <ClCompile Condition="'$(ConfigurationType)'=='DynamicLibrary'">
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ProgramDataBaseFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)$(TargetName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <ClCompile Condition="'$(ConfigurationType)'=='StaticLibrary'">
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>

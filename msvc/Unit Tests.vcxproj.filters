@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(SolutionDir)bitcoin\src\rpcclient.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\accounting_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\alert_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\allocator_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\base32_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\base58_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\base64_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\bloom_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\canonical_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\checkblock_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\Checkpoints_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\compress_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\crypto_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\DoS_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\getarg_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\hash_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\key_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\miner_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\mruset_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\multisig_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\netbase_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\pmt_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\rpc_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\rpc_wallet_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\scriptnum_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\script_P2SH_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\script_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\serialize_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\sigopcount_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\skiplist_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\test_bitcoin.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\timedata_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\transaction_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\uint256_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\univalue_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\util_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\wallet_tests.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Bitcoin Tests">
+      <UniqueIdentifier>{1e83ff6e-3c6a-4480-9a45-7a419ee1ba0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Wallet Tests">
+      <UniqueIdentifier>{1084e687-1ee7-446e-9665-8d4f4e2bb7a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Infrastructure">
+      <UniqueIdentifier>{b91d630b-8097-463e-939e-cfe17aaf6ee7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(SolutionDir)bitcoin\src\test\bignum.h" />
+  </ItemGroup>
+</Project>

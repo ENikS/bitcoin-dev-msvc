@@ -7,13 +7,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bitcoin\src\crypto\ripemd160.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\univalue\univalue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\crypto\sha1.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\univalue\univalue_read.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\crypto\sha2.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\univalue\univalue_write.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

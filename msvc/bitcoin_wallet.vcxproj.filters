@@ -7,25 +7,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bitcoin\src\crypter.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\crypter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\db.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\db.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\rpcdump.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\rpcdump.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\rpcwallet.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\rpcwallet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\wallet.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\wallet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\walletdb.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\walletdb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\wallet_ismine.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\wallet_ismine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

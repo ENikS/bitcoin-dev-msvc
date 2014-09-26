@@ -7,40 +7,40 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bitcoin\src\compat\glibc_sanity.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\chainparamsbase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\compat\glibcxx_sanity.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\compat\glibcxx_sanity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\chainparamsbase.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\compat\glibc_sanity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\random.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\random.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\rpcprotocol.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\rpcprotocol.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\sync.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\sync.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\uint256.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\uint256.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\util.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\util.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\utilmoneystr.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\utilmoneystr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\utilstrencodings.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\utilstrencodings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\utiltime.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\utiltime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\version.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\version.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

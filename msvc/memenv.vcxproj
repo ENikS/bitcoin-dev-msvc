@@ -61,34 +61,34 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)msvc\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)msvc\;$(IncludePath)</IncludePath>
     <TargetName>$(ProjectName)d</TargetName>
-    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\lib\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)msvc\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)msvc\;$(IncludePath)</IncludePath>
     <TargetName>$(ProjectName)d</TargetName>
-    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\lib\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)msvc\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)msvc\;$(IncludePath)</IncludePath>
     <TargetName>$(ProjectName)</TargetName>
-    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\lib\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)msvc\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)msvc\;$(IncludePath)</IncludePath>
     <TargetName>$(ProjectName)</TargetName>
-    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\lib\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -99,7 +99,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <ForcedIncludeFiles>BaseTsd.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)bitcoin\src\leveldb\;$(SolutionDir)bitcoin\src\leveldb\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4018; 4244; 4800; 4996; </DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -109,8 +109,8 @@
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include 
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb $(ProjectDir)bitcoin\src\leveldb\include\leveldb
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(SolutionDir)bitcoin\src\leveldb\helpers\memenv\memenv.h
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb $(SolutionDir)bitcoin\src\leveldb\include\leveldb
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -122,7 +122,7 @@ if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <ForcedIncludeFiles>BaseTsd.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)bitcoin\src\leveldb\;$(SolutionDir)bitcoin\src\leveldb\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4018; 4244; 4800; 4996; </DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -131,8 +131,8 @@ if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include 
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb $(ProjectDir)bitcoin\src\leveldb\include\leveldb
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(SolutionDir)bitcoin\src\leveldb\helpers\memenv\memenv.h
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb $(SolutionDir)bitcoin\src\leveldb\include\leveldb
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -143,7 +143,7 @@ if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ForcedIncludeFiles>BaseTsd.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)bitcoin\src\leveldb\;$(SolutionDir)bitcoin\src\leveldb\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4018; 4244; 4800; 4996; </DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -155,8 +155,8 @@ if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include 
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb $(ProjectDir)bitcoin\src\leveldb\include\leveldb
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(SolutionDir)bitcoin\src\leveldb\helpers\memenv\memenv.h
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb $(SolutionDir)bitcoin\src\leveldb\include\leveldb
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -167,7 +167,7 @@ if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ForcedIncludeFiles>BaseTsd.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(ProjectDir)bitcoin\src\leveldb\;$(ProjectDir)bitcoin\src\leveldb\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)bitcoin\src\leveldb\;$(SolutionDir)bitcoin\src\leveldb\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4018; 4244; 4800; 4996; </DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -178,16 +178,16 @@ if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include" mkdir $(SolutionDir)packages\$(ProjectName)\build\native\include 
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(ProjectDir)bitcoin\src\leveldb\helpers\memenv\memenv.h
-if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb $(ProjectDir)bitcoin\src\leveldb\include\leveldb
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h" mklink /h $(SolutionDir)packages\$(ProjectName)\build\native\include\memenv.h $(SolutionDir)bitcoin\src\leveldb\helpers\memenv\memenv.h
+if not exist "$(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb" mklink /j $(SolutionDir)packages\$(ProjectName)\build\native\include\leveldb $(SolutionDir)bitcoin\src\leveldb\include\leveldb
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="bitcoin\src\leveldb\helpers\memenv\memenv.cc" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\leveldb\helpers\memenv\memenv.cc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="bitcoin\src\leveldb\helpers\memenv\memenv.h" />
+    <ClInclude Include="$(SolutionDir)bitcoin\src\leveldb\helpers\memenv\memenv.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

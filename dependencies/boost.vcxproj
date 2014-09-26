@@ -22,6 +22,7 @@
     <ProjectGuid>{E6F67299-7248-46E4-8379-AD0D91C2A4B6}</ProjectGuid>
     <Keyword>MakeFileProj</Keyword>
     <ProjectName>boost</ProjectName>
+    <BaseIntermediateOutputPath>$(SolutionDir)</BaseIntermediateOutputPath>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -77,7 +78,7 @@ SET _PARAMS= runtime-link=static threading=multi link=static
 rem SET _PARAMS= runtime-link=shared threading=multi link=shared
 SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
 SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
-SET _DIRECTORIES= --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native
+SET _DIRECTORIES= --build-dir=$(SolutionDir)$(Platform)\$(Configuration)\obj\ --stagedir=$(SolutionDir)packages\boost\build\native
 
 setlocal enabledelayedexpansion
 
@@ -116,7 +117,7 @@ if exist "$(SolutionDir)packages\boost\build\native\lib" rd /s /q $(SolutionDir)
 if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(ProjectDir)obj\$(Platform)\$(Configuration)\boost
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)</IntDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
     <OutDir>$(SolutionDir)packages\boost\build\native\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -136,7 +137,7 @@ SET _PARAMS= runtime-link=static threading=multi link=static
 rem SET _PARAMS= runtime-link=shared threading=multi link=shared
 SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
 SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
-SET _DIRECTORIES= --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native
+SET _DIRECTORIES= --build-dir=$(SolutionDir)$(Platform)\$(Configuration)\obj\ --stagedir=$(SolutionDir)packages\boost\build\native
 
 setlocal enabledelayedexpansion
 
@@ -174,7 +175,7 @@ if exist "$(SolutionDir)packages\boost\build\native\lib" rd /s /q $(SolutionDir)
 if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(ProjectDir)obj\$(Platform)\$(Configuration)\boost
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)</IntDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
     <OutDir>$(SolutionDir)packages\boost\build\native\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -194,7 +195,7 @@ SET _PARAMS= runtime-link=static threading=multi link=static
 rem SET _PARAMS= runtime-link=shared threading=multi link=shared
 SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
 SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
-SET _DIRECTORIES= --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native
+SET _DIRECTORIES= --build-dir=$(SolutionDir)$(Platform)\$(Configuration)\obj\ --stagedir=$(SolutionDir)packages\boost\build\native
 
 setlocal enabledelayedexpansion
 
@@ -231,7 +232,7 @@ if exist "$(SolutionDir)packages\boost\build\native\lib" rd /s /q $(SolutionDir)
 if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(ProjectDir)obj\$(Platform)\$(Configuration)\boost
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)</IntDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
     <OutDir>$(SolutionDir)packages\boost\build\native\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -253,7 +254,7 @@ SET _PARAMS= runtime-link=static threading=multi link=static
 rem SET _PARAMS= runtime-link=shared threading=multi link=shared
 SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
 SET _FLAGS="/wd4800 /wd4244 /wd4996 /wd4273 /wd4702 /wd4251"
-SET _DIRECTORIES= --build-dir=$(ProjectDir)obj\$(Platform)\$(Configuration) --stagedir=$(SolutionDir)packages\boost\build\native
+SET _DIRECTORIES= --build-dir=$(SolutionDir)$(Platform)\$(Configuration)\obj\ --stagedir=$(SolutionDir)packages\boost\build\native
 
 setlocal enabledelayedexpansion
 
@@ -289,7 +290,7 @@ if exist "$(SolutionDir)packages\boost\build\native\lib" rd /s /q $(SolutionDir)
 if exist "$(ProjectDir)obj\$(Platform)\$(Configuration)\boost" rd /s /q $(ProjectDir)obj\$(Platform)\$(Configuration)\boost
 </NMakeCleanCommandLine>
     <IncludePath>$(IncludePath)</IncludePath>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)</IntDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
     <OutDir>$(SolutionDir)packages\boost\build\native\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup>

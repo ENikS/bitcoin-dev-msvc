@@ -18,17 +18,8 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="bitcoin\src\crypter.cpp" />
-    <ClCompile Include="bitcoin\src\db.cpp" />
-    <ClCompile Include="bitcoin\src\rpcdump.cpp" />
-    <ClCompile Include="bitcoin\src\rpcwallet.cpp" />
-    <ClCompile Include="bitcoin\src\wallet.cpp" />
-    <ClCompile Include="bitcoin\src\walletdb.cpp" />
-    <ClCompile Include="bitcoin\src\wallet_ismine.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7648671F-3E91-49F5-B253-F82A00637131}</ProjectGuid>
+    <ProjectGuid>{9977466D-1F5E-4A71-BAAC-E4807EE0AC53}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -72,44 +63,43 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\lib\</OutDir>
     <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\lib\</OutDir>
     <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\lib\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <OutDir>$(Platform)\$(Configuration)\lib\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\lib\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions); HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__;_WINSOCK_DEPRECATED_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;HAVE_WORKING_BOOST_SLEEP_FOR;ssize_t=SSIZE_T;__func__=__FUNCTION__;_WIN32_WINNT=0x0501;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <DisableSpecificWarnings>4018;4101;4146;4244;4800;</DisableSpecificWarnings>
-      <ForcedIncludeFiles>
-      </ForcedIncludeFiles>
+      <ForcedIncludeFiles>BaseTsd.h;</ForcedIncludeFiles>
       <ShowIncludes>false</ShowIncludes>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(ProjectDir)bitcoin\src\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)bitcoin\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
@@ -118,19 +108,19 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\openssl\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4221</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PreprocessorDefinitions>_WIN64;_DEBUG;_WINDOWS;%(PreprocessorDefinitions); HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__;_WINSOCK_DEPRECATED_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN64;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);HAVE_WORKING_BOOST_SLEEP_FOR;ssize_t=SSIZE_T;__func__=__FUNCTION__;_WIN32_WINNT=0x0501;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <DisableSpecificWarnings>4018;4101;4146;4244;4800;</DisableSpecificWarnings>
-      <ForcedIncludeFiles>
-      </ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(ProjectDir)bitcoin\src\</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>BaseTsd.h;</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)bitcoin\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -138,18 +128,18 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\openssl\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4221</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions); HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__;_WINSOCK_DEPRECATED_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions);HAVE_WORKING_BOOST_SLEEP_FOR;ssize_t=SSIZE_T;__func__=__FUNCTION__;_WIN32_WINNT=0x0501;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4018;4101;4146;4244;4800;</DisableSpecificWarnings>
-      <ForcedIncludeFiles>
-      </ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(ProjectDir)bitcoin\src\</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>BaseTsd.h;</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)bitcoin\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
@@ -160,18 +150,18 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\openssl\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4221</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PreprocessorDefinitions>_WIN64;NDEBUG;_WINDOWS;%(PreprocessorDefinitions); HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__;_WINSOCK_DEPRECATED_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN64;NDEBUG;_WINDOWS;%(PreprocessorDefinitions);HAVE_WORKING_BOOST_SLEEP_FOR;ssize_t=SSIZE_T;__func__=__FUNCTION__;_WIN32_WINNT=0x0501;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4018;4101;4146;4244;4800;</DisableSpecificWarnings>
-      <ForcedIncludeFiles>
-      </ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(ProjectDir)bitcoin\src\</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>BaseTsd.h;</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)bitcoin\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -181,8 +171,23 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\openssl\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Configuration)\$(Platform)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4221</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="$(SolutionDir)bitcoin\src\chainparamsbase.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\compat\glibcxx_sanity.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\compat\glibc_sanity.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\random.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\rpcprotocol.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\sync.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\uint256.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\util.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\utilmoneystr.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\utilstrencodings.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\utiltime.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\version.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

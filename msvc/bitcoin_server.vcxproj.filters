@@ -7,64 +7,64 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bitcoin\src\addrman.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\addrman.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\alert.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\alert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\bloom.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\bloom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\checkpoints.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\checkpoints.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\init.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\init.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\leveldbwrapper.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\leveldbwrapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\main.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\miner.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\miner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\net.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\net.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\noui.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\noui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\rpcblockchain.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\pow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\rpcmining.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\rpcblockchain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\rpcmisc.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\rpcmining.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\rpcnet.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\rpcmisc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\rpcrawtransaction.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\rpcnet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\rpcserver.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\rpcrawtransaction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\txdb.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\rpcserver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\txmempool.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\timedata.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\pow.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\txdb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bitcoin\src\timedata.cpp">
+    <ClCompile Include="$(SolutionDir)bitcoin\src\txmempool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

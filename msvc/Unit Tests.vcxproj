@@ -19,43 +19,43 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bitcoin\src\rpcclient.cpp" />
-    <ClCompile Include="bitcoin\src\test\accounting_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\alert_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\allocator_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\base32_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\base58_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\base64_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\bloom_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\canonical_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\checkblock_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\Checkpoints_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\compress_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\crypto_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\DoS_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\getarg_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\hash_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\key_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\miner_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\mruset_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\multisig_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\netbase_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\pmt_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\rpc_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\rpc_wallet_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\scriptnum_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\script_P2SH_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\script_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\serialize_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\sigopcount_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\skiplist_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\test_bitcoin.cpp" />
-    <ClCompile Include="bitcoin\src\test\timedata_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\transaction_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\uint256_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\univalue_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\util_tests.cpp" />
-    <ClCompile Include="bitcoin\src\test\wallet_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\rpcclient.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\accounting_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\alert_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\allocator_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\base32_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\base58_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\base64_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\bloom_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\canonical_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\checkblock_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\Checkpoints_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\compress_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\crypto_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\DoS_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\getarg_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\hash_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\key_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\miner_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\mruset_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\multisig_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\netbase_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\pmt_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\rpc_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\rpc_wallet_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\scriptnum_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\script_P2SH_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\script_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\serialize_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\sigopcount_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\skiplist_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\test_bitcoin.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\timedata_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\transaction_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\uint256_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\univalue_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\util_tests.cpp" />
+    <ClCompile Include="$(SolutionDir)bitcoin\src\test\wallet_tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="bitcoin_common.vcxproj">
@@ -76,16 +76,16 @@
     <ProjectReference Include="bitcoin_wallet.vcxproj">
       <Project>{7648671f-3e91-49f5-b253-f82a00637131}</Project>
     </ProjectReference>
-    <ProjectReference Include="dependencies\boost.vcxproj">
+    <ProjectReference Include="$(SolutionDir)dependencies\boost.vcxproj">
       <Project>{e6f67299-7248-46e4-8379-ad0d91c2a4b6}</Project>
     </ProjectReference>
-    <ProjectReference Include="dependencies\db-4.8.30.NC.vcxproj">
+    <ProjectReference Include="$(SolutionDir)dependencies\db-4.8.30.NC.vcxproj">
       <Project>{671539aa-d9a6-4b7b-8044-61b511d6f432}</Project>
     </ProjectReference>
-    <ProjectReference Include="dependencies\openssl.vcxproj">
+    <ProjectReference Include="$(SolutionDir)dependencies\openssl.vcxproj">
       <Project>{b7600a5e-bc1c-41f6-b1be-80eb57932bab}</Project>
     </ProjectReference>
-    <ProjectReference Include="dependencies\zlib.vcxproj">
+    <ProjectReference Include="$(SolutionDir)dependencies\zlib.vcxproj">
       <Project>{b626e4b6-b2db-4235-b640-811bd775c349}</Project>
     </ProjectReference>
     <ProjectReference Include="leveldb.vcxproj">
@@ -96,7 +96,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="bitcoin\src\test\bignum.h" />
+    <ClInclude Include="$(SolutionDir)bitcoin\src\test\bignum.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{16395CCB-3034-42EC-BE29-64661A3ECF0C}</ProjectGuid>
@@ -148,32 +148,32 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <OutDir>$(Platform)\$(Configuration)\tests\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\bin\</OutDir>
     <TargetName>test_bitcoin</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <OutDir>$(Platform)\$(Configuration)\tests\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\bin\</OutDir>
     <TargetName>test_bitcoin</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <OutDir>$(Platform)\$(Configuration)\tests\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\bin\</OutDir>
     <TargetName>test_bitcoin</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);;$(SolutionDir)packages\boost\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\$(Platform)\$(Configuration)\</LibraryPath>
-    <IntDir>$(ProjectDir)obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <OutDir>$(Platform)\$(Configuration)\tests\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\bin\</OutDir>
     <TargetName>test_bitcoin</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -186,13 +186,13 @@
       <DisableSpecificWarnings>4018;4101;4146;4244;4800;4290;</DisableSpecificWarnings>
       <ForcedIncludeFiles>$(SolutionDir)packages\berkeleydb\build\native\include\db.h</ForcedIncludeFiles>
       <ShowIncludes>false</ShowIncludes>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(SolutionDir)bitcoin\src\leveldb\include\;$(SolutionDir)bitcoin\src\;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;libdb48d.lib;leveldbd.lib;memenvd.lib;bitcoin_commond.lib;bitcoin_serverd.lib;bitcoin_walletd.lib;bitcoin_cryptod.lib;bitcoin_univalued.lib;bitcoin_utild.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
@@ -204,7 +204,7 @@
 @echo off
 
 set "_path=$(IntDir)data\"
-set "_data_path=$(ProjectDir)bitcoin\src\test\data\"
+set "_data_path=$(SolutionDir)bitcoin\src\test\data\"
 
 if not exist "!_path!" mkdir "!_path!"
 
@@ -234,12 +234,12 @@ for /f "tokens=*" %%j in ('dir /b "!_data_path!*.json"') do if not exist "!_path
       <Optimization>Disabled</Optimization>
       <DisableSpecificWarnings>4018;4101;4146;4244;4800;4290;</DisableSpecificWarnings>
       <ForcedIncludeFiles>$(SolutionDir)packages\berkeleydb\build\native\include\db.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(SolutionDir)bitcoin\src\leveldb\include\;$(SolutionDir)bitcoin\src\;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;libdb48d.lib;leveldbd.lib;memenvd.lib;bitcoin_commond.lib;bitcoin_serverd.lib;bitcoin_walletd.lib;bitcoin_cryptod.lib;bitcoin_univalued.lib;bitcoin_utild.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
@@ -251,7 +251,7 @@ for /f "tokens=*" %%j in ('dir /b "!_data_path!*.json"') do if not exist "!_path
 @echo off
 
 set "_path=$(IntDir)data\"
-set "_data_path=$(ProjectDir)bitcoin\src\test\data\"
+set "_data_path=$(SolutionDir)bitcoin\src\test\data\"
 
 if not exist "!_path!" mkdir "!_path!"
 
@@ -280,7 +280,7 @@ for /f "tokens=*" %%j in ('dir /b "!_data_path!*.json"') do if not exist "!_path
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4018;4101;4146;4244;4800;4290;</DisableSpecificWarnings>
       <ForcedIncludeFiles>$(SolutionDir)packages\berkeleydb\build\native\include\db.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(SolutionDir)bitcoin\src\leveldb\include\;$(SolutionDir)bitcoin\src\;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
@@ -288,7 +288,7 @@ for /f "tokens=*" %%j in ('dir /b "!_data_path!*.json"') do if not exist "!_path
       <SubSystem>Native</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;leveldb.lib;memenv.lib;libdb48.lib;bitcoin_common.lib;bitcoin_server.lib;bitcoin_wallet.lib;bitcoin_crypto.lib;bitcoin_univalue.lib;bitcoin_util.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
@@ -300,7 +300,7 @@ for /f "tokens=*" %%j in ('dir /b "!_data_path!*.json"') do if not exist "!_path
 @echo off
 
 set "_path=$(IntDir)data\"
-set "_data_path=$(ProjectDir)bitcoin\src\test\data\"
+set "_data_path=$(SolutionDir)bitcoin\src\test\data\"
 
 if not exist "!_path!" mkdir "!_path!"
 
@@ -329,14 +329,14 @@ for /f "tokens=*" %%j in ('dir /b "!_data_path!*.json"') do if not exist "!_path
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4018;4101;4146;4244;4800;4290;</DisableSpecificWarnings>
       <ForcedIncludeFiles>$(SolutionDir)packages\berkeleydb\build\native\include\db.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(ProjectDir)bitcoin\src\leveldb\include\;$(ProjectDir)bitcoin\src\;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\berkeleydb\build\native\include\;$(SolutionDir)workarounds\;$(SolutionDir)bitcoin\src\leveldb\include\;$(SolutionDir)bitcoin\src\;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Native</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(ProjectDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)$(Platform)\$(Configuration)\lib\;$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Shlwapi.lib;Ws2_32.lib;Advapi32.lib;Shell32.lib;zlib1.lib;libeay32.lib;ssleay32.lib;leveldb.lib;memenv.lib;libdb48.lib;bitcoin_common.lib;bitcoin_server.lib;bitcoin_wallet.lib;bitcoin_crypto.lib;bitcoin_univalue.lib;bitcoin_util.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
@@ -348,7 +348,7 @@ for /f "tokens=*" %%j in ('dir /b "!_data_path!*.json"') do if not exist "!_path
 @echo off
 
 set "_path=$(IntDir)data\"
-set "_data_path=$(ProjectDir)bitcoin\src\test\data\"
+set "_data_path=$(SolutionDir)bitcoin\src\test\data\"
 
 if not exist "!_path!" mkdir "!_path!"
 

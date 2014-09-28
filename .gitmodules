@@ -26,3 +26,11 @@
 	path = dependencies/miniupnp
 	
 	url = https://github.com/miniupnp/miniupnp.git
+
+
+[submodule "dependencies/libqrencode"]
+	
+	path = dependencies/libqrencode
+	
+	url = https://github.com/fukuchi/libqrencode.git
+

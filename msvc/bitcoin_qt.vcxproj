@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\bitcoin\src\qt\res\bitcoin-qt-res.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\bitcoin\src\qt\res\images\about.png" />
+    <Image Include="..\bitcoin\src\qt\res\images\splash.png" />
+    <Image Include="..\bitcoin\src\qt\res\images\splash_testnet.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-000.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-001.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-002.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-003.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-004.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-005.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-006.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-007.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-008.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-009.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-010.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-011.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-012.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-013.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-014.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-015.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-016.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-017.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-018.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-019.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-020.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-021.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-022.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-023.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-024.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-025.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-026.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-027.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-028.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-029.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-030.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-031.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-032.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-033.png" />
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-034.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\bitcoin\src\qt\addressbookpage.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\addresstablemodel.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\askpassphrasedialog.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\coincontroldialog.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\coincontroltreewidget.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\editaddressdialog.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\openuridialog.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\overviewpage.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\paymentrequestplus.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\paymentserver.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\receivecoinsdialog.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\receiverequestdialog.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\recentrequeststablemodel.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\sendcoinsdialog.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\sendcoinsentry.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\signverifymessagedialog.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\transactiondesc.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\transactiondescdialog.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\transactionfilterproxy.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\transactionrecord.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\transactiontablemodel.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\transactionview.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\walletframe.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\walletmodel.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\walletmodeltransaction.cpp" />
+    <ClCompile Include="..\bitcoin\src\qt\walletview.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1E4CCA42-3992-4A42-9C75-AE648615BE27}</ProjectGuid>
+    <RootNamespace>bitcoin_qt</RootNamespace>
+    <ProjectName>Bitcoin_qt</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <TargetName>bincoind</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <TargetName>bincoind</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <TargetName>bincoind</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+    <TargetName>bincoind</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <DisableSpecificWarnings>4018;4101;4146;4244;4800;</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\;$(SolutionDir)packages\openssl\build\native\include\;$(SolutionDir)packages\leveldb\build\native\include\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32; _MBCS;%(PreprocessorDefinitions); _WIN32_WINNT=0x0501; HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__;_WINSOCK_DEPRECATED_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Shlwapi.lib;zlib1.lib;libeay32.lib;ssleay32.lib;leveldbd.lib;memenvd.lib;libdb48d.lib;bitcoin_commond.lib;bitcoin_serverd.lib;bitcoin_walletd.lib;bitcoin_cryptod.lib;bitcoin_univalued.lib;bitcoin_utild.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <DisableSpecificWarnings>4018;4101;4146;4244;4800;</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\; $(SolutionDir)packages\openssl\build\native\include\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WIN64; _MBCS;%(PreprocessorDefinitions); _WIN32_WINNT=0x0501; HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__;_WINSOCK_DEPRECATED_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Shlwapi.lib;zlib1.lib;libeay32.lib;ssleay32.lib;leveldbd.lib;memenvd.lib;libdb48d.lib;bitcoin_commond.lib;bitcoin_serverd.lib;bitcoin_walletd.lib;bitcoin_cryptod.lib;bitcoin_univalued.lib;bitcoin_utild.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <DisableSpecificWarnings>4018;4101;4146;4244;4800;</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\; $(SolutionDir)packages\openssl\build\native\include\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32; _MBCS;%(PreprocessorDefinitions); _WIN32_WINNT=0x0501; HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__;_WINSOCK_DEPRECATED_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Shlwapi.lib;zlib1.lib;libeay32.lib;ssleay32.lib;leveldb.lib;memenv.lib;libdb48.lib;bitcoin_common.lib;bitcoin_server.lib;bitcoin_wallet.lib;bitcoin_crypto.lib;bitcoin_univalue.lib;bitcoin_util.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <DisableSpecificWarnings>4018;4101;4146;4244;4800;</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)packages\boost\build\native\include\; $(SolutionDir)packages\openssl\build\native\include\</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WIN64; _MBCS;%(PreprocessorDefinitions); _WIN32_WINNT=0x0501; HAVE_WORKING_BOOST_SLEEP_FOR; __func__=__FUNCTION__;_WINSOCK_DEPRECATED_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)packages\boost\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\openssl\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\leveldb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\berkeleydb\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)packages\zlib\build\native\lib\$(Platform)\$(Configuration)\;$(SolutionDir)$(Platform)\$(Configuration)\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Shlwapi.lib;zlib1.lib;libeay32.lib;ssleay32.lib;leveldb.lib;memenv.lib;libdb48.lib;bitcoin_common.lib;bitcoin_server.lib;bitcoin_wallet.lib;bitcoin_crypto.lib;bitcoin_univalue.lib;bitcoin_util.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

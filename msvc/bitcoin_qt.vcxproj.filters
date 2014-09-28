@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5e057ae7-c022-4cd1-aee9-c504c87b5d84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Wallet Files">
+      <UniqueIdentifier>{435cb83d-a76f-4c61-a57b-40ade14ce23e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resoutce Files">
+      <UniqueIdentifier>{6ac4a9af-aff0-4856-8a8f-9f204fc06278}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Movie Files">
+      <UniqueIdentifier>{b23afe0f-82de-482c-89fc-8ab29bff4227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Image Files">
+      <UniqueIdentifier>{77e74d8e-e7f6-4af7-a94e-bff2b0fbe1e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Icon Files">
+      <UniqueIdentifier>{d04b7f9a-0bfc-4afa-9118-47c4983fb73b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\bitcoin\src\qt\res\bitcoin-qt-res.rc">
+      <Filter>Resoutce Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-000.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-001.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-002.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-003.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-004.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-005.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-006.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-007.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-008.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-009.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-010.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-011.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-012.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-013.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-014.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-015.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-016.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-017.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-018.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-019.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-020.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-021.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-022.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-023.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-024.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-025.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-026.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-027.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-028.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-029.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-030.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-031.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-032.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-033.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\movies\spinner-034.png">
+      <Filter>Movie Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\images\about.png">
+      <Filter>Image Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\images\splash.png">
+      <Filter>Image Files</Filter>
+    </Image>
+    <Image Include="..\bitcoin\src\qt\res\images\splash_testnet.png">
+      <Filter>Image Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\bitcoin\src\qt\addressbookpage.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\addresstablemodel.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\askpassphrasedialog.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\coincontroldialog.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\coincontroltreewidget.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\editaddressdialog.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\openuridialog.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\overviewpage.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\paymentrequestplus.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\paymentserver.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\receivecoinsdialog.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\receiverequestdialog.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\recentrequeststablemodel.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\sendcoinsdialog.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\sendcoinsentry.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\signverifymessagedialog.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\transactiondesc.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\transactiondescdialog.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\transactionfilterproxy.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\transactionrecord.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\transactiontablemodel.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\transactionview.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\walletframe.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\walletmodel.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\walletmodeltransaction.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\qt\walletview.cpp">
+      <Filter>Wallet Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

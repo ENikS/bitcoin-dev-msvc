@@ -100,6 +100,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "qt", "dependencies\qt.vcxpr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "miniupnp", "dependencies\miniupnp.vcxproj", "{D28CE435-CB33-4BAE-8A52-C6EF915956F5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libqrencode", "dependencies\libqrencode.vcxproj", "{0965E12F-3C7A-4AAE-9BFE-87757B9A1F54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -238,6 +240,14 @@ Global
 		{D28CE435-CB33-4BAE-8A52-C6EF915956F5}.Release|Win32.Build.0 = Release|Win32
 		{D28CE435-CB33-4BAE-8A52-C6EF915956F5}.Release|x64.ActiveCfg = Release|x64
 		{D28CE435-CB33-4BAE-8A52-C6EF915956F5}.Release|x64.Build.0 = Release|x64
+		{0965E12F-3C7A-4AAE-9BFE-87757B9A1F54}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0965E12F-3C7A-4AAE-9BFE-87757B9A1F54}.Debug|Win32.Build.0 = Debug|Win32
+		{0965E12F-3C7A-4AAE-9BFE-87757B9A1F54}.Debug|x64.ActiveCfg = Debug|x64
+		{0965E12F-3C7A-4AAE-9BFE-87757B9A1F54}.Debug|x64.Build.0 = Debug|x64
+		{0965E12F-3C7A-4AAE-9BFE-87757B9A1F54}.Release|Win32.ActiveCfg = Release|Win32
+		{0965E12F-3C7A-4AAE-9BFE-87757B9A1F54}.Release|Win32.Build.0 = Release|Win32
+		{0965E12F-3C7A-4AAE-9BFE-87757B9A1F54}.Release|x64.ActiveCfg = Release|x64
+		{0965E12F-3C7A-4AAE-9BFE-87757B9A1F54}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -261,5 +271,6 @@ Global
 		{370BCF08-20FC-4259-B62A-A37F8824F3BF} = {CD362F6B-CC8E-45C8-8CE9-63A4386EDC5E}
 		{D7BC530C-A38D-4C39-9AA2-0123BAADFB36} = {AA6AEF7C-5E9F-448A-9499-94BC155C7BD2}
 		{D28CE435-CB33-4BAE-8A52-C6EF915956F5} = {AA6AEF7C-5E9F-448A-9499-94BC155C7BD2}
+		{0965E12F-3C7A-4AAE-9BFE-87757B9A1F54} = {AA6AEF7C-5E9F-448A-9499-94BC155C7BD2}
 	EndGlobalSection
 EndGlobal

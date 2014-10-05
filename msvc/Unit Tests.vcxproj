@@ -56,6 +56,8 @@
     <ClCompile Include="$(SolutionDir)bitcoin\src\test\univalue_tests.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\test\util_tests.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\test\wallet_tests.cpp" />
+    <ClCompile Include="..\bitcoin\src\test\main_tests.cpp" />
+    <ClCompile Include="..\bitcoin\src\test\sighash_tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="bitcoin_common.vcxproj">

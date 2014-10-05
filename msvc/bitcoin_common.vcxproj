@@ -183,11 +183,11 @@
     <ClCompile Include="$(SolutionDir)bitcoin\src\keystore.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\netbase.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\protocol.cpp" />
-    <ClCompile Include="$(SolutionDir)bitcoin\src\script\compressor.cpp" />
-    <ClCompile Include="$(SolutionDir)bitcoin\src\script\interpreter.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\script\script.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\script\sign.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\script\standard.cpp" />
+    <ClCompile Include="..\bitcoin\src\script\compressor.cpp" />
+    <ClCompile Include="..\bitcoin\src\script\interpreter.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

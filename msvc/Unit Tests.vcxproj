@@ -27,7 +27,6 @@
     <ClCompile Include="$(SolutionDir)bitcoin\src\test\base58_tests.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\test\base64_tests.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\test\bloom_tests.cpp" />
-    <ClCompile Include="$(SolutionDir)bitcoin\src\test\canonical_tests.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\test\checkblock_tests.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\test\Checkpoints_tests.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\test\compress_tests.cpp" />
@@ -56,6 +55,7 @@
     <ClCompile Include="$(SolutionDir)bitcoin\src\test\univalue_tests.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\test\util_tests.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\test\wallet_tests.cpp" />
+    <ClCompile Include="..\bitcoin\src\test\coins_tests.cpp" />
     <ClCompile Include="..\bitcoin\src\test\main_tests.cpp" />
     <ClCompile Include="..\bitcoin\src\test\sighash_tests.cpp" />
   </ItemGroup>

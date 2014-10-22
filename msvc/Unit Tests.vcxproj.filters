@@ -28,9 +28,6 @@
     <ClCompile Include="$(SolutionDir)bitcoin\src\test\bloom_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
-    <ClCompile Include="$(SolutionDir)bitcoin\src\test\canonical_tests.cpp">
-      <Filter>Bitcoin Tests</Filter>
-    </ClCompile>
     <ClCompile Include="$(SolutionDir)bitcoin\src\test\checkblock_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
@@ -116,6 +113,9 @@
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
     <ClCompile Include="..\bitcoin\src\test\sighash_tests.cpp">
+      <Filter>Bitcoin Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\test\coins_tests.cpp">
       <Filter>Bitcoin Tests</Filter>
     </ClCompile>
   </ItemGroup>

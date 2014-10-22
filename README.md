@@ -58,8 +58,7 @@ Building of all these project generates bunch of files and directories. I've org
 - Build is following regular Visual Studion practices and should be self explanatory.
 
 
-## Ready to ... well, still workign on few bits and pieces. 
+## Ready to go! 
 
 - All tests are building now
-- 127 tests are passing.
-- sighash_tests.cpp is the only one failing pendign fix.
+- 129 tests are passing.

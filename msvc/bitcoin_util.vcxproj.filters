@@ -40,7 +40,7 @@
     <ClCompile Include="$(SolutionDir)bitcoin\src\utiltime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(SolutionDir)bitcoin\src\version.cpp">
+    <ClCompile Include="..\bitcoin\src\clientversion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

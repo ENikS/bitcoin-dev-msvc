@@ -186,7 +186,7 @@
     <ClCompile Include="$(SolutionDir)bitcoin\src\utilmoneystr.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\utilstrencodings.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\utiltime.cpp" />
-    <ClCompile Include="$(SolutionDir)bitcoin\src\version.cpp" />
+    <ClCompile Include="..\bitcoin\src\clientversion.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

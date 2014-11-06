@@ -175,7 +175,6 @@
     <ClCompile Include="$(SolutionDir)bitcoin\src\base58.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\chainparams.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\coins.cpp" />
-    <ClCompile Include="$(SolutionDir)bitcoin\src\core.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\core_read.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\core_write.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\hash.cpp" />
@@ -183,12 +182,17 @@
     <ClCompile Include="$(SolutionDir)bitcoin\src\keystore.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\netbase.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\protocol.cpp" />
-    <ClCompile Include="$(SolutionDir)bitcoin\src\script\script.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\script\sign.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\script\standard.cpp" />
-    <ClCompile Include="..\bitcoin\src\script\compressor.cpp" />
+    <ClCompile Include="..\bitcoin\src\amount.cpp" />
+    <ClCompile Include="..\bitcoin\src\compressor.cpp" />
+    <ClCompile Include="..\bitcoin\src\core\block.cpp" />
+    <ClCompile Include="..\bitcoin\src\core\transaction.cpp" />
+    <ClCompile Include="..\bitcoin\src\eccryptoverify.cpp" />
+    <ClCompile Include="..\bitcoin\src\ecwrapper.cpp" />
+    <ClCompile Include="..\bitcoin\src\pubkey.cpp" />
     <ClCompile Include="..\bitcoin\src\script\interpreter.cpp" />
-    <ClCompile Include="..\bitcoin\src\script\sigcache.cpp" />
+    <ClCompile Include="..\bitcoin\src\script\script.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

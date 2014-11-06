@@ -40,6 +40,7 @@
     <ClCompile Include="$(SolutionDir)bitcoin\src\txdb.cpp" />
     <ClCompile Include="$(SolutionDir)bitcoin\src\txmempool.cpp" />
     <ClCompile Include="..\bitcoin\src\chain.cpp" />
+    <ClCompile Include="..\bitcoin\src\script\sigcache.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5D2A7351-8573-45E9-8E65-7FF5E290E20C}</ProjectGuid>

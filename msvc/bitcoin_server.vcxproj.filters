@@ -70,5 +70,8 @@
     <ClCompile Include="..\bitcoin\src\chain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\bitcoin\src\script\sigcache.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -19,9 +19,6 @@
     <ClCompile Include="$(SolutionDir)bitcoin\src\coins.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(SolutionDir)bitcoin\src\core.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="$(SolutionDir)bitcoin\src\core_read.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -43,22 +40,37 @@
     <ClCompile Include="$(SolutionDir)bitcoin\src\protocol.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(SolutionDir)bitcoin\src\script\script.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="$(SolutionDir)bitcoin\src\script\sign.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)bitcoin\src\script\standard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\bitcoin\src\script\compressor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\bitcoin\src\script\interpreter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\bitcoin\src\script\sigcache.cpp">
+    <ClCompile Include="..\bitcoin\src\core\block.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\core\transaction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\amount.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\eccryptoverify.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\ecwrapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\pubkey.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\script\script.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bitcoin\src\compressor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
